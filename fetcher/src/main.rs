@@ -304,13 +304,8 @@ fn is_valid_content(text: &str) -> bool {
 
 async fn fetch_and_parse_table(url: &str) -> Result<BmsData> {
     debug!("正在获取网页内容: {}", url);
-    let mut response = surf::get(url)
-        .await
-        .map_err(|e| anyhow::anyhow!("HTTP请求失败: {}", e))?;
-    let response_bytes = response
-        .body_bytes()
-        .await
-        .map_err(|e| anyhow::anyhow!("读取响应失败: {}", e))?;
+    let response = reqwest::get(url).await?;
+    let response_bytes = response.bytes().await?;
 
     // 尝试检测并正确解码内容
     let html_content = detect_and_decode_content(&response_bytes);
@@ -518,7 +513,8 @@ fn write_output(content: &str, output_path: &Option<PathBuf>) -> Result<()> {
     Ok(())
 }
 
-fn main() -> Result<()> {
+#[tokio::main]
+async fn main() -> Result<()> {
     let args = Args::parse();
 
     // 初始化日志
@@ -533,7 +529,7 @@ fn main() -> Result<()> {
         })
         .init();
 
-    smol::block_on(async_main(args))
+    async_main(args).await
 }
 
 async fn async_main(args: Args) -> Result<()> {

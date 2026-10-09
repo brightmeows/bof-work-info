@@ -5,8 +5,8 @@ default-members = ["fetcher"]
 
 [workspace.dependencies]
 # HTTP客户端和异步运行时
-surf = "2"                    # HTTP客户端
-smol = "2"                    # 异步运行时
+reqwest = "0.12"              # HTTP客户端
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }  # 异步运行时
 
 # HTML解析和文本处理
 scraper = "0.25"                # HTML解析器

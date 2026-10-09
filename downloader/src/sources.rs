@@ -774,17 +774,12 @@ pub async fn download_file(url: &str, output_path: &Path) -> Result<PathBuf> {
         fs::create_dir_all(parent)?;
     }
 
-    let mut response = surf::get(url)
-        .await
-        .map_err(|e| anyhow::anyhow!("HTTP请求失败: {} - {}", url, e))?;
+    let response = reqwest::get(url).await?;
 
     let mut file = fs::File::create(output_path)
         .with_context(|| format!("创建文件失败: {:?}", output_path))?;
 
-    let bytes = response
-        .body_bytes()
-        .await
-        .map_err(|e| anyhow::anyhow!("读取响应失败: {} - {}", url, e))?;
+    let bytes = response.bytes().await?;
 
     std::io::Write::write_all(&mut file, &bytes)
         .with_context(|| format!("写入文件失败: {:?}", output_path))?;

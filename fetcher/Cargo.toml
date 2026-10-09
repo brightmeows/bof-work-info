@@ -6,12 +6,12 @@ edition = "2024"
 [dependencies]
 scraper = { workspace = true }
 toml = { workspace = true }
-smol = { workspace = true }
+reqwest = { workspace = true }
+tokio = { workspace = true }
 chrono = { workspace = true }
 encoding_rs = { workspace = true }
 regex = { workspace = true }
 serde = { workspace = true }
-surf = { workspace = true }
 anyhow = { workspace = true }
 log = { workspace = true }
 env_logger = { workspace = true }
