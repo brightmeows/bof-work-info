@@ -382,7 +382,7 @@ total_n = "0"
 median = "0"
 avg = "0"
 regist = "2026/10/01 23:05"
-update = "2026/10/09 22:57"
+update = "2026/10/09 23:08"
 
 [[entries]]
 no = "23"
@@ -1108,7 +1108,7 @@ no = "64"
 name = "otoshi.b & kooridori"
 team = "ハピコアだいすきクラブ"
 title = "Ultravelers!!!"
-size = "262295 KB"
+size = "180805 KB"
 addr = [
     "■BMS",
     "・mp4版(HQ mp4)",
@@ -1134,7 +1134,7 @@ total_n = "0"
 median = "0"
 avg = "0"
 regist = "2026/10/01 23:10"
-update = "2026/10/09 17:25"
+update = "2026/10/09 23:40"
 
 [[entries]]
 no = "65"
@@ -1937,7 +1937,7 @@ total_n = "0"
 median = "0"
 avg = "0"
 regist = "2026/10/01 23:15"
-update = "2026/10/01 23:29"
+update = "2026/10/09 23:08"
 
 [[entries]]
 no = "112"
@@ -3252,6 +3252,22 @@ avg = "0"
 regist = "2026/10/09 18:58"
 update = "2026/10/09 22:12"
 
+[[entries]]
+no = "187"
+name = 'BMS Sound Team "YAN*TS"'
+team = "2代目 BMS Sound Team"
+title = "MooNLiGHT BUTTEЯFLY"
+size = "68300 KB"
+addr = ["https://www.mediafire.com/file/q4rvee8teoir234/%255BYANTS%255DMooNLiGHT_BUTTE%25D0%25AFFLY.rar/file"]
+genre = "DANCE SPEED"
+impr = "0"
+total = "0"
+total_n = "0"
+median = "0"
+avg = "0"
+regist = "2026/10/09 23:19"
+update = "2026/10/09 23:19"
+
 [[teams]]
 no = "175"
 team = "ULTIMACY OF BOF22"
@@ -3806,7 +3822,7 @@ no = "114"
 team = "2代目 BMS Sound Team"
 leader = "YAN*TS"
 member = "3人"
-works = "1 / 3作品"
+works = "2 / 3作品"
 regist = "2026/08/10 20:24:13"
 update = "2026/08/11 07:50:01"
 
