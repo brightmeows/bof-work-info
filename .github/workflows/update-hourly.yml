@@ -17,7 +17,7 @@ env:
 
 jobs:
   update:
-    name: Update hourly (events ${{ env.HOURLY_EVENTS }})
+    name: Update hourly (events 152, 153)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
