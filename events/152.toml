@@ -1101,7 +1101,7 @@ total_n = "0"
 median = "0"
 avg = "0"
 regist = "2026/10/01 23:10"
-update = "2026/10/01 23:30"
+update = "2026/10/10 00:20"
 
 [[entries]]
 no = "64"
@@ -1116,9 +1116,11 @@ addr = [
     "・軽量mp4版(LQ mp4)",
     "https://drive.google.com/file/d/1juO3dhso9NIxf-tlRdggpMtEOVdZ5La1/view?usp=sharing",
     "・wmv版(for LR2)",
-    "※通常のLR2では正常に再生されません。詳しくはコメント欄を参照ください。",
-    "※It will not play correctly on the standard version of LR2. Please refer to the comments section for details.",
     "https://drive.google.com/file/d/1-rXPTfyPk-_yKafHS8DsguiFkJ6qBiWY/view?usp=sharing",
+    "・超軽量wmv版(for LR2)",
+    "https://drive.google.com/file/d/1nbAmbZp9xhfT5891_E-E2OOB7CfhaJYk/view?usp=sharing",
+    "※通常のLR2では正常に再生されません。詳しくはコメント欄を参照ください。",
+    "※It will not play correctly on the standard version of LR2. Please refer to the comments section for details",
     "■眩しさ軽減BGA差分(Glare Reduction BGA)",
     "・mp4 白(White)",
     "https://drive.google.com/file/d/1oDYzd5B9R_N_sC6WzdL3_BhiIpbhKaW_/view?usp=sharing",
@@ -1134,7 +1136,7 @@ total_n = "0"
 median = "0"
 avg = "0"
 regist = "2026/10/01 23:10"
-update = "2026/10/09 23:40"
+update = "2026/10/09 23:53"
 
 [[entries]]
 no = "65"
@@ -3268,6 +3270,38 @@ avg = "0"
 regist = "2026/10/09 23:19"
 update = "2026/10/09 23:19"
 
+[[entries]]
+no = "188"
+name = "Rner"
+team = "Ford Forest Foreigner"
+title = "リコルド"
+size = "45000 KB"
+addr = ["https://drive.google.com/file/d/1oVfD8muxfbq3BKqseokhX0XlBt8j0Q96/view?usp=sharing"]
+genre = "NU BEAT POP"
+impr = "0"
+total = "0"
+total_n = "0"
+median = "0"
+avg = "0"
+regist = "2026/10/09 23:57"
+update = "2026/10/10 00:06"
+
+[[entries]]
+no = "189"
+name = "Pica"
+team = "Forienthic"
+title = "月下庭園"
+size = "99864 KB"
+addr = ["https://drive.google.com/file/d/1dY2IZ9FJxxnTD8wZaDumLvkIxFumGOJZ/view?usp=sharing"]
+genre = "Oriental Artcore"
+impr = "0"
+total = "0"
+total_n = "0"
+median = "0"
+avg = "0"
+regist = "2026/10/10 00:00"
+update = "2026/10/10 00:00"
+
 [[teams]]
 no = "175"
 team = "ULTIMACY OF BOF22"
@@ -3930,7 +3964,7 @@ no = "102"
 team = "Forienthic"
 leader = "Pica"
 member = "7人"
-works = "0 / 3作品"
+works = "1 / 3作品"
 regist = "2026/08/01 21:13:10"
 update = "2026/09/22 21:53:28"
 
@@ -4596,7 +4630,7 @@ no = "28"
 team = "Ford Forest Foreigner"
 leader = "あさり"
 member = "6人"
-works = "2 / 4作品"
+works = "3 / 4作品"
 regist = "2026/07/02 21:12:21"
 update = "2026/07/07 16:57:24"
 
