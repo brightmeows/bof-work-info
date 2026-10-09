@@ -11,83 +11,50 @@ permissions:
 
 jobs:
   prepare-matrix:
-    name: Prepare event matrix
+    name: Discover events
     runs-on: ubuntu-latest
     outputs:
-      keys: ${{ steps.build-matrix.outputs.keys }}
-      events: ${{ steps.build-matrix.outputs.events }}
+      ids: ${{ steps.discover.outputs.ids }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Install Python dependencies
-        run: |
-          python3 -m pip install toml
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
 
-      - name: Build matrix keys from events.toml
-        id: build-matrix
-        shell: bash
+      - name: Cache cargo build
+        uses: Swatinem/rust-cache@v2
+        with:
+          cache-on-failure: true
+          workspaces: |
+            . -> target
+
+      - name: Discover events from manbow
+        id: discover
         run: |
           set -euo pipefail
-          if [ ! -f events.toml ]; then
-            echo "events.toml not found at repo root" >&2
+          # fetcher 日志走 stderr，stdout 为纯 JSON 数组
+          ids=$(cargo run --release --quiet -- --list-events --delay-ms 200 | jq -c '[.[].id]')
+          count=$(echo "$ids" | jq length)
+          if [ "$count" -eq 0 ]; then
+            echo "no events discovered" >&2
             exit 1
           fi
-
-          # 使用 Python 来解析 TOML 文件
-          python3 << 'EOF'
-          import toml
-          import json
-          import os
-
-          with open('events.toml', 'r', encoding='utf-8') as f:
-              data = toml.load(f)
-
-          # 提取所有事件的 key
-          keys = [event['key'] for event in data['events']]
-
-          # 提取所有事件的完整信息
-          events = data['events']
-
-          # 将输出写入 GITHUB_OUTPUT
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-              f.write(f"keys={json.dumps(keys)}\n")
-              f.write(f"events={json.dumps(events)}\n")
-          EOF
+          echo "discovered $count events" >&2
+          echo "ids=$ids" >> "$GITHUB_OUTPUT"
 
   update-event:
-    name: Update ${{ matrix.event_key }}
+    name: Update event ${{ matrix.event }}
     needs: prepare-matrix
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      max-parallel: 10
       matrix:
-        event_key: ${{ fromJSON(needs.prepare-matrix.outputs.keys) }}
+        event: ${{ fromJSON(needs.prepare-matrix.outputs.ids) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-
-      - name: Resolve event URL
-        id: resolve
-        shell: bash
-        run: |
-          set -euo pipefail
-          # 从 prepare-matrix 传递的事件信息中查找当前事件
-          event_id=$(echo '${{ needs.prepare-matrix.outputs.events }}' | jq -r --arg KEY "${{ matrix.event_key }}" '.[] | select(.key==$KEY) | .event_id')
-          url=$(echo '${{ needs.prepare-matrix.outputs.events }}' | jq -r --arg KEY "${{ matrix.event_key }}" '.[] | select(.key==$KEY) | .url')
-
-          if [ "$event_id" != "null" ] && [ -n "$event_id" ]; then
-            # 使用 event_id 构建 URL
-            url="https://manbow.nothing.sh/event/event.cgi?action=URLList&end=999&event=$event_id"
-            echo "Using event_id: $event_id" >&2
-          elif [ "$url" != "null" ] && [ -n "$url" ]; then
-            # 使用现有的 url 字段（向后兼容）
-            echo "Using existing URL: $url" >&2
-          else
-            echo "Neither event_id nor url found for key=${{ matrix.event_key }}" >&2
-            exit 1
-          fi
-          echo "url=$url" >> "$GITHUB_OUTPUT"
 
       - name: Set up Rust
         uses: dtolnay/rust-toolchain@stable
@@ -105,138 +72,36 @@ jobs:
       - name: Fetch event data
         run: |
           mkdir -p events
-          echo "${{ steps.resolve.outputs.url }}" | cargo run --release -- --stdin --output "events/${{ matrix.event_key }}.toml" --log-level info
-
-      - name: Add files to git index
-        run: |
-          git add events/${{ matrix.event_key }}.toml
+          cargo run --release --quiet -- --event ${{ matrix.event }} --dir events --delay-ms 1000
 
       - name: Check for changes
         id: check-changes
         run: |
-          if git diff --cached --quiet; then
-            echo "No changes detected for ${{ matrix.event_key }}"
-            echo "has-changes=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "Changes detected for ${{ matrix.event_key }}"
+          if [ -n "$(git status --porcelain events/${{ matrix.event }}.toml)" ]; then
             echo "has-changes=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Export git diff
-        if: steps.check-changes.outputs.has-changes == 'true'
-        shell: bash
-        run: |
-          set -euo pipefail
-          # 创建diff目录
-          mkdir -p diff
-          # 导出git diff到文件
-          git diff --cached > "diff/${{ matrix.event_key }}.patch"
-          # 导出文件列表
-          git diff --cached --name-only > "diff/${{ matrix.event_key }}.files"
-
-      - name: Upload git diff artifact
-        if: steps.check-changes.outputs.has-changes == 'true'
-        uses: actions/upload-artifact@v6
-        with:
-          name: git-diff-${{ matrix.event_key }}
-          path: diff/${{ matrix.event_key }}.*
-          if-no-files-found: error
-
-  automerge-pr:
-    name: Create and auto-merge PR for ${{ matrix.event_key }}
-    needs:
-      - prepare-matrix
-      - update-event
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        event_key: ${{ fromJSON(needs.prepare-matrix.outputs.keys) }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Check if git diff artifact exists
-        id: check-artifact
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              run_id: context.runId,
-            });
-
-            const artifactName = `git-diff-${{ matrix.event_key }}`;
-            const artifact = artifacts.data.artifacts.find(a => a.name === artifactName);
-
-            if (artifact) {
-              console.log(`Found artifact: ${artifactName}`);
-              core.setOutput('exists', 'true');
-            } else {
-              console.log(`Artifact not found: ${artifactName}`);
-              core.setOutput('exists', 'false');
-            }
-
-      - name: Download git diff artifact
-        id: download
-        if: steps.check-artifact.outputs.exists == 'true'
-        uses: actions/download-artifact@v7
-        with:
-          name: git-diff-${{ matrix.event_key }}
-          path: diff
-          merge-multiple: false
-
-      - name: Apply git diff
-        if: steps.check-artifact.outputs.exists == 'true'
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ -f "diff/${{ matrix.event_key }}.patch" ]; then
-            echo "Applying git diff for ${{ matrix.event_key }}"
-            git apply "diff/${{ matrix.event_key }}.patch"
-            echo "Git diff applied successfully"
           else
-            echo "No patch file found for ${{ matrix.event_key }}"
-            exit 1
+            echo "has-changes=false" >> "$GITHUB_OUTPUT"
+            echo "No changes for ${{ matrix.event }}"
           fi
-
-      - name: Generate GitHub App Token
-        id: gen-token
-        uses: tibdex/github-app-token@v2
-        with:
-          app_id: ${{ secrets.HELPER_BOT_APP_ID }}
-          private_key: ${{ secrets.HELPER_BOT_PRIVATE_KEY }}
 
       - name: Create Pull Request
-        if: steps.check-artifact.outputs.exists == 'true'
-        id: create-pull-request
+        id: create-pr
+        if: steps.check-changes.outputs.has-changes == 'true'
         uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ steps.gen-token.outputs.token }}
-          commit-message: "chore(events): update ${{ matrix.event_key }} data"
-          branch: "chore/update-${{ matrix.event_key }}"
-          title: "chore(events): update ${{ matrix.event_key }} data"
+          commit-message: "chore(events): update ${{ matrix.event }} data"
+          branch: "chore/update-${{ matrix.event }}"
+          title: "chore(events): update ${{ matrix.event }} data"
           body: |
-            Automated update for `${{ matrix.event_key }}`
-            Changes applied from git diff artifact
+            Automated update for event `${{ matrix.event }}`.
           add-paths: |
-            events/${{ matrix.event_key }}.toml
+            events/${{ matrix.event }}.toml
           labels: |
             automated
-            event:${{ matrix.event_key }}
-
-      - name: Install GitHub CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install gh
 
       - name: Enable Pull Request Automerge
-        if: steps.create-pull-request.outputs.pull-request-operation == 'created'
-        run: |
-          PR_NUMBER='${{ steps.create-pull-request.outputs.pull-request-number }}'
-          echo "启用 PR #$PR_NUMBER 的自动合并"
-          gh pr merge "$PR_NUMBER" --auto --squash
+        if: steps.create-pr.outputs.pull-request-operation == 'created'
+        run: gh pr merge "$PR_NUMBER" --auto --merge
         env:
-          GITHUB_TOKEN: ${{ steps.gen-token.outputs.token }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.create-pr.outputs.pull-request-number }}
