@@ -1,0 +1,34 @@
+[[entries]]
+no = "1"
+name = "litepool"
+title = "18"
+size = "1634 KB"
+addr = [
+    "http://bof.nothing.sh:8080/file/nu_nutatanix_18.zip",
+    "(BMS 5500KB)",
+    "http://www.geocities.jp/retrofuture_ag/cyc-bga_nuLQ.rar.zip",
+    "(BGA Low Quality)",
+]
+genre = "Nu-jazz"
+impr = "4"
+total = "4"
+avg = "1"
+regist = "2004/09/16 00:09"
+update = "2004/09/30 21:56"
+
+[[entries]]
+no = "2"
+name = "NR"
+title = "Cirrus"
+size = "4800 KB"
+addr = [
+    "http://stwww.ec.kagawa-u.ac.jp/~s01e078/",
+    "EstさんのサイトからDLしてください",
+    "http://ama-oto.org/bga/cirrusbga.php",
+]
+genre = "ARTCORE"
+impr = "4"
+total = "4"
+avg = "1"
+regist = "2004/09/21 23:54"
+update = "2004/10/02 18:01"
