@@ -40,11 +40,12 @@ struct Args {
 }
 
 fn load_event_data(path: &Path) -> Result<BmsData> {
-    info!("加载事件文件: {:?}", path);
-    let content = fs::read_to_string(path).with_context(|| format!("无法读取文件: {:?}", path))?;
+    info!("加载事件文件: {}", path.display());
+    let content =
+        fs::read_to_string(path).with_context(|| format!("无法读取文件: {}", path.display()))?;
 
-    let data: BmsData =
-        toml::from_str(&content).with_context(|| format!("解析TOML文件失败: {:?}", path))?;
+    let data: BmsData = toml::from_str(&content)
+        .with_context(|| format!("解析TOML文件失败: {}", path.display()))?;
 
     info!("加载了 {} 个作品", data.entries.len());
     Ok(data)
@@ -53,9 +54,9 @@ fn load_event_data(path: &Path) -> Result<BmsData> {
 fn filter_entries<'a>(
     data: &'a BmsData,
     entries_filter: Option<&'a str>,
-) -> Result<Vec<&'a sources::BmsEntry>> {
-    let entries = if let Some(filter) = entries_filter {
-        let numbers: Vec<&str> = filter.split(',').map(|s| s.trim()).collect();
+) -> Vec<&'a sources::BmsEntry> {
+    if let Some(filter) = entries_filter {
+        let numbers: Vec<&str> = filter.split(',').map(str::trim).collect();
         let mut filtered = Vec::new();
 
         for entry in &data.entries {
@@ -65,14 +66,12 @@ fn filter_entries<'a>(
         }
 
         if filtered.is_empty() {
-            warn!("没有找到编号为 {} 的作品", filter);
+            warn!("没有找到编号为 {filter} 的作品");
         }
         filtered
     } else {
         data.entries.iter().collect()
-    };
-
-    Ok(entries)
+    }
 }
 
 async fn async_main(args: Args) -> Result<()> {
@@ -80,7 +79,7 @@ async fn async_main(args: Args) -> Result<()> {
     let data = load_event_data(&args.event)?;
 
     // 过滤作品
-    let entries = filter_entries(&data, args.entries.as_deref())?;
+    let entries = filter_entries(&data, args.entries.as_deref());
 
     if entries.is_empty() {
         error!("没有找到要下载的作品");
@@ -90,7 +89,11 @@ async fn async_main(args: Args) -> Result<()> {
     // 创建输出目录
     fs::create_dir_all(&args.output)?;
 
-    info!("开始下载 {} 个作品到 {:?}", entries.len(), args.output);
+    info!(
+        "开始下载 {} 个作品到 {}",
+        entries.len(),
+        args.output.display()
+    );
 
     // 下载每个作品
     for entry in entries {
@@ -112,7 +115,6 @@ async fn main() -> Result<()> {
         .filter_level(match args.log_level.as_str() {
             "trace" => log::LevelFilter::Trace,
             "debug" => log::LevelFilter::Debug,
-            "info" => log::LevelFilter::Info,
             "warn" => log::LevelFilter::Warn,
             "error" => log::LevelFilter::Error,
             _ => log::LevelFilter::Info,

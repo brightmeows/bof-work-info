@@ -1,7 +1,7 @@
 use std::{
     collections::HashMap,
     io::{self, Read},
-    path::PathBuf,
+    path::{Path, PathBuf},
 };
 
 use anyhow::Result;
@@ -77,7 +77,7 @@ fn clean_html_text(element: ElementRef) -> String {
         .to_string()
 }
 
-fn detect_column_mapping(document: &Html) -> Result<ColumnMapping> {
+fn detect_column_mapping(document: &Html) -> ColumnMapping {
     let row_selector = Selector::parse("tr").unwrap();
     let cell_selector = Selector::parse("td, th").unwrap();
 
@@ -95,121 +95,115 @@ fn detect_column_mapping(document: &Html) -> Result<ColumnMapping> {
             .map(|cell| clean_html_text(*cell).to_lowercase())
             .collect();
 
-        // 检查是否看起来像表头（包含已知的列名）
-        let has_header_indicators = cell_texts.iter().any(|text| {
-            text.contains("no")
-                || text.contains("name")
-                || text.contains("title")
-                || text.contains("size")
-                || text.contains("addr")
-                || text.contains("team")
-                || text == "no"
-                || text == "name"
-                || text == "title"
-                || text == "size"
-                || text == "addr"
-                || text == "team"
-        });
-
-        if !has_header_indicators {
+        if !looks_like_header(&cell_texts) {
             continue;
         }
 
-        // 检测到表格头部
-
-        let mut mapping = ColumnMapping {
-            no: None,
-            name: None,
-            team: None,
-            title: None,
-            size: None,
-            addr: None,
-        };
-
-        // 分析每一列的内容来确定其用途
-        for (idx, text) in cell_texts.iter().enumerate() {
-            match text.as_str() {
-                text if text.contains("no") => mapping.no = Some(idx),
-                text if text.contains("name") => mapping.name = Some(idx),
-                text if text.contains("team") => mapping.team = Some(idx),
-                text if text.contains("title") => mapping.title = Some(idx),
-                text if text.contains("size") => mapping.size = Some(idx),
-                text if text.contains("addr") => mapping.addr = Some(idx),
-                _ => {}
-            }
-        }
-
-        // 如果没有找到明确的列名，尝试根据位置和内容推断
-        if mapping.no.is_none() && !cell_texts.is_empty() {
-            // 第一列通常是序号
-            mapping.no = Some(0);
-        }
-
-        if mapping.name.is_none() && cell_texts.len() > 1 {
-            // 第二列通常是名称
-            mapping.name = Some(1);
-        }
-
-        // 根据列数推断其他字段的位置
-        match cell_texts.len() {
-            5 => {
-                // 格式: No, Name, Title, Size, Addr
-                if mapping.title.is_none() {
-                    mapping.title = Some(2);
-                }
-                if mapping.size.is_none() {
-                    mapping.size = Some(3);
-                }
-                if mapping.addr.is_none() {
-                    mapping.addr = Some(4);
-                }
-            }
-            6 => {
-                // 格式: No, Name, Team, Title, Size, Addr
-                if mapping.team.is_none() {
-                    mapping.team = Some(2);
-                }
-                if mapping.title.is_none() {
-                    mapping.title = Some(3);
-                }
-                if mapping.size.is_none() {
-                    mapping.size = Some(4);
-                }
-                if mapping.addr.is_none() {
-                    mapping.addr = Some(5);
-                }
-            }
-            _ => {
-                // 尝试从右往左推断：最后一列是Addr，倒数第二列是Size
-                if mapping.addr.is_none() && !cell_texts.is_empty() {
-                    mapping.addr = Some(cell_texts.len() - 1);
-                }
-                if mapping.size.is_none() && cell_texts.len() > 1 {
-                    mapping.size = Some(cell_texts.len() - 2);
-                }
-                if mapping.title.is_none() && cell_texts.len() > 2 {
-                    mapping.title = Some(cell_texts.len() - 3);
-                }
-                if mapping.team.is_none() && cell_texts.len() > 3 {
-                    mapping.team = Some(cell_texts.len() - 4);
-                }
-            }
-        }
-
-        // 列映射已建立
-        return Ok(mapping);
+        return infer_column_mapping(&cell_texts);
     }
 
-    // 如果没有找到明确的表头，返回默认映射（6列格式）
     // 未找到表头，使用默认6列映射
-    Ok(ColumnMapping {
+    ColumnMapping {
         no: Some(0),
         name: Some(1),
         team: Some(2),
         title: Some(3),
         size: Some(4),
         addr: Some(5),
-    })
+    }
+}
+
+/// 检查一行单元格文本是否像表头（包含已知的列名）
+fn looks_like_header(cell_texts: &[String]) -> bool {
+    const KEYWORDS: [&str; 6] = ["no", "name", "title", "size", "addr", "team"];
+
+    cell_texts
+        .iter()
+        .any(|text| KEYWORDS.iter().any(|keyword| text.contains(keyword)))
+}
+
+/// 根据列名与列数推断各字段的列位置
+fn infer_column_mapping(cell_texts: &[String]) -> ColumnMapping {
+    let mut mapping = ColumnMapping {
+        no: None,
+        name: None,
+        team: None,
+        title: None,
+        size: None,
+        addr: None,
+    };
+
+    // 分析每一列的内容来确定其用途
+    for (idx, text) in cell_texts.iter().enumerate() {
+        match text.as_str() {
+            text if text.contains("no") => mapping.no = Some(idx),
+            text if text.contains("name") => mapping.name = Some(idx),
+            text if text.contains("team") => mapping.team = Some(idx),
+            text if text.contains("title") => mapping.title = Some(idx),
+            text if text.contains("size") => mapping.size = Some(idx),
+            text if text.contains("addr") => mapping.addr = Some(idx),
+            _ => {}
+        }
+    }
+
+    // 如果没有找到明确的列名，尝试根据位置和内容推断
+    if mapping.no.is_none() && !cell_texts.is_empty() {
+        // 第一列通常是序号
+        mapping.no = Some(0);
+    }
+
+    if mapping.name.is_none() && cell_texts.len() > 1 {
+        // 第二列通常是名称
+        mapping.name = Some(1);
+    }
+
+    // 根据列数推断其他字段的位置
+    match cell_texts.len() {
+        5 => {
+            // 格式: No, Name, Title, Size, Addr
+            if mapping.title.is_none() {
+                mapping.title = Some(2);
+            }
+            if mapping.size.is_none() {
+                mapping.size = Some(3);
+            }
+            if mapping.addr.is_none() {
+                mapping.addr = Some(4);
+            }
+        }
+        6 => {
+            // 格式: No, Name, Team, Title, Size, Addr
+            if mapping.team.is_none() {
+                mapping.team = Some(2);
+            }
+            if mapping.title.is_none() {
+                mapping.title = Some(3);
+            }
+            if mapping.size.is_none() {
+                mapping.size = Some(4);
+            }
+            if mapping.addr.is_none() {
+                mapping.addr = Some(5);
+            }
+        }
+        _ => {
+            // 尝试从右往左推断：最后一列是Addr，倒数第二列是Size
+            if mapping.addr.is_none() && !cell_texts.is_empty() {
+                mapping.addr = Some(cell_texts.len() - 1);
+            }
+            if mapping.size.is_none() && cell_texts.len() > 1 {
+                mapping.size = Some(cell_texts.len() - 2);
+            }
+            if mapping.title.is_none() && cell_texts.len() > 2 {
+                mapping.title = Some(cell_texts.len() - 3);
+            }
+            if mapping.team.is_none() && cell_texts.len() > 3 {
+                mapping.team = Some(cell_texts.len() - 4);
+            }
+        }
+    }
+
+    mapping
 }
 
 fn clean_html_content(html_content: &str) -> String {
@@ -288,7 +282,8 @@ fn detect_and_decode_content(bytes: &[u8]) -> String {
 }
 
 fn is_valid_content(text: &str) -> bool {
-    // 检查文本是否包含合理的字符
+    // 检查文本是否包含合理的字符（整数运算避免浮点转换）
+    let total = text.chars().count();
     let valid_chars = text
         .chars()
         .filter(|c| {
@@ -299,11 +294,11 @@ fn is_valid_content(text: &str) -> bool {
         })
         .count();
 
-    valid_chars as f64 / text.len() as f64 > 0.7
+    total > 0 && valid_chars * 10 >= total * 7
 }
 
 async fn fetch_and_parse_table(url: &str) -> Result<BmsData> {
-    debug!("正在获取网页内容: {}", url);
+    debug!("正在获取网页内容: {url}");
     let response = reqwest::get(url).await?;
     let response_bytes = response.bytes().await?;
 
@@ -314,7 +309,7 @@ async fn fetch_and_parse_table(url: &str) -> Result<BmsData> {
     let document = Html::parse_document(&html_content);
 
     // 检测列映射
-    let column_mapping = detect_column_mapping(&document)?;
+    let column_mapping = detect_column_mapping(&document);
 
     // 选择表格行
     let row_selector = Selector::parse("tr").unwrap();
@@ -332,114 +327,15 @@ async fn fetch_and_parse_table(url: &str) -> Result<BmsData> {
             continue;
         }
 
-        // 使用列映射获取各字段的值
-        let no_text = if let Some(idx) = column_mapping.no {
-            if idx < cells.len() {
-                clean_html_text(cells[idx])
-            } else {
-                String::new()
-            }
-        } else {
-            String::new()
-        };
-
-        let name_text = if let Some(idx) = column_mapping.name {
-            if idx < cells.len() {
-                clean_html_text(cells[idx])
-            } else {
-                String::new()
-            }
-        } else {
-            String::new()
-        };
-
-        // 跳过表头或空行
-        if no_text.is_empty() || no_text.to_lowercase() == "no" || name_text.is_empty() {
+        let Some(entry) = parse_entry_row(&cells, &column_mapping, &num_regex) else {
             continue;
-        }
-
-        let team_text = if let Some(idx) = column_mapping.team {
-            if idx < cells.len() {
-                let team = clean_html_text(cells[idx]);
-                if team.is_empty() { None } else { Some(team) }
-            } else {
-                None
-            }
-        } else {
-            None
-        };
-
-        let title_text = if let Some(idx) = column_mapping.title {
-            if idx < cells.len() {
-                clean_html_text(cells[idx])
-            } else {
-                String::new()
-            }
-        } else {
-            String::new()
-        };
-
-        let size_text = if let Some(idx) = column_mapping.size {
-            if idx < cells.len() {
-                clean_html_text(cells[idx])
-            } else {
-                String::new()
-            }
-        } else {
-            String::new()
-        };
-
-        let addr_html = if let Some(idx) = column_mapping.addr {
-            if idx < cells.len() {
-                cells[idx].inner_html()
-            } else {
-                String::new()
-            }
-        } else {
-            String::new()
-        };
-
-        // 从链接中提取序号（如果存在）
-        let no_clean = if no_text.parse::<u32>().is_ok() {
-            no_text
-        } else {
-            // 尝试从HTML中提取数字
-            if let Some(no_idx) = column_mapping.no {
-                if no_idx < cells.len() {
-                    if let Some(mat) = num_regex.find(&cells[no_idx].inner_html()) {
-                        mat.as_str().to_string()
-                    } else {
-                        no_text
-                    }
-                } else {
-                    no_text
-                }
-            } else {
-                no_text
-            }
         };
 
         // 创建唯一键用于去重
-        let unique_key = format!("{}|{}|{}", no_clean, name_text, title_text);
+        let unique_key = format!("{}|{}|{}", entry.no, entry.name, entry.title);
         if seen_entries.contains_key(&unique_key) {
             continue;
         }
-
-        // 处理地址字段 - 按换行符分割，然后提取URL
-        let addr_lines: Vec<String> = addr_html
-            .split("<br>")
-            .flat_map(extract_urls_and_text)
-            .filter(|s| !s.trim().is_empty())
-            .collect();
-
-        let entry = BmsEntry {
-            no: no_clean,
-            name: name_text,
-            team: team_text,
-            title: title_text,
-            size: size_text,
-            addr: addr_lines,
-        };
 
         entries.push(entry);
         seen_entries.insert(unique_key, true);
@@ -448,6 +344,75 @@ async fn fetch_and_parse_table(url: &str) -> Result<BmsData> {
     debug!("解析完成，找到 {} 个条目（去重后）", entries.len());
 
     Ok(BmsData { entries })
+}
+
+/// 按列映射从表格行提取条目；表头行或空行返回 None
+fn parse_entry_row(
+    cells: &[ElementRef],
+    column_mapping: &ColumnMapping,
+    num_regex: &Regex,
+) -> Option<BmsEntry> {
+    let cell_text = |idx: Option<usize>| -> String {
+        match idx {
+            Some(i) if i < cells.len() => clean_html_text(cells[i]),
+            _ => String::new(),
+        }
+    };
+
+    // 使用列映射获取各字段的值
+    let no_text = cell_text(column_mapping.no);
+    let name_text = cell_text(column_mapping.name);
+
+    // 跳过表头或空行
+    if no_text.is_empty() || no_text.to_lowercase() == "no" || name_text.is_empty() {
+        return None;
+    }
+
+    let team_text = cell_text(column_mapping.team);
+    let team = if team_text.is_empty() {
+        None
+    } else {
+        Some(team_text)
+    };
+    let title_text = cell_text(column_mapping.title);
+    let size_text = cell_text(column_mapping.size);
+
+    let addr_html = match column_mapping.addr {
+        Some(i) if i < cells.len() => cells[i].inner_html(),
+        _ => String::new(),
+    };
+
+    // 从链接中提取序号（如果存在）
+    let no_clean = if no_text.parse::<u32>().is_ok() {
+        no_text
+    } else {
+        // 尝试从HTML中提取数字
+        match column_mapping.no {
+            Some(no_idx) if no_idx < cells.len() => {
+                match num_regex.find(&cells[no_idx].inner_html()) {
+                    Some(mat) => mat.as_str().to_string(),
+                    None => no_text,
+                }
+            }
+            _ => no_text,
+        }
+    };
+
+    // 处理地址字段 - 按换行符分割，然后提取URL
+    let addr: Vec<String> = addr_html
+        .split("<br>")
+        .flat_map(extract_urls_and_text)
+        .filter(|s| !s.trim().is_empty())
+        .collect();
+
+    Some(BmsEntry {
+        no: no_clean,
+        name: name_text,
+        team,
+        title: title_text,
+        size: size_text,
+        addr,
+    })
 }
 
 fn convert_to_toml(data: &BmsData) -> Result<String> {
@@ -471,8 +436,8 @@ fn read_urls_from_stdin() -> Result<Vec<String>> {
     Ok(urls)
 }
 
-fn read_events_from_file(path: &PathBuf) -> Result<Vec<String>> {
-    debug!("从events.toml读取事件配置: {:?}", path);
+fn read_events_from_file(path: &Path) -> Result<Vec<String>> {
+    debug!("从events.toml读取事件配置: {}", path.display());
     let content = std::fs::read_to_string(path)?;
     let config: EventsConfig = toml::from_str(&content)?;
 
@@ -481,8 +446,7 @@ fn read_events_from_file(path: &PathBuf) -> Result<Vec<String>> {
         let url = if let Some(event_id) = event.event_id {
             // 使用 event_id 构建 URL
             format!(
-                "https://manbow.nothing.sh/event/event.cgi?action=URLList&end=999&event={}",
-                event_id
+                "https://manbow.nothing.sh/event/event.cgi?action=URLList&end=999&event={event_id}"
             )
         } else if let Some(url) = event.url {
             // 使用现有的 url 字段（向后兼容）
@@ -498,17 +462,14 @@ fn read_events_from_file(path: &PathBuf) -> Result<Vec<String>> {
     Ok(urls)
 }
 
-fn write_output(content: &str, output_path: &Option<PathBuf>) -> Result<()> {
-    match output_path {
-        Some(path) => {
-            debug!("写入输出到文件: {:?}", path);
-            std::fs::write(path, content)?;
-            info!("数据已保存到文件: {:?}", path);
-        }
-        None => {
-            debug!("输出到stdout");
-            print!("{}", content);
-        }
+fn write_output(content: &str, output_path: Option<&Path>) -> Result<()> {
+    if let Some(path) = output_path {
+        debug!("写入输出到文件: {}", path.display());
+        std::fs::write(path, content)?;
+        info!("数据已保存到文件: {}", path.display());
+    } else {
+        debug!("输出到stdout");
+        print!("{content}");
     }
     Ok(())
 }
@@ -522,7 +483,6 @@ async fn main() -> Result<()> {
         .filter_level(match args.log_level.as_str() {
             "trace" => log::LevelFilter::Trace,
             "debug" => log::LevelFilter::Debug,
-            "info" => log::LevelFilter::Info,
             "warn" => log::LevelFilter::Warn,
             "error" => log::LevelFilter::Error,
             _ => log::LevelFilter::Info,
@@ -560,7 +520,7 @@ async fn async_main(args: Args) -> Result<()> {
                 all_entries.extend(data.entries);
             }
             Err(e) => {
-                error!("处理URL失败 {}: {}", url, e);
+                error!("处理URL失败 {url}: {e}");
             }
         }
     }
@@ -578,10 +538,10 @@ async fn async_main(args: Args) -> Result<()> {
 
     match convert_to_toml(&bms_data) {
         Ok(toml_output) => {
-            write_output(&toml_output, &args.output)?;
+            write_output(&toml_output, args.output.as_deref())?;
         }
         Err(e) => {
-            error!("转换为TOML时出错: {}", e);
+            error!("转换为TOML时出错: {e}");
         }
     }
 

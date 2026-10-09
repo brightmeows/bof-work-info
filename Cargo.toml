@@ -25,3 +25,10 @@ env_logger = "0.11"             # 环境变量日志实现
 
 # 错误处理
 anyhow = "1"                  # 错误处理工具
+
+[workspace.lints.rust]
+unsafe_code = "warn"
+
+[workspace.lints.clippy]
+all = "deny"
+pedantic = "deny"

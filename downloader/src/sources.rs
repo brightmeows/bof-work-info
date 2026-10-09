@@ -252,7 +252,7 @@ pub fn extract_google_drive_id(url: &str) -> Option<String> {
     // 匹配格式: https://drive.google.com/file/d/ID/view
     if let Some(start) = url.find("/file/d/") {
         let id_start = start + 8;
-        if let Some(end) = url[id_start..].find("/") {
+        if let Some(end) = url[id_start..].find('/') {
             return Some(url[id_start..id_start + end].to_string());
         }
     }
@@ -260,31 +260,28 @@ pub fn extract_google_drive_id(url: &str) -> Option<String> {
     // 匹配格式: https://drive.google.com/uc?id=ID
     if let Some(start) = url.find("?id=") {
         let id_start = start + 4;
-        if let Some(end) = url[id_start..].find("&") {
+        if let Some(end) = url[id_start..].find('&') {
             return Some(url[id_start..id_start + end].to_string());
-        } else {
-            return Some(url[id_start..].to_string());
         }
+        return Some(url[id_start..].to_string());
     }
 
     // 匹配格式: https://drive.usercontent.google.com/download?id=ID
     if let Some(start) = url.find("/download?id=") {
         let id_start = start + 13;
-        if let Some(end) = url[id_start..].find("&") {
+        if let Some(end) = url[id_start..].find('&') {
             return Some(url[id_start..id_start + end].to_string());
-        } else {
-            return Some(url[id_start..].to_string());
         }
+        return Some(url[id_start..].to_string());
     }
 
     // 匹配格式: https://drive.usercontent.google.com/u/0/uc?id=ID
     if let Some(start) = url.find("/uc?id=") {
         let id_start = start + 7;
-        if let Some(end) = url[id_start..].find("&") {
+        if let Some(end) = url[id_start..].find('&') {
             return Some(url[id_start..id_start + end].to_string());
-        } else {
-            return Some(url[id_start..].to_string());
         }
+        return Some(url[id_start..].to_string());
     }
 
     None
@@ -294,7 +291,7 @@ pub fn extract_dropbox_id(url: &str) -> Option<String> {
     // 匹配格式: https://www.dropbox.com/s/ID/filename
     if let Some(start) = url.find("/s/") {
         let id_start = start + 3;
-        if let Some(end) = url[id_start..].find("/") {
+        if let Some(end) = url[id_start..].find('/') {
             return Some(url[id_start..id_start + end].to_string());
         }
     }
@@ -305,7 +302,7 @@ pub fn extract_dropbox_id(url: &str) -> Option<String> {
     for pattern in ["/scl/fi/", "/scl/fo/"] {
         if let Some(start) = url.find(pattern) {
             let id_start = start + pattern.len();
-            if let Some(end) = url[id_start..].find("/") {
+            if let Some(end) = url[id_start..].find('/') {
                 return Some(url[id_start..id_start + end].to_string());
             }
         }
@@ -314,7 +311,7 @@ pub fn extract_dropbox_id(url: &str) -> Option<String> {
     // 特殊处理 dropboxusercontent.com 格式
     if url.starts_with("https://dl.dropboxusercontent.com/scl/fi/") {
         let id_start = 40; // "https://dl.dropboxusercontent.com/scl/fi/".len()
-        if let Some(end) = url[id_start..].find("/") {
+        if let Some(end) = url[id_start..].find('/') {
             return Some(url[id_start..id_start + end].to_string());
         }
     }
@@ -390,7 +387,7 @@ pub fn select_download_link_for_trait(
             "  可用链接: {}",
             all_links
                 .iter()
-                .map(|l| format!("{:?}", l))
+                .map(|l| format!("{l:?}"))
                 .collect::<Vec<_>>()
                 .join(", ")
         );
@@ -414,7 +411,7 @@ pub fn select_download_link_for_trait(
         println!("\n作品 #{} - {}", entry.no, entry.title);
         println!("作者: {}", entry.name);
         if let Some(team) = &entry.team {
-            println!("团队: {}", team);
+            println!("团队: {team}");
         }
         println!("大小: {}", entry.size);
         println!("\n可用的下载链接:");
@@ -469,7 +466,10 @@ pub fn select_download_link_for_trait(
 }
 
 pub async fn download_google_drive_file(file_id: &str, output_path: &Path) -> Result<PathBuf> {
-    info!("下载Google Drive文件: {} -> {:?}", file_id, output_path);
+    info!(
+        "下载Google Drive文件: {file_id} -> {}",
+        output_path.display()
+    );
 
     // 确保输出目录存在
     if let Some(parent) = output_path.parent() {
@@ -481,49 +481,48 @@ pub async fn download_google_drive_file(file_id: &str, output_path: &Path) -> Re
         .user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
         .redirect(reqwest::redirect::Policy::limited(10))
         .build()
-        .map_err(|e| anyhow::anyhow!("创建HTTP客户端失败: {}", e))?;
+        .map_err(|e| anyhow::anyhow!("创建HTTP客户端失败: {e}"))?;
 
     // 第一步：获取cookie和确认页面
     let cookie_path = output_path.parent().unwrap().join("cookie");
-    let cookie_url = format!("https://drive.google.com/uc?export=download&id={}", file_id);
+    let cookie_url = format!("https://drive.google.com/uc?export=download&id={file_id}");
 
-    info!("第一步：获取cookie，URL: {}", cookie_url);
+    info!("第一步：获取cookie，URL: {cookie_url}");
 
     let cookie_response = client
         .get(&cookie_url)
         .send()
         .await
-        .map_err(|e| anyhow::anyhow!("获取cookie失败: {} - {}", cookie_url, e))?;
+        .map_err(|e| anyhow::anyhow!("获取cookie失败: {cookie_url} - {e}"))?;
 
     // 保存cookie内容
     let cookie_content = cookie_response
         .text()
         .await
-        .map_err(|e| anyhow::anyhow!("读取cookie响应失败: {} - {}", cookie_url, e))?;
+        .map_err(|e| anyhow::anyhow!("读取cookie响应失败: {cookie_url} - {e}"))?;
 
     info!("Cookie内容长度: {} 字节", cookie_content.len());
 
     fs::write(&cookie_path, &cookie_content)
-        .with_context(|| format!("保存cookie失败: {:?}", cookie_path))?;
+        .with_context(|| format!("保存cookie失败: {}", cookie_path.display()))?;
 
     // 从HTML内容中提取下载URL和文件名
     let download_url = if let Some(url) = extract_download_url_from_html(&cookie_content) {
-        info!("从HTML中提取到下载URL: {}", url);
+        info!("从HTML中提取到下载URL: {url}");
         url
     } else {
         // 如果没有找到完整的下载URL，尝试使用确认token
-        let confirm_token = extract_confirm_token_from_html(&cookie_content)?;
-        info!("提取到的确认token: '{}'", confirm_token);
+        let confirm_token = extract_confirm_token_from_html(&cookie_content);
+        info!("提取到的确认token: '{confirm_token}'");
 
         if confirm_token.is_empty() {
             info!("没有找到确认token，直接使用原始URL");
             cookie_url.clone()
         } else {
             let url = format!(
-                "https://drive.google.com/uc?export=download&confirm={}&id={}",
-                confirm_token, file_id
+                "https://drive.google.com/uc?export=download&confirm={confirm_token}&id={file_id}"
             );
-            info!("使用确认token构造下载URL: {}", url);
+            info!("使用确认token构造下载URL: {url}");
             url
         }
     };
@@ -531,23 +530,23 @@ pub async fn download_google_drive_file(file_id: &str, output_path: &Path) -> Re
     // 尝试从HTML中提取原始文件名
     let original_filename = extract_filename_from_html(&cookie_content);
 
-    info!("第二步：下载文件，URL: {}", download_url);
+    info!("第二步：下载文件，URL: {download_url}");
 
     let response = client
         .get(&download_url)
         .send()
         .await
-        .map_err(|e| anyhow::anyhow!("下载文件失败: {} - {}", download_url, e))?;
+        .map_err(|e| anyhow::anyhow!("下载文件失败: {download_url} - {e}"))?;
 
     // 检查响应状态
     let status = response.status();
-    info!("HTTP响应状态: {}", status);
+    info!("HTTP响应状态: {status}");
 
     // 尝试从Content-Disposition头中提取文件名
     let mut filename = None;
     if let Some(disposition) = response.headers().get("Content-Disposition") {
         let disposition_str = disposition.to_str().unwrap_or("");
-        info!("Content-Disposition: {}", disposition_str);
+        info!("Content-Disposition: {disposition_str}");
         filename = extract_filename_from_disposition(disposition_str);
     }
 
@@ -556,38 +555,41 @@ pub async fn download_google_drive_file(file_id: &str, output_path: &Path) -> Re
         let parent_dir = output_path.parent().unwrap();
         let new_path = parent_dir.join(header_filename);
         info!(
-            "使用Content-Disposition中的文件名: {} -> {:?}",
-            header_filename, new_path
+            "使用Content-Disposition中的文件名: {header_filename} -> {}",
+            new_path.display()
         );
         new_path
     } else if let Some(html_filename) = &original_filename {
         let parent_dir = output_path.parent().unwrap();
         let new_path = parent_dir.join(html_filename);
-        info!("使用HTML中的文件名: {} -> {:?}", html_filename, new_path);
+        info!(
+            "使用HTML中的文件名: {html_filename} -> {}",
+            new_path.display()
+        );
         new_path
     } else {
         output_path.to_path_buf()
     };
 
     let mut file = fs::File::create(&final_output_path)
-        .with_context(|| format!("创建文件失败: {:?}", final_output_path))?;
+        .with_context(|| format!("创建文件失败: {}", final_output_path.display()))?;
 
     let bytes = response
         .bytes()
         .await
-        .map_err(|e| anyhow::anyhow!("读取响应失败: {} - {}", download_url, e))?;
+        .map_err(|e| anyhow::anyhow!("读取响应失败: {download_url} - {e}"))?;
 
     info!("下载的数据长度: {} 字节", bytes.len());
 
     std::io::Write::write_all(&mut file, &bytes)
-        .with_context(|| format!("写入文件失败: {:?}", final_output_path))?;
+        .with_context(|| format!("写入文件失败: {}", final_output_path.display()))?;
 
     // 清理cookie文件
     let _ = fs::remove_file(&cookie_path);
 
     info!(
-        "Google Drive下载完成: {:?} ({} 字节)",
-        final_output_path,
+        "Google Drive下载完成: {} ({} 字节)",
+        final_output_path.display(),
         bytes.len()
     );
     Ok(final_output_path)
@@ -621,41 +623,38 @@ pub fn extract_filename_from_disposition(disposition: &str) -> Option<String> {
         let filename_part = &disposition[filename_start..];
         if let Some(end) = filename_part.find(';') {
             return Some(filename_part[..end].to_string());
-        } else {
-            return Some(filename_part.to_string());
         }
+        return Some(filename_part.to_string());
     }
 
     None
 }
 
-pub fn extract_confirm_token_from_html(html_content: &str) -> Result<String> {
+pub fn extract_confirm_token_from_html(html_content: &str) -> String {
     // 在HTML中查找确认token
     // 通常格式为: <a href="/uc?export=download&confirm=TOKEN&id=FILE_ID"
     if let Some(start) = html_content.find("confirm=") {
         let token_start = start + 8;
         if let Some(end) = html_content[token_start..].find('&') {
-            return Ok(html_content[token_start..token_start + end].to_string());
+            return html_content[token_start..token_start + end].to_string();
         } else if let Some(end) = html_content[token_start..].find('"') {
-            return Ok(html_content[token_start..token_start + end].to_string());
-        } else {
-            return Ok(html_content[token_start..].to_string());
+            return html_content[token_start..token_start + end].to_string();
         }
+        return html_content[token_start..].to_string();
     }
 
     // 也尝试查找其他可能的格式
     if let Some(start) = html_content.find("&confirm=") {
         let token_start = start + 9;
         if let Some(end) = html_content[token_start..].find('&') {
-            return Ok(html_content[token_start..token_start + end].to_string());
+            return html_content[token_start..token_start + end].to_string();
         } else if let Some(end) = html_content[token_start..].find('"') {
-            return Ok(html_content[token_start..token_start + end].to_string());
-        } else {
-            return Ok(html_content[token_start..].to_string());
+            return html_content[token_start..token_start + end].to_string();
         }
+        return html_content[token_start..].to_string();
     }
 
-    Ok(String::new())
+    String::new()
 }
 
 pub fn extract_download_url_from_html(html_content: &str) -> Option<String> {
@@ -697,20 +696,16 @@ pub fn extract_download_url_from_html(html_content: &str) -> Option<String> {
         }
     }
 
-    info!(
-        "提取到的参数: id={:?}, export={:?}, confirm={:?}, uuid={:?}",
-        id, export, confirm, uuid
-    );
+    info!("提取到的参数: id={id:?}, export={export:?}, confirm={confirm:?}, uuid={uuid:?}");
 
     // 构造完整的下载URL
     if let (Some(id_val), Some(export_val), Some(confirm_val), Some(uuid_val)) =
         (id, export, confirm, uuid)
     {
         let url = format!(
-            "https://drive.usercontent.google.com/download?id={}&export={}&confirm={}&uuid={}",
-            id_val, export_val, confirm_val, uuid_val
+            "https://drive.usercontent.google.com/download?id={id_val}&export={export_val}&confirm={confirm_val}&uuid={uuid_val}"
         );
-        info!("构造的下载URL: {}", url);
+        info!("构造的下载URL: {url}");
         return Some(url);
     }
 
@@ -719,12 +714,12 @@ pub fn extract_download_url_from_html(html_content: &str) -> Option<String> {
 
 pub fn extract_filename_from_html(html_content: &str) -> Option<String> {
     // 从HTML中提取文件名，格式如: <a href="/open?id=...">filename.zip</a>
-    if let Some(start) = html_content.find(">")
-        && let Some(end) = html_content[start + 1..].find("<")
+    if let Some(start) = html_content.find('>')
+        && let Some(end) = html_content[start + 1..].find('<')
     {
         let filename = &html_content[start + 1..start + 1 + end];
         if filename.contains('.') && !filename.contains(' ') {
-            info!("从HTML中提取到文件名: {}", filename);
+            info!("从HTML中提取到文件名: {filename}");
             return Some(filename.to_string());
         }
     }
@@ -733,8 +728,8 @@ pub fn extract_filename_from_html(html_content: &str) -> Option<String> {
 }
 
 pub fn is_valid_archive(file_path: &Path) -> Result<bool> {
-    let file =
-        fs::File::open(file_path).with_context(|| format!("无法打开文件: {:?}", file_path))?;
+    let file = fs::File::open(file_path)
+        .with_context(|| format!("无法打开文件: {}", file_path.display()))?;
 
     let mut reader = BufReader::new(file);
     let mut header = [0u8; 4];
@@ -767,7 +762,7 @@ pub fn is_valid_archive(file_path: &Path) -> Result<bool> {
 }
 
 pub async fn download_file(url: &str, output_path: &Path) -> Result<PathBuf> {
-    info!("下载: {} -> {:?}", url, output_path);
+    info!("下载: {url} -> {}", output_path.display());
 
     // 确保输出目录存在
     if let Some(parent) = output_path.parent() {
@@ -777,14 +772,14 @@ pub async fn download_file(url: &str, output_path: &Path) -> Result<PathBuf> {
     let response = reqwest::get(url).await?;
 
     let mut file = fs::File::create(output_path)
-        .with_context(|| format!("创建文件失败: {:?}", output_path))?;
+        .with_context(|| format!("创建文件失败: {}", output_path.display()))?;
 
     let bytes = response.bytes().await?;
 
     std::io::Write::write_all(&mut file, &bytes)
-        .with_context(|| format!("写入文件失败: {:?}", output_path))?;
+        .with_context(|| format!("写入文件失败: {}", output_path.display()))?;
 
-    info!("下载完成: {:?}", output_path);
+    info!("下载完成: {}", output_path.display());
     Ok(output_path.to_path_buf())
 }
 
@@ -792,16 +787,7 @@ pub fn generate_filename(entry: &BmsEntry) -> String {
     let mut filename = format!("{} - {}", entry.no, entry.title);
 
     // 清理文件名中的非法字符
-    filename = filename
-        .replace("/", "_")
-        .replace("\\", "_")
-        .replace(":", "_")
-        .replace("*", "_")
-        .replace("?", "_")
-        .replace("\"", "_")
-        .replace("<", "_")
-        .replace(">", "_")
-        .replace("|", "_");
+    filename = filename.replace(['/', '\\', ':', '*', '?', '"', '<', '>', '|'], "_");
 
     // 如果文件名太长，截断
     if filename.len() > 100 {
@@ -820,9 +806,9 @@ pub async fn download_entry(entry: &BmsEntry, output_dir: &Path, interactive: bo
 
         // 验证下载的文件是否为有效压缩包
         if is_valid_archive(&final_path)? {
-            info!("文件验证成功: {:?} 是有效的压缩包", final_path);
+            info!("文件验证成功: {} 是有效的压缩包", final_path.display());
         } else {
-            warn!("文件验证失败: {:?} 不是有效的压缩包", final_path);
+            warn!("文件验证失败: {} 不是有效的压缩包", final_path.display());
         }
     }
 
@@ -833,7 +819,7 @@ pub fn extract_google_drive_id_from_url(url: &str) -> Option<String> {
     // 匹配格式: https://drive.google.com/file/d/ID/view
     if let Some(start) = url.find("/file/d/") {
         let id_start = start + 8;
-        if let Some(end) = url[id_start..].find("/") {
+        if let Some(end) = url[id_start..].find('/') {
             return Some(url[id_start..id_start + end].to_string());
         }
     }
@@ -841,21 +827,19 @@ pub fn extract_google_drive_id_from_url(url: &str) -> Option<String> {
     // 匹配格式: https://drive.google.com/uc?id=ID 或 https://drive.google.com/uc?export=download&id=ID
     if let Some(start) = url.find("?id=") {
         let id_start = start + 4;
-        if let Some(end) = url[id_start..].find("&") {
+        if let Some(end) = url[id_start..].find('&') {
             return Some(url[id_start..id_start + end].to_string());
-        } else {
-            return Some(url[id_start..].to_string());
         }
+        return Some(url[id_start..].to_string());
     }
 
     // 匹配格式: https://drive.google.com/uc?export=download&id=ID
     if let Some(start) = url.find("&id=") {
         let id_start = start + 4;
-        if let Some(end) = url[id_start..].find("&") {
+        if let Some(end) = url[id_start..].find('&') {
             return Some(url[id_start..id_start + end].to_string());
-        } else {
-            return Some(url[id_start..].to_string());
         }
+        return Some(url[id_start..].to_string());
     }
 
     None
@@ -901,7 +885,7 @@ pub async fn download_link_by_type(
                 .user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
                 .redirect(reqwest::redirect::Policy::limited(5))
                 .build()
-                .map_err(|e| anyhow::anyhow!("创建HTTP客户端失败: {}", e))?;
+                .map_err(|e| anyhow::anyhow!("创建HTTP客户端失败: {e}"))?;
 
             let response = client.head(&onedrive_link.url).send().await.map_err(|e| {
                 anyhow::anyhow!("访问OneDrive链接失败: {} - {}", onedrive_link.url, e)
@@ -915,7 +899,7 @@ pub async fn download_link_by_type(
             let client = reqwest::Client::builder()
                 .user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
                 .build()
-                .map_err(|e| anyhow::anyhow!("创建HTTP客户端失败: {}", e))?;
+                .map_err(|e| anyhow::anyhow!("创建HTTP客户端失败: {e}"))?;
 
             let response = client.get(&mediafire_link.url).send().await.map_err(|e| {
                 anyhow::anyhow!("访问MediaFire链接失败: {} - {}", mediafire_link.url, e)
@@ -931,7 +915,7 @@ pub async fn download_link_by_type(
 
             download_file(&download_url, output_path).await
         }
-        _ => Err(anyhow::anyhow!("不支持的链接类型: {}", type_name)),
+        _ => Err(anyhow::anyhow!("不支持的链接类型: {type_name}")),
     }
 }
 
