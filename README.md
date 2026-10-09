@@ -8,7 +8,7 @@ manbow（[manbow.nothing.sh/event](https://manbow.nothing.sh/event/)）BMS 活�
 - `fetcher/`：抓取工具，负责事件发现、页面解析与数据落盘
 - `.github/workflows/`：
   - `update-events.yml`：每周五 12:00 UTC 自动更新，有变化的事件各自开 PR 并自动合并
-  - `update-bof22.yml`：每小时更新 BOF:22（event 152），追踪评审期评分演化
+  - `update-hourly.yml`：每小时更新进行中的活动（当前为 152 BOF:22 与 153 WORLD WAR ][），追踪评审期数据演化
   - `ci.yml`：构建、clippy（pedantic deny）与 rustfmt 检查
   - `cleanup-merged-pr-branches.yml`：清理已合并的更新分支
 

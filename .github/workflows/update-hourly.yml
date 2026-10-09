@@ -1,0 +1,108 @@
+name: Update Active Events Hourly
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 每小时 30 分，错开 update-events.yml 的整点触发，避免同事件竞态
+    - cron: "30 * * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# 追踪进行中活动的评审期数据演化。活动落幕评分冻结后本 job 退化为
+# 快速空转；届时手动调整 event id 列表或移除本 workflow。
+env:
+  HOURLY_EVENTS: "152 153"
+
+jobs:
+  update:
+    name: Update hourly (events ${{ env.HOURLY_EVENTS }})
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo build
+        uses: Swatinem/rust-cache@v2
+        with:
+          cache-on-failure: true
+          workspaces: |
+            . -> target
+
+      - name: Build
+        run: cargo build --release
+
+      - name: Fetch event data
+        run: |
+          mkdir -p events
+          cargo run --release --quiet -- $(for id in $HOURLY_EVENTS; do echo --event $id; done) --dir events --delay-ms 1000
+
+      - name: Check for changes (152)
+        id: check-152
+        run: |
+          if [ -n "$(git status --porcelain events/152.toml)" ]; then
+            echo "has-changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has-changes=false" >> "$GITHUB_OUTPUT"
+            echo "No changes for event 152"
+          fi
+
+      - name: Check for changes (153)
+        id: check-153
+        run: |
+          if [ -n "$(git status --porcelain events/153.toml)" ]; then
+            echo "has-changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has-changes=false" >> "$GITHUB_OUTPUT"
+            echo "No changes for event 153"
+          fi
+
+      - name: Create Pull Request (152)
+        id: create-pr-152
+        if: steps.check-152.outputs.has-changes == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "chore(events): update 152 data"
+          branch: "chore/update-152"
+          title: "chore(events): update 152 data"
+          body: |
+            Automated hourly update for event `152` (BOF:22), capturing
+            data evolution during the judging period.
+          add-paths: |
+            events/152.toml
+          labels: |
+            automated
+
+      - name: Enable Pull Request Automerge (152)
+        if: steps.create-pr-152.outputs.pull-request-operation == 'created'
+        run: gh pr merge "$PR_NUMBER" --auto --squash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.create-pr-152.outputs.pull-request-number }}
+
+      - name: Create Pull Request (153)
+        id: create-pr-153
+        if: steps.check-153.outputs.has-changes == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "chore(events): update 153 data"
+          branch: "chore/update-153"
+          title: "chore(events): update 153 data"
+          body: |
+            Automated hourly update for event `153` (WORLD WAR ][),
+            capturing data evolution during the judging period.
+          add-paths: |
+            events/153.toml
+          labels: |
+            automated
+
+      - name: Enable Pull Request Automerge (153)
+        if: steps.create-pr-153.outputs.pull-request-operation == 'created'
+        run: gh pr merge "$PR_NUMBER" --auto --squash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.create-pr-153.outputs.pull-request-number }}
