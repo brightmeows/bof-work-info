@@ -39,7 +39,7 @@ jobs:
       - name: Fetch event data
         run: |
           mkdir -p events
-          cargo run --release --quiet -- $(for id in $HOURLY_EVENTS; do echo --event $id; done) --dir events --delay-ms 1000
+          cargo run --release --quiet -- $(for id in $HOURLY_EVENTS; do echo --event $id --details $id; done) --dir events --delay-ms 1000
 
       - name: Check for changes (152)
         id: check-152

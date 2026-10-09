@@ -70,9 +70,17 @@ jobs:
         run: cargo build --release
 
       - name: Fetch event data
+        # 进行中活动（同 update-hourly.yml 的 HOURLY_EVENTS）追加详情页抓取；
+        # 活动落幕时与 hourly 一并调整
         run: |
           mkdir -p events
-          cargo run --release --quiet -- --event ${{ matrix.event }} --dir events --delay-ms 1000
+          extra=""
+          for active in 152 153; do
+            if [ "${{ matrix.event }}" = "$active" ]; then
+              extra="--details $active"
+            fi
+          done
+          cargo run --release --quiet -- --event ${{ matrix.event }} $extra --dir events --delay-ms 1000
 
       - name: Check for changes
         id: check-changes

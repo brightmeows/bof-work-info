@@ -31,6 +31,10 @@ struct Args {
     #[arg(short, long = "event")]
     event_ids: Vec<String>,
 
+    /// 强制抓取作品详情页的事件 id（可重复；未指定时按团队页判定）
+    #[arg(long = "details")]
+    details_ids: Vec<String>,
+
     /// 列出站点上发现的全部事件（JSON）后退出
     #[arg(long, conflicts_with = "stdin")]
     list_events: bool,
@@ -113,7 +117,7 @@ async fn run_events(args: &Args) -> Result<()> {
     let mut succeeded = 0_usize;
     let mut failed = 0_usize;
     for event in &events {
-        match fetch_event(event, delay).await {
+        match fetch_event(event, delay, &args.details_ids).await {
             Ok(event_data) => {
                 let data = event_data.data;
                 let path = args.dir.join(format!("{}.toml", event.id));
@@ -162,7 +166,11 @@ struct EventData {
 ///
 /// 团队列表解析成功即视为进行中活动，进而抓取每作品详情页（`More_def`）
 /// 与团队详情子页；历史活动无这些页面，自动跳过。
-async fn fetch_event(event: &ManbowEvent, delay: Duration) -> Result<EventData> {
+async fn fetch_event(
+    event: &ManbowEvent,
+    delay: Duration,
+    details_ids: &[String],
+) -> Result<EventData> {
     let mut data = {
         let html = fetch_with_delay(&manbow::urllist_url(&event.id), delay).await?;
         manbow::parse_urllist(&html)?
@@ -184,7 +192,7 @@ async fn fetch_event(event: &ManbowEvent, delay: Duration) -> Result<EventData> 
         .and_then(|html| manbow::parse_team_entries(&html))
     {
         Ok(teams) => {
-            let active = !teams.is_empty();
+            let active = !teams.is_empty() || details_ids.contains(&event.id);
             data.teams = enrich_teams(&event.id, teams, delay).await;
             if active {
                 details = Some(fetch_details(&event.id, &data.entries, delay).await);
