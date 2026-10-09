@@ -198,7 +198,12 @@ async fn fetch_event(
                 details = Some(fetch_details(&event.id, &data.entries, delay).await);
             }
         }
-        Err(e) => info!("[{}] 团队档案不可用: {e:#}", event.id),
+        Err(e) => {
+            info!("[{}] 团队档案不可用: {e:#}", event.id);
+            if details_ids.contains(&event.id) {
+                details = Some(fetch_details(&event.id, &data.entries, delay).await);
+            }
+        }
     }
 
     Ok(EventData {

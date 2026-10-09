@@ -1,0 +1,2679 @@
+[[details]]
+num = "1"
+artist = "Nakaiankow ft. 歌愛ユキ   URL"
+genre = "Dombolo Hiphop / Afro Typebeat"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+]
+production = "非公開"
+comment = """
+コ ン ゴ 共 和 国
+だ
+にどとまちがえるなくそが"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "2"
+artist = "oo-kani   URL"
+genre = "Cinematic"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGI",
+]
+production = "非公開"
+comment_updated = "2026年08月11日 16:07"
+comment = """
+(2026年08月11日 16:07 更新)
+(2026年08月11日 00:05 更新)
+俺はハイゴッグで行く"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "3"
+artist = "JURUMA   URL"
+genre = "NIGHT CITY HARDCORE"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Use-BGI",
+    "Use-ogg",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+    "Difficulty-gorilla",
+]
+production = "非公開"
+comment_updated = "2026年08月11日 00:04"
+comment = """
+(2026年08月11日 00:04 更新)
+「何か、困りごとでも？――でしたら、便利屋を訪ねてみるのも一つの選択でしょう。」
+こんにちは。JURUMAと申します。
+ぼくは韓国発のゲームを遊ぶことが多いのですが、中でもPr○ject Moonシリーズは、これまで触れてきた作品の中でも特に心に残っているタイトルです。
+今回はそんなPr○ject Moonシリーズの世界観をイメージした楽曲を制作しました。
+ネオンが照らす夜の路地裏。今日もまた、便利屋たちは依頼をこなすため、静かに街を駆けていく――
+そんな情景を思い浮かべながら、プレイしていただければ嬉しいです。
+★譜面紹介
+※フレーバー重視の為、[WAW(紫)]→Another級、[ALEPH(赤)]→Insane級となっています。ご注意ください。
+[ZAYIN] : ☆3
+[TETH]  : ☆6
+[HE]: ☆9
+[WAW]   : ☆12(sl2)
+[ALEPH] : ★17(sl10)
+[Mimic] : ★21(st1) obj.Lanait
+[The Red is Coming.] : ★24(st5)
+★SpecialThanks
+譜面チェック：Kapu様、Decimal様、うに様
+譜面作成：Lanait様
+手伝っていただき、本当ににありがとうございました！この場を借りてお礼申し上げます。
+★差分作成について
+【大歓迎です】BAFnoobj.bが未配置データになります(.bmsに変更してご活用ください)
+作ったら教えてくれるとすごく嬉しいです
+★連絡先(X)⇒@auno652
+「安心してください。彼らは依頼を断ることは滅多にありません。――もっとも、結果については保証できませんが。」"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "4"
+artist = "DOANOB   URL"
+genre = "season"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGA",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+]
+production = "非公開"
+audition = ["https://soundcloud.com/doanob/h0pbyg8opnuk?si=786b8a788e8f4b58aa11b8bccd4240c5&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"]
+comment_updated = "2026年08月12日 16:39"
+comment = """
+(2026年08月12日 16:39 更新)
+季節は廻り巡る。
+お世話になります、DOANOBです。
+今回は「四季」をモチーフに曲を作りました。
+読み方は廻巡（かいじゅん）です。造語ですね。
+春夏秋冬が時を廻って順に巡り、応じて曲の味付けが差し替わる造りです。
+Another譜面は各季節パートの切り替わりに際して譜面の属性がガラッと変わるので、人によって難所が異なる総合力系個人差譜面となっています。
+そこまで難易度は高くないので、よければAnotherを遊んであげてください
+-DIFFICULTY-
+Biginner ☆3
+Normal ☆7
+Hyper ☆10
+Another ☆12 (sl・発狂の尺度では測定不能)"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "5"
+artist = "輝橋シトラ vs 高樹夕運 feat. REGGAESKA MASTER 高樹 -TAKAKI-  (movie : Exclamation mark × 高樹夕運) URL"
+genre = "これってレゲエっスカ"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Unit"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Gimmick-LongNote",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Player-LR2",
+    "Player-beatoraja",
+]
+production = "非公開"
+comment_updated = "2026年08月28日 19:38"
+comment = """
+(2026年08月28日 19:38 更新)
+(2026年08月11日 00:17 更新)
+music // 輝橋シトラ
+みんな～！元気にしていますか～？
+私ですか？新人BMS作家（嘘）の輝橋シトラ、です！
+（ちなみに輝橋はテルハシと読みます）
+本来、レソトって高山地帯だから
+「雪の王国」というテーマで曲を作っていたら
+どうしても曲が完成されないのでボツにして
+別の曲を用意する羽目になった私、輝橋シトラ。
+そんななか、代わりの曲を作ろうとして
+レソトの音楽ってどんなのがあるんだろうって調べたら
+めっちゃレゲエしか出てこないわけ。
+そんでレゲエにしたら、よくよく考えたらゲーム的に面白くないわけ。
+端的にいえば高難易度譜面が作れないわけ。
+なので後半はスカにしちゃったわけ。
+ちなみにスカ要素を入れるときの話なのですが
+HARISEN MASTER ヒフミ -HIHUMI-さんのから助力がありました。
+アイデア提供ありがとうございます。
+…ここで、単刀直入にお伺いします。
+「これってレゲエっスカ？」
+以上です。
+PS.輝橋シトラを日本語に変えると、twinkle citrusになります。偶然かな？
+Arrange Support // HARISEN MASTER ヒフミ -HIHUMI-
+いつの間にか編曲サポートをしたHIHUMIと申します。
+ANOTHER譜面も担当いたしました。
+SKAといえばやはりカウベル！
+それでは聞いてください………
+「操リ人形ノ舞ニ意味ハ有ルカ」
+lyrics & vocal // REGGAESKA MASTER 高樹 -TAKAKI-
+夏はイヤだ。
+REGGAESKA MASTER 高樹 -TAKAKI-です。
+夏は楽しんでいるか？オレっちは全然楽しめてねぇんだよ！
+夏は胸を刺激しねぇよ！ナマ足魅惑のマーメイドなんかねぇよ！
+いるのは家の中で叫んでいるオレっちしかねぇんだよ！
+エアコン最強！扇風機最強！録音楽しいし！セロリはうまいし！
+………とか言ってもオレっちも夏を満喫してぇんだよ！
+だから外で大暴れ……したくても恥ずかしくてさ……
+結局のところめっちゃ恥ずかしながら撮影したっていう、そういうお話だよ。
+そんなオレっちの夏の過ごし方をご紹介！
+残りの作業の締めを切る。以上！！！！！！！！！！！！！！
+PS.ちなみに歌詞はレソト語だよ。出来れば翻訳してみ↓
+https://docs.google.com/document/d/16PL1qOs_5JrWb-rxobY4SsobXXyvyWiAoOgNsxIKZOI/edit?usp=sharing
+music & movie // 高樹夕運
+どうも初めまして、高樹夕運と申します。
+タカキ・ユウンと読みます。以後お見知りおきを。
+いやぁ外熱かったですね。
+輝橋さんよくも外で撮影させたねホンマに。
+で、REGGAESKA MASTER 高樹 -TAKAKI-さんホンマにお疲れ様でした。
+よくあんな格好で撮影出来てますね。熱くないのか？
+あんな服着てあんなグラサンかけてあんなマスクかぶって窮屈しねえのか？
+ホンマに尊敬ですわホンマに。自分には真似できませんね。
+あと名前に関して周りに聞いたら「夕運よりは夕雲の方がよくない？」って言われまして。
+次やるときは高樹夕雲でお会いしたいです。
+高樹夕運でした。
+PS.譜面担当になんか知らねぇやつが混じってるなぁ…誰なんだろう。
+movie // Exclamation mark
+なんやかんやあって参加することになりました、Exclamation markです。
+こんなにふざけた姿をどうやったらもっとふざけた姿に変換できるか悩みに悩んだ結果、
+真の「クソコラ」がなんなのかを見せつけるために、のーみそからっぽにして指とマウスとキーボードを動かしました。
+（もちろん、コメントを書いている今現在もなお、それはお変わりなく。）
+せっかく勇気を出して自ら直接武器になってくれたのに、鍛冶屋の人がその武器を強化せざるを得ない状況でした。
+そこでご本人様が「思いっきりいじってくれ」と言わんばかりだったので自信がつきまして筆が伸びちゃったんです。
+あと、これを見る前や見た後にどれだけ「何か」が頭をよぎったとしても
+それを口にしてはいけません。
+ひょっとするとあなたが「そういう人間」と誤認されるかもしれませんのでご注意ください。
+今日も安全に一日をお過ごしください。
+必ず自分自身の身のために最先を尽くしてください。
+それでは、どうかこのBMSをご堪能ください。
+GO! GO! GO! GO!
+GO! GO! GO! GO!"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "6"
+artist = "MiKaDo feat. はらもりよしな   URL"
+genre = "EUROBEAT"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Unit"
+tags = [
+    "7Keys",
+    "9Keys",
+    "Lang-JP",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-wmv_movie",
+    "Use-mp4_movie",
+    "Gimmick-LongNote",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+    "Difficulty-gorilla",
+]
+production = "非公開"
+comment_updated = "2026年08月29日 01:56"
+comment = """
+(2026年08月29日 01:56 更新)
+(2026年08月29日 01:55 更新)
+【国がイングランドな理由】EUROBEATは元々イタリア発祥のイタロ・ディスコ辺りが起源だと思うんですが、それが派生したHi-NRG→EUROBEATとなったのがたしかイギリスだった気がします。自分もふんわりした認識なんで、イングランドかどうかは全く知らないんですが…。で、イギリスから日本に流れてきて日本で流行ったって感じのはずです。曲的には日本で良かった気もするけれど、どちらかというと宇宙戦争的な方にコンセプトを寄せたので許して
+(2026年08月29日 01:54 更新)
+(2026年08月11日 00:46 更新)
+(2026年08月11日 00:18 更新)
+「私、この戦いが終わったらキミと…」
+-DIFFICULTY-
+SP
+BEGINNER ☆3
+NORMAL ☆7
+HYPER ☆10
+ANOTHER ☆12(sl2)
+目覚めよ宇宙 ★7(sl4～5)
+可能性の獣 ★17(sl10～11)
+終局の涙 ★25(st6?)
+9K
+NORMAL ☆32
+HYPER ☆42
+EX ☆48
+UPPER ☆50"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "7"
+artist = "鈎兎(KagiUsagi)   URL"
+genre = "SPANISH CROSSOVER"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI(BGA) under construction・Self"
+tags = [
+    "7Keys",
+    "14Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+]
+production = "非公開"
+comment_updated = "2026年08月11日 00:06"
+comment = """
+(2026年08月11日 00:06 更新)
+かぎうさぎ作BMS「ルベライトの瞳」のキャラである“ベル”と「Physical damage」などで登場する“ギフト”が
+メインビジュアルになります。
+メロディの一部にPhysical damageのサビが入っているのはそういうことです。ベルが関係している楽曲は
+異国情緒と別の何かを掛け合わせたような全体像になります。
+関係なさそうに思えた「イルルヤンカシュは神を弑逆する」のキャラ“イルル”と「キツネノツカヰ」や
+「トワイライトクローミア」に登場する“戒”もバックに描かれています。さて何が関係してるんでしょうね。
+Read meでは、本楽曲のストーリーを載せておきます。
+今回はキービジュアル風のBGIに挑戦してみました。紙媒体を主軸に活動していないので縦長なのが新鮮でした。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "8"
+artist = "地球外生命体迎撃兵器第拾型・改   URL"
+genre = "JUNGLE MIXTURE"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Use-BGI",
+    "Use-ogg",
+    "Gimmick-Soflan",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+]
+production = "非公開"
+audition = ["https://soundcloud.com/taw-50/ww-xenoc-i-der-x"]
+comment_updated = "2026年08月17日 21:23"
+comment = """
+(2026年08月17日 21:23 更新)
+(2026年08月17日 21:21 更新)
+西暦２０２０年、突如として襲来したBM98星人に立ち向かうべく、
+秋津州獨立行政領域の地下組織、ネオBMS日本軍が投入した兵器「地球外生命体迎撃兵器第拾型」、通称Xenokiller。
+制御機構の解明が追い付かず、安定性の問題から封印された新型動力炉を搭載し、
+一時は敵勢力側からもマークされるも、実践投入時に懸念されていた動力炉の制御系統に異常が発生、
+目立った戦績を残すこともできないまま、機体は撃墜され、太平洋の藻屑と化した。
+あれから月日は流れ、BM98勢力の目から逃れ、命からがら国外へ脱出したネオBMS日本軍残党は
+東ティモール近海にて奇跡的にXenokillerの残骸、及び動力炉の回収に成功。
+現地のゲリラと協力し、水面下で虎視眈々と反撃の機会をうかがっていた。
+そして２０２６年8月。あの日の無念を晴らすべく、地獄の淵からよみがえった新たな機体が
+BM98勢力への反撃の狼煙を上げる。
+その名は地球外生命体迎撃兵器第拾型・改、コードネームは
+"XENOCiDER-X"…。
+…はい。夏休みに暇を持て余した中学2年生が書いた痛々しい設定ノートみたいな裏設定をお送りしました。
+ネオBMS日本軍残党ことTaWでございます。
+前作とはだいぶベクトルが変わりましたが、一応続編です。
+前作同様音ゲーらしさをコンセプトに作りました。
+最近某足バタバタゲームにハマってるのでその影響がしっかり見て取れますね。
+え？東ティモール要素？設定に出てくるし、ガムランの音使ってるし、
+何なら東ティモールにはジャングル（ジャンル：JUNGLE MIXTURE）があるはずだから…（震え声
+前回「ソロモン諸島の曲」として90年代のゲームミュージック風デトロイトテクノをお出しした俺に怖いものなんてないぜ！ガハハ！！
+譜面は思いっきり高難易度寄りです。
+最上位差分はヤバいことになってるので挑む方はお気をつけて…。
+BEGINNER：☆☆☆・・・・・・・・・
+NORMAL   :☆☆☆☆☆☆☆・・・・・
+HYPER:☆☆☆☆☆☆☆☆☆☆☆・
+ANOTHER:☆☆☆☆☆☆☆☆☆☆☆☆
+GENOCIDE:★★★★★★★★★★
+最後に。テストプレイと譜面の調整にご協力いただいたF.Wynnd様にこの場を借りてお礼申し上げます。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "9"
+artist = "Ryu0316 a.k.a. 竜。 feat.結月ゆかり   URL"
+genre = "Electro/Drum'n'Bass"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGI",
+    "Use-ogg",
+    "Gimmick-LongNote",
+    "Difficulty-kusofumen",
+]
+production = "非公開"
+audition = ["https://soundcloud.com/ryu0316/world-in-lonely-steps"]
+comment_updated = "2026年08月11日 00:22"
+comment = """
+(2026年08月11日 00:22 更新)
+喧騒を避けても下を向いてても世界は廻ってる
+ひとり落ち込んでたって世界は何も変わらん
+だから
+Lyric
+嗚呼
+喧騒から 目を背け また ぼくは 下を向く
+それでも
+世界は ぼくを残して 賑やかに過ぎてゆく
+嗚呼
+喧騒から 目を背け また ぼくは 下を向く
+それでも
+世界は ぼくを残して 賑やかに過ぎてゆく
+ぼくは ここで ひとり あるく"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "10"
+artist = "くっちー   URL"
+genre = "PUXA / AFRO HOUSE"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Use-ogg",
+    "Gimmick-LongNote",
+]
+production = "非公開"
+audition = ["https://soundcloud.com/kucchi/bms-ilha-puxa-afro-beat"]
+comment_updated = "2026年08月11日 01:21"
+comment = """
+(2026年08月11日 01:21 更新)
+Genre Shuffle4にてアヴァンギャルドとかいうトンチキジャンルを引き、苦しみながら何とか作り上げた前回の製作。
+そして今回WW2にて「さすがにアヴァンギャルドより悩むような結果にゃならんやろ、ワンチャン惑星引いたるわ」
+と調子こいてLv4でガチャした結果サントメ・プリンシペを引きました。
+( ＾ω＾)・・・
+まず国のことすら存じ上げず、YouTubeで調べてみるも日本語だと観光してらっしゃる方のVlogが数件出てくるのみ。
+色々調べてみると、70～80年代に流行ったらしいPuxa（プシャ）というジャンルに辿り着き、CDを発見。
+ギター、ベースを始め恐らく地域のものであろう打楽器を中心に使用した陽気な音楽。
+生音を使った作曲をこれまでほぼやったことないので苦労すること請け合い。ここで数ヶ月アイデアの寝かせという名の放置。
+往生際が悪いので更に色々調べ回った結果、どうやらサントメ・プリンシペではAfro Houseが流行っているらしい。
+ということで、Puxaの陽気な雰囲気とAfro Houseのシャレオツな雰囲気を混ぜたような楽曲になりました。
+無理なこじつけをせず作れた自分を褒めたいと思います。
+曲名はポルトガル語で島を意味するイーリャにしました。なんか語感が好きだったので。
+BGIは鷲羽山の展望台からの景色です。撮影時の外気温35℃でした。
+地元では瀬戸内海のサントメ・プリンシペと専らの噂です嘘です。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "11"
+artist = "momo★yama (VOCAL:重音テトSV)   URL"
+genre = "PARA PARA"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+]
+production = "非公開"
+comment = "日本のギャル文化とは反対みたいな人生を送っている者ですが、こっちの方向で平成頃の日本を表現しました。"
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "12"
+artist = "ルゼ  (movie : iimo) URL"
+genre = "PANDORA SINGULARITY"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Other"
+tags = [
+    "7Keys",
+    "14Keys",
+    "Lang-JP",
+    "Format-bms62",
+    "Use-ogg",
+    "Use-mp4_movie",
+    "Gimmick-LongNote",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Player-beatoraja",
+]
+production = "／´　　　　∨////　　 　 　 　 　 ＼　　　　　　　　　　　　　　　　　　　　 　 　 　 /　 ＼　　　　　 　 ∨//　　　　　　＼　　　＼　　　　　　　　　　　　　　　　　　　　　_､rｆ:i:i:i:i:i:i:i:iミｈ､.　　　　 　 　 ∨　　　　　 　 　 ヽ　　　　　　　　　　　　 　 　 　 　 　 　 　 ／:i:i:i:i:i:i:i:i:i:i:i:i:i:i:i:i::}h､.　　　　　　　 　 　 　 l.　　 ||／　　　　　　　　　　　　　　　　　　　　　 　 /:i:i:ｉ:/〉' 〉:i:i:i:i:i:i:i:i:i:i:i:i:i:心 ＿＿　　,　　　　　 |　　　　|::､／||　　　　|　　　　　　　 　 　 　 　 　 　 __ -ニ＼}∨/ /:i:i:i:i:i:i:i:i:i:i:i:i:i:i:i:i:i:i.　 .／　 /　 / 　 　 |　　　　|::::＼　　ｌ　　 |　 　 |　　　　　　　　　　　 ／ニﾆﾆ＼ ＼　{／⌒＼:i:i:i:i:i:i:i:i:i:i:i:i／.　′　　　　　| 　 　 ／⌒:::＼ l　　 j　 　 |　　　　　　　　 　 ／ニニニニﾆ}　 ∨　　　　}:i:i:i:i:i:i:i:i:i:i:i:i［二┌―┐　　 :　　　　　|　　 　 |／⌒ヾく　　∥　　 }　　　＿＿　 __／ニニニニニﾆ{　　{＞---彡:i:i:i:i:i:i:i:i:i:i∥ ￣└‐[￣┌―┐　|　{　　　　　j　　 　 ｌ ﾉr,ﾊ　}「l　 √} 　 八ｰ―)ニニニニニニニニニニ乂　＼ ＼:i:i:i:i:i:i:i:i:i:i:i:i:ｉ:/　　　　　 ￣└‐[￣　|　{　 　 　 /　　　 /:乂 ソノ /　/ ノΛ/ ｝＼　｀>ニニニ＼ニニニニニﾆﾆ}　　}｀┘:i:i:i:i:i:i:i:i:i:／　　　　　　　　　　　￣_八 ||＿,／/　　 / /　 ｀＾＾´ /　/／/　　/　 )　　＼ニﾆﾆﾉ――――――┘―^ｰ==ﾆ=‐<　 |八 　 　 　 ⌒￣ 　 　 　 　 /／ //　　 /　　(　　ノニ-￣　　　　　　　　　　　　　　 　 　 　 ＼|　 ＼　　 _,.......　　 ....,,.,　　 ／}／　｝　 ｛　　 ｛_＞''　{{ 　 　　 ` ｰ-=-‐''´　 ｲ　　　}}　｛　　 ＼　{{　　 　 ＞　　 　 ＜　　 　 　:}}　 ｝　　　 ｝　{{ 　　　　　　　}{ 　 　 　 　 　 }}　/　　 ／　{{ 　 　 　 ／ /Λ ＼　　　　 ∥ ｛ 　 /. 八 　 　 {｛　//　||＼ )}　　　/　　｝　｛　　 ＼　　V/ ∥ :||　　　　／　__ノ∨ノ乂＿　 ﾞ''ｰ== ||　 || ==‐''゛ 　 ﾉ　 /　}　 ￣~｀＼___　||　 || --へ彡　／⌒ /⌒～冖～冖へ＿　__ｘ冖～'ﾞ　　 ／　　　　／}ト .,　　　　　 　 ｣ニ｛ 、　　　　 ／　　 ＿∠ﾆﾆＬ＿＿ニﾆﾆニ＝＝ニ｛爻｝ﾆ=--　-く{　 ／ニニニニニニﾆﾆ＼ニニニニニニニニニニニニニ／ニニニニニニニニニﾆ＼"
+audition = ["https://soundcloud.com/luzeria/zeus_i"]
+comment_updated = "2026年08月31日 22:01"
+comment = """
+(2026年08月31日 22:01 更新)
+(2026年08月31日 19:18 更新)
+いけないこはおしおきだ
+これできれいになったね
+666から更に7年経ってしまいました。
+お久しぶりのシリーズ新作です。
+7年刻みで新作を出す、というのを覚えていてくれた方がもしいたら、本当にありがとうございます。
+まだこういうのをBMSという書式でやっていないなと思い立ち制作しました。
+闇だけでは説明できない異常さとか異質さこそが（WWにとっての）自分なのではないかと。
+iimoさんとhi-lowさんにはお忙しい中、制作にご協力いただきました。ありがとうございます。
+流石に初代から7年、さらに7年、その更に7年の21年も経ったこともあり、立ち位置などいろいろ変わる中ですが、何かしら遺せたら嬉しい限り。
+というか計算式は7×4じゃなかったです。どうぞよろしくお願いいたします。"""
+
+[[details.revisions]]
+ver = "4"
+date = "2026/08/31 19:18"
+note = "][ Hqtegf uauvgo oqfkhkecvkqp. Ecv ej kv dghqtg kv'u fkueqxgtgf! ]["
+
+[[details.revisions]]
+ver = "3"
+date = "2026/08/11 20:30"
+note = "SoundCloudの音源を追加"
+
+[[details.revisions]]
+ver = "2"
+date = "2026/08/11 20:10"
+note = "BGAを追加"
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/11 00:04"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "5"
+date = ""
+note = "おそうじを　しました"
+
+[[details]]
+num = "13"
+artist = "ROyama (Ro)  URL"
+genre = "DARKSTEP / kecha"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI(BGA) under construction・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGI",
+]
+production = "チャイヨー・プロダクション"
+comment_updated = "2026年08月12日 00:11"
+comment = """
+(2026年08月12日 00:11 更新)
+(2026年08月11日 00:21 更新)
+(2026年08月11日 00:16 更新)
+(2026年08月11日 00:14 更新)
+ダーク・ウルトラマンがWW2にDARKSTEP / kechaを発射！
+RoはKechaを作りたい心がコントロールできない…
+でも私は日本人のKechaを作りたい心は根本的な精神性だと思っていますよ（ソンポート氏）
+サンプリングパックを死蔵するのがもったいないだけ？そういう解釈は可能です。
+NORMAL ☆6
+HYPER ☆9
+ANOTHER ☆12(sl1相当)
+BLACK ANOTHER ☆12(自惚れるなよ)
+見出しビーム( ∩ ˙-˙ )⊃"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "14"
+artist = "Kanata.S   URL"
+genre = "PsyTrance(Suomi)"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Use-BGI",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+]
+production = "休むという気持ち"
+comment = "6年経ってもやることは一つ、休むんじゃ～い"
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "15"
+artist = "Remixed by NIKANON  (movie : binmode) URL"
+genre = "BreakArt"
+genre_sub = "Remix・Other"
+source = "+i m a z i n e x o+"
+bga = "BGA include・Other"
+tags = [
+    "7Keys",
+    "5Keys",
+    "Other",
+    "File-Append",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-mpeg_movie",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-gorilla",
+]
+production = "非公開"
+comment_updated = "2026年08月12日 23:08"
+comment = """
+(2026年08月12日 23:08 更新)
+(2026年08月11日 00:46 更新)
+"미디어의 상상, 망상, 심연. 그 22년 후."
+NIKANON"-- .- -.. -. . ... ... / .. -. / -- -.-- / .-.. .. ..-. ."
+binmode"미디어는 메시지다 - 마셜 매클루언"
+Mary_Sue"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "16"
+artist = "ohon   URL"
+genre = "Fantasy"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Use-BGI",
+    "Use-ogg",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+]
+production = "( ˘ω˘ )"
+audition = ["https://soundcloud.com/ohonta/ww2-ohon-wandering-wings"]
+comment = """
+自分の中の北欧ケルトのイメージがファンタジーっぽいとか6/8拍子とかで、
+そこそこ長いこと脳内でこんな感じにしたいな～～～というのを考えてたはずが、
+いざ作ってみたらなんか色々広がりすぎるし6/8じゃなくて3/4拍子だしで、作っているうちに最初の想定はどこかに吹っ飛んでいきました。
+曲名はとある自分のリスペクトする作品を元にしていて、略してWWでちょうど良いこともあり採用したんですが、
+一番wanderingなのは自分の作風でしたとさ。
+何はともあれ結果的に普段あまりやらないような作品になったと思います。
+楽しんでいただけると幸いです。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "17"
+artist = "Roxx vs. BASSKNIVES (CODE:CHΛЯOИ n' CΞЯΞZ) (movie : R054 & BASSKNIVES) URL"
+genre = "MILLENNIUM"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Other"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGA",
+    "Use-ogg",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Player-LR2",
+    "Player-beatoraja",
+]
+production = "非公開"
+comment_updated = "2026年08月12日 20:53"
+comment = """
+(2026年08月12日 20:53 更新)
+(2026年08月12日 18:59 更新)
+1999年、一つの隕石が地球に向かってゆっくりと移動しており、ミサイルで打ち砕かれた後、隕石の破片が世界各地に散らばった。
+それらの破片から、人々の想像を超える宇宙生物が現れ、人類に対して大攻撃を開始した。世界各国が連合し、「地球防衛戦」を展開した。
+同時に、ルワンダも他国の支援を受けて対抗を開始した──"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/11 03:00"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "BGAを追加"
+
+[[details]]
+num = "18"
+artist = "4G   URL"
+genre = "ELECTRO BREAKS"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "14Keys",
+    "9Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Use-ogg",
+    "Gimmick-Soflan",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+]
+production = "非公開"
+comment_updated = "2026年09月04日 22:20"
+comment = """
+(2026年09月04日 22:20 更新)
+(2026年08月11日 07:16 更新)
+歴史は苦手だけど歴史を調べるのは好きです4Gです。
+ハイチ革命をモチーフにヴードゥー音楽の要素を入れたブレイクビーツに仕立ててみました。
+パット聴きじゃ全然わからんなこれ。
+曲名がヘンテコですが「荒れ果てた時代から視た見解」という意味を込めてます。曲名がヘンテコですが。
+歴史上の出来事を考えるときは現代の価値観だけではなく、ありとあらゆる当事者の目線を考察すべきだと思うんですよ。
+なので、ただひたすらに起きた出来事を時系列に並べるように作ってみました。BGMっぽさに拍車がかかってますが。
+みんなも自分なりの答えを考えてみようぜな。わたしゃまだ答えのコの字も思いつかねえがな。
+スクラッチとギターはオートメーションとポルタメントの塊だから全部手作業で切りました。
+ギターはともかくスクラッチ562音はしんどい。
+そしていつも通りPMSはノープレーでフィニッシュ。環境ないのねん。
+Q,これほんとにブレイクビーツ？
+A.ちゃんと切り貼りしたブレイクビーツだよ。問題なのは全部BGMに回っていることだけど。
+Q.ピアノの音が割れてる。
+A.最初から割ってるので仕様です。
+Q.なんかLove is gone by sectorηのフレーズが流れてるんだけど。
+A.無関係ではないのでねじ込みました。
+Q,なんでソフランしてるの？
+A.各BPMで起承転結を表したつもりです。上でも書いたように時系列で考えていたので。
+Q.タイトル画像ナニコレ？
+A.生存本能と怒りを抽象化したつもりです。良か素材が3つ見つかりましたのでいつもの調子でまぜまぜキメラ画像。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "19"
+artist = "Emulation System aborted in DYSTOPIA   URL"
+genre = "VIDEO GAME FUSION"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "14Keys",
+    "9Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Use-ogg",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+    "Difficulty-kusofumen",
+]
+production = "非公開"
+comment_updated = "2026年09月04日 22:21"
+comment = """
+(2026年09月04日 22:21 更新)
+テーマは現代神話。娯楽としてのオカルトがシェアワールドとして広まり新たなる神話体系になった。
+考えてみれば大昔の神話も吟遊詩人などが謡うことによる娯楽であったことから、
+現代神話も遠い未来では古典神話となり、また新たな神話が生まれるのであろうか。
+LemurAgeという曲名はレムリア大陸と時代の鞄語です。
+BM68星雲を引いたときはどうしたものかと思いましたがとっさにオセアニアで申請したことが功を奏しました。
+いやまあレムリア大陸はオセアニアではないですがルルイエと縁が深い地域ですからね。
+ということで表現したいことは決まったので以下3点を主軸に据えて制作しました。
+・FM音源を使って娯楽作品的な仕上がりにする
+・突飛なコード進行と不協和音スレスレの編曲を目指す
+・若干のホラーテイストに哀愁感を両立させる
+上手くいってるといいなあ。
+使用素材にエルシャダイのフリー素材があるけど大丈夫だ、問題ない。
+見たことないフォントの権利者は私だ、問題ない。
+ソックリサンガイルケドワタシウチュウジンネ。BM98セウインヲトメニキタダケネ。
+フカクツイキュウスルナラメンインブラックノケイネ。ピカー。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "20"
+artist = "Utuka   URL"
+genre = "Goa Trance"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mpeg_movie",
+    "Use-mp4_movie",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+]
+production = "非公開"
+comment = """
+「催眠術に皆コインとか使うけどさあ、もっと効率良く目を惹く"揺れモノ"があるんじゃな～い？アハハ！」
+<詳細>----------------------------------------------------------------------------------------------
+Events: BMS WORLD WAR ][ (2026年8月)
+Genre: Goa Trance
+Title: Kanabhulo(かなぶーろ)
+Artist: Utuka
+BPM : 145
+[BEGINNER]▽1
+[NORMAL]▽5
+[HYPER]▽10
+[ANOTHER]▽12
+[陶酔10000メートル]st4～5位かなあ……と思っている
+<曲の話>--------------------------------------------------------------------------------------------
+選んだ国 : インド
+インドだしゴアでゴアトランスで行くか(適当)
+ちょっとオートメーション使ったら定義数が凄い事になりました、サイケ系BMS作るの難し過ぎない？
+最近自分の中でサイケがアツいので作ってみました。
+サイケよりさらに古いゴアなのでかなりシンプルにストイックに仕上げてみました。
+リファレンスに色んなサイケを聞きまくったんですがそのせいで長尺に慣れ過ぎて2分半に収めるのに凄い苦戦しました。
+実は定義数足りなくてブレイクの部分が動画版より音が減っている、ごめん。
+<譜面の話>------------------------------------------------------------------------------------------
+[BEGINNER]
+ムービー観賞用譜面
+[NORMAL]
+歯抜け系、アシッド系のフレーズを8分以内に収めています。
+[HYPER]
+やっとアシッド系を全部弾きます。
+[ANOTHER]
+HYPERに足し算した譜面、単に同時押しが増えただけではある。
+[陶酔10000メートル]
+悪意の塊、普段の物量パンチが出来ないので縦連をドカ盛り。
+<BGAの話>-------------------------------------------------------------------------------------------
+チ～チチッチ～おっぱ～いぼいんぼい～ん(BOF2005優勝曲)
+曲作る倍以上苦労しました、アホかな？
+今回は今までと違い、一コマずつちゃんと描いています。
+キャラはカナブーロの女体化(?)
+お便り来てた！
+「なんか最近BGAでのキャラの主張が控えめで寂しいです」
+という事でヤケクソみたいに主張を激しくしました、シンプルデカパイドスケベエロ女を喰らえ～！
+<おまけ>-------------------------------------------------------------------------------------------
+Q.カナブーロってなに?
+A.インドに居る妖怪かなんからしい、催眠してどこかへ連れ去ってしまうらしい。
+催眠拉致妖怪とか絶対エロじゃんね。
+ソースがPixiv大百科しか無かったのでもしかしたら嘘かもしれない。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "21"
+artist = "宮舞モカ / litmus*  (movie : ShakeJ) URL"
+genre = "DRUM 'N BASS"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Other"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mp4_movie",
+    "Gimmick-LongNote",
+]
+production = "非公開"
+comment_updated = "2026年08月14日 00:40"
+comment = """
+(2026年08月14日 00:40 更新)
+(2026年08月14日 00:35 更新)
+3AM
+宮舞モカ / litmus*
+3AM
+미야마이 모카 / litmus*
+「日本語 ver. と韓国語 ver. の同時公開」という企画で制作した楽曲です。
+宜しくお願いします。
+清楚JKモカちゃん最高
+'한국어 버전과 일본어 버전을 동시에 공개하면 어떨까?' 라는 발상에서 나온 곡입니다.
+감사합니다 청초JK모카는커엽다"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/11 14:02"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "KR ver. 追加"
+
+[[details]]
+num = "22"
+artist = "Khibine   URL"
+genre = "Nightfall Jig"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "14Keys",
+    "9Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Use-ogg",
+    "Gimmick-LongNote",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+]
+production = 'ディズニーには"ランド"と"シー"があるのだからら、アイルランドにも"シー"があると思わないかい…？？？アイルシー(？)そんなことよりもちもちふわふわのちっちゃいかわいいｹﾓ'
+comment_updated = "2026年08月13日 19:34"
+comment = """
+(2026年08月13日 19:34 更新)
+(2026年08月12日 13:23 更新)
+譜面内容
+7KEY - BEGINNER：☆2(◆1) / NORMAL：☆5(◆2) / HYPER：☆8(◆4) / ANOTHER：☆11(◆6) /
+OICHE：☆12(◆10) / MEAN OICHE：☆13(◆13) / MARBH NA HOICHE：☆14(◆19?)
+9BUTTON - LIGHT：Lv10 / NORMAL：Lv24 / HYPER：Lv36 / EX：Lv45 / INTEMPESTA NOX：Lv50(●9?)
+14KEY - NORMAL：☆6 / HYPER：☆9 / ANOTHER：☆11(11.6?) / ALL-IRELAND CHAMPION：☆12(12.4?)
+～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+「太陽が沈むと月が現れて、夜がやって来る。これは、そんな何気ない夜のひとときを告げる音楽。」
+またまたアイルランドから、Dia duit!(こんにちは！)  Khibine(ひびね)です。
+前回の開催からもう6年が経つんですね。実を言うと前回のWW_battleも当時はすごい参加したかったのですが、いろいろあって断念していました。
+6年ぶりにまたこのイベントが開催されたということはこれはもう出ないといけないねということで出場しました。
+また、今回からほかの方の手を借りずに作曲を行ったのでちょっと怖い部分もありますが、楽しんでいただければ幸いです。
+ケルト音楽の力で世界を、いや、太陽系もろとも乗っ取ろうと思います。よろしくね
+※動画ですが、YouTubeにアップロードの際に必ず高音のノイズが乗る問題が発生するため後日アップロードします"""
+
+[[details.revisions]]
+ver = "2"
+date = "2026/08/12 13:23"
+note = "BGI, STAGEFILE, バナーを修正しました"
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/11 15:00"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "3"
+date = ""
+note = "Revision 2においてBMSファイルが二重フォルダになっていた問題を修正"
+
+[[details]]
+num = "23"
+artist = "MAKU駆   URL"
+genre = "Trancecore"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mpeg_movie",
+    "Gimmick-LongNote",
+]
+production = "非公開"
+audition = ["https://soundcloud.com/maku-mu5ic/ryokuruzu"]
+comment_updated = "2026年08月11日 17:23"
+comment = """
+(2026年08月11日 17:23 更新)
+テーマは自然と和です。
+BGAで自然、曲で和を表現しました。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "24"
+artist = "Luxa   URL"
+genre = "J-Core"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGI",
+]
+production = "三菱東京USJ"
+comment_updated = "2026年08月29日 21:47"
+comment = """
+(2026年08月29日 21:47 更新)
+."""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "25"
+artist = "7371   URL"
+genre = "GQOM TECH"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "14Keys",
+    "Use-BGA",
+    "Use-wmv_movie",
+    "Difficulty-intermediate",
+]
+production = "非公開"
+comment = """
+いつもありがとうございます。
+7371と申します。
+いきなりアフリカです。
+Detroit以来いつも韓国と日本で活動してましたけど、意外性と共に私のルーツを思い出せる何かがしたくて、
+どんなテーマにするか考えた結果が、GQOMでした。
+ただ、私なりに本当に大変な挑みだったので、これでいいのか迷っています。
+南アフリカの方々が聴いたら、”これのどこがGQOMか！”と言うんじゃないか心配です。
+次は近くで聞きなれてる所に行きたいです・・・
+次のSketchはどこへ行くんでしょう？"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "26"
+artist = "numuto   URL"
+genre = "Trap / HipHop"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・none"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGI",
+    "Use-ogg",
+    "Gimmick-LongNote",
+    "Gimmick-Soflan",
+    "Difficulty-senior",
+]
+production = "FL studio"
+audition = ["https://soundcloud.com/kgisjhy3c6t6/beatbattle-junction"]
+comment = """
+今まで作ったことないジャンルですが、音ゲーらしい曲と譜面を意識しました！
+是非頑張ってください！！！"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "27"
+artist = "FRONTALICE   URL"
+genre = "BAILE FUNK / BASS BOOSTED"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Use-BGI",
+    "Gimmick-LongNote",
+    "Gimmick-Soflan",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+]
+production = "非公開"
+comment_updated = "2026年08月12日 07:39"
+comment = """
+(2026年08月12日 07:39 更新)
+BASS BOOSTED"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "28"
+artist = "初音ミク / litmus*  (movie : directed by litmus*) URL"
+genre = "POP"
+genre_sub = "Disq・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mp4_movie",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+]
+production = "非公開"
+comment = """
+ネギ味のキッス
+初音ミク / litmus*
+宜しくお願いします。"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/12 15:48"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "失格処理適用"
+
+[[details]]
+num = "29"
+artist = "kju8  (movie : Morph) URL"
+genre = "DRUM'N'BASS"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Other"
+tags = [
+    "7Keys",
+    "Use-BGI",
+    "Use-ogg",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+]
+production = "非公開"
+comment = "昔ながらのドラムンベーストラックです。"
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "30"
+artist = "scytheleg   URL"
+genre = "ARTIFACT"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mp4_movie",
+    "Gimmick-LongNote",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+]
+production = "Reason 14"
+comment_updated = "2026年08月13日 00:38"
+comment = """
+(2026年08月13日 00:38 更新)
+人類は、太古から存在する謎の巨大構造物「辿」から得られるエネルギーによって文明を発展させ、その力への依存を深めていく。
+しかし「辿」の異変に気づいた者たちの警告は届かず、世界規模のエネルギー利用が、やがて取り返しのつかない事態を招く。"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/12 23:56"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "BGA動画公開"
+
+[[details]]
+num = "31"
+artist = "DJ Multiverse   URL"
+genre = "RALLY HOUSE"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "5Keys",
+    "Lang-JP",
+    "Use-BGA",
+    "Use-ogg",
+    "Gimmick-LongNote",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+]
+production = "Rallye Automobile Monte Carlo"
+comment = "Rally Houseッテ イイヨネ！！！！"
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "32"
+artist = "Caribbean Oasis   URL"
+genre = "RAGGA-BREAKBEATS"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Use-BGI",
+    "Use-ogg",
+    "Player-beatoraja",
+]
+production = "MECHA TAKAI PC"
+audition = ["https://soundcloud.com/s_route/jamming-jammer"]
+comment = """
+皆さんこんにちボンジュール。
+カリブ海らへんからやってきた、カリビアン・オアシスと申しますデス。
+どうやら国を守るとニッポンへ行く渡航費用が稼げるらしくこれは参戦せねば！とイチネンホッキし
+故郷の音楽がルーツと言われているジャンルをいくつかちゃんぽんして曲を作りましたデス。
+ヤローの声とかキックとかベースとか色んな音の主張を強くして戦闘力を上げたいと思いますデス。
+あ、曲名の意味は特にありませんデス。
+これでハレてニッポンへ行けそうデス！
+夏はヤカタブネに乗って花火を見て、冬はニセコでスキーを楽しみたいと思いますデス。
+フレンズにレトロゲームをお土産に頼まれているのでアキハバラにも用事がありそうデス。
+一番のお目当てはもちろんジーk…これは違ったデス。
+そんなこんなで久しぶりのニッポンを楽しみにしつつ
+永住権をゲットすべく、なるべくこの戦争で稼ごうと思いますデス。
+目指せ億万長者、すごいのが来なくても躊躇なくプラグインが買える財力。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "33"
+artist = "YtzkA   URL"
+genre = "Drukotrance"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Lang-US",
+    "Lang-KR",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mpeg_movie",
+    "Gimmick-LongNote",
+    "Difficulty-craziness",
+]
+production = "FL Studio 2024 / ZGameEditor Visualizer / CapCut"
+comment_updated = "2026年08月16日 17:42"
+comment = """
+(2026年08月16日 17:42 更新)
+こんにちは、YtzkAです。
+今回はULTRA SHUFFLE Lv.4に申し込んだらブータンをひきました。
+ブータンに関して知っているのはヒマラヤ山脈に囲まれた小さいくに、くらいで
+シャッフル結果を見た途端図書館でブータンに関した本を借りに行きました。
+しかし図書館で見つけた本は一冊だけ。
+ということで曲のコンセプトは不思議な国で山登りをするような、自然の音に浸れるトランスにしました。
+曲名のDzongkhaはブータンの首都ティンプーなどで話される言語です。
+ジャンルは基本トランスで、ブータンをイメージして作りましたのでDrukを付けてDrukotranceにしました。
+ちなみにDrukはDzongkha語で「竜」を意味して、ブータンを指す「Druk Yul」は「竜の国」らしいです。
+以前からトランスは作ってみたかったので今回のきっかけで実績を一つ解除した気分です。
+それではこれからもよろしくお願いします。"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/15 02:38"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "BGAの拡張子を修正しました。以前にダウンロードされた方はお手数ですが_bga.mpgを_bga.mpegに修正してください。"
+
+[[details]]
+num = "34"
+artist = "1/8 (サモア諸島エリアファンクラブ)  URL"
+genre = "Tropical pop"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGA",
+    "Use-wmv_movie",
+    "Gimmick-LongNote",
+]
+production = "Synthesizer V 2 買っちゃった☆彡"
+audition = ["https://soundcloud.com/eighth-one/cxmpxjscyrv7"]
+comment = """
+常夏の島々だサモア諸島！
+子供の頃戻ってさぁもう遊ぼう！
+======================================
+-DIFFICULTY-
+NORMAL … ☆5
+HYPER  … ☆10 (main)
+ANOTHER … ☆12
+======================================
+ガチャを引くだけのつもりがちゃんとBMSを作る羽目になったはちぶんのいちです。
+今回のテーマは「早口ラップ×スクラッチ」。テトさんにまたまた歌ってもらいました。
+今回も自信作ですのでぜひ楽しんでいってくださいね。
+======================================
+BGAの砂浜で寝てるテトさんは Nakaiankow さん (https://bsky.app/profile/nkiankw.net) に描いていただきました。
+改めてありがとうございました！"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "35"
+artist = "Aiel eltlinde   URL"
+genre = "Ani-Rock"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "none・none"
+tags = [
+    "7Keys",
+    "Lang-KR",
+    "Gimmick-LongNote",
+    "Difficulty-intermediate",
+]
+production = "非公開"
+audition = ["https://soundcloud.com/aieleltindek/holo-feat-nea-sv2-bms-edit"]
+comment_updated = "2026年08月15日 23:16"
+comment = """
+(2026年08月15日 23:16 更新)
+お久しぶりに挨拶できて嬉しいです。
+神奈川県民のエルトリンディーと申します。
+…噓です。
+コミケのため今は神奈川にいるだけです。
+茶番はここまでですけど、
+およそ十年近くの間、スランプが長くなると不可能の連鎖に入ってしまうという事を学びました。
+曲を作る方法を忘れて、曲を作る心得を忘れて、何が好きで曲を作り始めたのかすら忘れて…
+いつまでもこうしてはいけない、と思って本当に何も考えずに、自分が好きで、したいことが何なのかだけを考えながら作りました。
+タイトルは「ホルロソギ」と発音できると思いますが、「一人で立つ」の韓国語発音を利用したダジャレみたいな言葉遊びですので、「Standalone」など、どれでも好きな形で読んでくださったら嬉しいです。
+21年のPABATで、自分をアニメに例えると第3期のエンディングに対応するとおしゃった事があります。
+今回の曲が第4期のオープニングになって欲しいと思います。
+(それなら今後も色々作らなきゃだめですね；)
+まだまだも未熟者ですが、何卒よろしくお願い申し上げます。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "36"
+artist = "Echa × DawMii   URL"
+genre = "Schtranz"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-US",
+    "Audition-Sound",
+    "Video-sharing",
+    "Format-bms62",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-wmv_movie",
+    "Use-mp4_movie",
+    "Gimmick-LongNote",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-gimmick",
+    "Player-beatoraja",
+]
+production = "REAPERBitwig StudioBlender 5.2nBMSCBmsMaker3beatoraja 0.8.8mBMplayAudacity 3.3.2woslicerIIDaVinci Resolve 21.0.4Shotcut 26.2.26"
+audition = ["https://soundcloud.com/dawmiimusic/phantasm"]
+comment_updated = "2026年08月16日 01:37"
+comment = """
+(2026年08月16日 01:37 更新)
+song: Phantasm
+artist: Echa × DawMii
+movie: Echa
+obj: Echa & DawMii
+genre: Schtranz (Schranz × Trance)
+bpm: 150
+length: 2:35
+region: East Europe
+country: Latvia (ラトビア)
+SP Beginner: ★★★☆☆☆☆☆☆☆☆☆ 3 (obj:DawMii)
+SP Normal: ★★★★★★★☆☆☆☆☆ 7 (obj:Echa)
+SP Hyper: ★★★★★★★★★★★☆ 11 (obj:Echa)
+SP Another: ★★★★★★★★★★★★ 12 (obj:Echa)
+DawMii: "GrasS"
+https://x.com/DawMiiMusic
+Echa: "Hope you enjoy the work we crafted! Special thanks to DawMii for making the track!
+I also could have gotten this within Base36, however, the main trance arp ended up having automations that had different curves, so I ended up slicing each individual note... I apologize for that!"
+https://x.com/echa_omega"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/15 23:13"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "Changed the comment a bit."
+
+[[details]]
+num = "37"
+artist = "立秋 feat.ちょこ  (movie : 石王マサト) URL"
+genre = "夏"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mpeg_movie",
+    "Use-mp4_movie",
+    "Gimmick-LongNote",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+]
+production = "非公開"
+comment = "これが最高の夏です"
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "38"
+artist = "空読無 白眼   URL"
+genre = "Kora and Djembe"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "-----",
+]
+production = "(~)　　　　　　　　＿　 γ´⌒｀ヽ ＿　　　　　　<⌒＼＼ {i:i:i:i:i:i:i:i:}＼＼　　　　　／＞、　＼（´・ω・｀）　＼＼　 　このようふく　　　　./￣ー　＼　旧￣￣￣＼、旧> 　 しまむらで買ったんだ。　　　　(▼＿,)__/ ノ /　　ー　　ーﾉ_/　　　　/^´　/　/ン　Y　　　　　▼＼＼_＿＿_　ノ2　 ,、　　　 /　　/　/＼彡人　　、＿人_.ノ　./|　　/Yンチ彡j　　　iｷ　 /=/　　　＼__|泪＿＿乍　＼|||￣ |（⌒Y,zぅ´　　　l/￣|￣|　　　　.|_||_{三|三}.|_、　　￣￣＾~￣　　　|　　|＿|　　／￣|＾＾ ー ＾ ー）>、　　　|_＿|＿|.　く／/三ト、　　▼ |キ」　　　 /　,くﾕ、 |∠./　　　|＼__人/｀|　　　 l＝ﾄﾀﾌﾘ　＼_|　　　|　|::||:::|　/　　　 ｀～一´　　　 |　　　|　|＼/_/　　　　　　　　　　　.|__　　|　|　//　　　　　　　　　　　_匡ン￣|ｷﾉ｀7　　　　　　　 　　　||　＼ノ_|__/v/　　　　　　　　　 　||　　|　.|、_/　　　　　　　　 　　|＼ノ|　_|/　　　　　　　 　　/　|　　|___|　　　　　　　　 　|ヽ|__／＼|、　　　　　　　　 　^＼ト＼_　い"
+comment = """
+ガンビアの伝統楽器であるジャンベとコラで作った曲です
+イルなグルーヴを奏でました（無印良品並みの説明）"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "39"
+artist = "Ryu0316 a.k.a. 竜。 (彩作虚空浪漫)  URL"
+genre = "Artcore"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Use-BGI",
+    "Use-ogg",
+    "Gimmick-Soflan",
+]
+production = "非公開"
+audition = ["https://soundcloud.com/ryu0316/nemesis"]
+comment_updated = "2026年09月21日 00:17"
+comment = """
+(2026年09月21日 00:17 更新)
+(2026年09月18日 18:23 更新)
+ネメシスは、ギリシア神話に登場する女神である。
+人間が神に働く無礼に対する、神の憤りと罰の擬人化である。
+ネメシスの語は元来は「義憤」の意である。
+__
+曲調名義のコンセプトとしてはとある複数人をリスペクトしたロマンの塊のようなものを作ろうとしたが、
+曲の良し悪しは置いといて、その方々の足元にも及ばず、なんだか別のキメラが出来上がったなと、お先に反省会。
+ギリシャ！？強いて言うならJapan styleなArtcoreなのにギリシャ！？ それは、その、諸事情で..."""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/16 00:14"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "ダミーにしたままの本名義を修正"
+
+[[details]]
+num = "40"
+artist = "Gub   URL"
+genre = "[microwave]"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "5Keys",
+    "Other",
+    "Difficulty-beginner",
+    "Difficulty-gimmick",
+    "Player-beatoraja",
+]
+production = "iBMSC"
+audition = ["https://soundcloud.com/snazbe/heat"]
+comment_updated = "2026年08月16日 13:50"
+comment = """
+(2026年08月16日 13:50 更新)
+(2026年08月16日 12:45 更新)
+Heat. Heart. Beat. Beep. Melt. Death. Rebirth.
+このBMSの楽曲は、私が制作したオリジナルの楽曲とは別バージョンです。譜面をプレイする際の体験と楽曲の印象に違いを持たせるため、あえて異なるものにしました。
+The audio of this BMS is a separate version than the original composition I made. It was a thematic choice to differ the song from the experience playing the chart."""
+
+[[details.revisions]]
+ver = "2"
+date = "2026/08/16 12:45"
+note = 'Added "OTHER KEY FORMATS" tag for players who consider turntables a key input.'
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/16 11:03"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "3"
+date = ""
+note = "Provided link to YouTube video."
+
+[[details]]
+num = "41"
+artist = "D11X (なんでも製ｍもうみみょ子でよくない～？)  URL"
+genre = "ULTRA CUTE 3"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "9Keys",
+    "Lang-JP",
+    "Use-BGA",
+    "Gimmick-Stop",
+    "Gimmick-Soflan",
+    "Difficulty-beginner",
+    "Difficulty-kusofumen",
+    "Difficulty-gimmick",
+]
+production = "ラーメン"
+comment = """
+前回の地球侵攻以降、実はフツーに地球(および近郊宙域)に居座っているみみょ子。
+グループチャットでまた地球侵攻やろうぜ～の流れになり、みみょ子も準備を開始。
+今回はどんな譜面で地球人を苦しめるのか――。
+みみょ子だよ☆みんな元気にしてた？？
+またまた地球侵略しちゃうから、みんなよろしくね☆
+(みみょ子の保護者より)
+また機会いただけて光栄です。今回も地球人のみなさんを小馬鹿にするような BMS が出来上がりました。
+素晴らしい他作品の合間に是非ご賞味ください！Shift+Delete はやめてください！！
+↓攻略のヒント
+ハイスピは 150BPM 合わせで概ね問題ないはずです。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "42"
+artist = "イキリオタク   URL"
+genre = "新たな民族音楽の模索"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGI",
+    "Use-ogg",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+    "Difficulty-gorilla",
+    "Player-beatoraja",
+]
+production = "やはり制作環境、制作環境はすべてを解決する"
+audition = ["https://soundcloud.com/beatmaniauet-1/gushitek"]
+comment = """
+元ネタ : The Golden Eggs 1話
+東方コピーbmsの発狂譜面みたいになってますが仕様です。人間はBeginner-をやるといいんじゃないかな。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "43"
+artist = "限界オタク   URL"
+genre = "Techno Vienna / Minimal Techno"
+genre_sub = "Remix・Self"
+source = "剣の舞"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Lang-DE",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mp4_movie",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Player-beatoraja",
+]
+production = "ここは　ニンニク　健康家族"
+audition = ["https://soundcloud.com/beatmaniauet-1/schwerttanz"]
+comment = "ハチャトゥリアンってロシア人だからあんまり関係なかった でもオーストリアの荘厳なクラブでかかってそうな曲を作れて満足です"
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "44"
+artist = "オタク   URL"
+genre = "Melodic DnB / 4x4"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Lang-US",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mp4_movie",
+    "Gimmick-Soflan",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Player-beatoraja",
+]
+production = "オタクに優しい純子先輩"
+audition = ["https://soundcloud.com/beatmaniauet-1/sexonthebitches"]
+comment = "オタク君さぁ"
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "45"
+artist = "限界イキリオタク   URL"
+genre = "Tropical House"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Lang-US",
+    "Audition-Sound",
+    "Video-sharing",
+    "Format-bms62",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mp4_movie",
+    "Gimmick-Random",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Player-beatoraja",
+]
+production = "エアコンの音とかヘッドホンからの音漏れとか全部RXがやってくれる　俺は信じてるからな"
+audition = ["https://soundcloud.com/beatmaniauet-1/peaceofworld"]
+comment = """
+Vocal宅録しんどい侍
+たまに中の人の歌唱verが当たります
+中の人「なんで？？？？」"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "46"
+artist = "風間賢二   URL"
+genre = "due tomorrow"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Gimmick-LongNote",
+    "Gimmick-Soflan",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+]
+production = "いつもの"
+comment = "ちょっと雑でごめんだけど、楽しんでもらえると嬉しい"
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "47"
+artist = "PinK-NoiZ ElephanT   URL"
+genre = "UK Bassline"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Lang-US",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mp4_movie",
+    "Gimmick-LongNote",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Player-beatoraja",
+]
+production = "だんぼっちDXほしい"
+audition = ["https://soundcloud.com/beatmaniauet-1/cantstoptimeever"]
+comment = """
+Pink Elephant = PinK-NoiZ ElephanT
+ロング版はどっかで出すと思う多分ヨロシク"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "48"
+artist = "4983  (movie : SmiGoon) URL"
+genre = "MacGuffin"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Other"
+tags = [
+    "5Keys",
+    "Lang-JP",
+    "Lang-US",
+    "Lang-KR",
+    "Audition-Sound",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mpeg_movie",
+    "Use-mp4_movie",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+]
+production = "非公開"
+audition = ["https://soundcloud.com/macguffin4983/world_war_2_macguffin26"]
+comment_updated = "2026年08月16日 21:13"
+comment = """
+(2026年08月16日 21:13 更新)
+【4983】
+こんにちは、4983です！2014年の戦[sen-goku]國 〜甲午の乱〜以来久しぶりに参加することになりました。その間元気に過ごしていましたか？今回の曲はMacGuffin #26、普段主に作っているTechno系ではなくHARD DANCE風の曲として参加しました。
+もともとは本当に久しぶりにInnocent Wallsを聴いて「私もこんな曲を作りたい」と思い取り組み始めました。しかし、作れば作るほど元のモチーフから遠ざかり曲の雰囲気がHARD DANCEに近づいてきたため悩んでいるうちに「そういえばHARD DANCEと言えばSTELLAR WINDではないか！」と思い、方向性を変えたという事情があります。
+前述の通り今回の曲はL.E.D.先生のHARD DANCEやHARD TRANCE系の楽曲、そしてHARD DANCEというジャンルで公開された複数の曲を参考にして制作しました。リファレンス一を基に私のスタイルを表現しましたが、いかがでしょうか、似ていると感じますか？最初の意図とは違いましたが、結果的に主に使っていたTechnoから外れたジャンルを作れたので新鮮な気持ちで楽しかったです！
+特にKickサウンドは当時L.E.D.先生が使用していた音を参考にし似たように再現しようと心血を注いだ結果、なかなか似たサウンドが作れました。そしてこの過程で本当に多くのことを学んだので本当に良かったと思います。
+譜面とBGAは今回も同様にSmiGoonさんが作成してくださいました。今回はBGAを他の方に依頼しようとしたのですが募集がなく急いでSmiGoonさんにお願いしたところ、急いでお願いしたにもかかわらず期限内に完成していただきました。本当にありがとうございます！
+それでは、今回のBMSも楽しくお楽しみください！
+私の作品の2次創作に関するガイドラインを私のツイッターのメインツイートに設定しましたので、ぜひご参考ください！
+この曲のリファレンス一覧は以下の通りです：
+STELLAR WIND - L.E.D.
+THE DOOR INTO RAINBOW - L.E.D.
+Innocent Walls - TaQ
+Time 4 Dance - RedFOX
+【SmiGoon】
+こんにちは、SmiGoonです。4983さんと同様に久しぶりに参加することになりました。もともとはBMSとして参加しようと思っていましたがいろいろな事情で結局今回はサポート役として参加することになりました。
+ある時点からMacGuffinシリーズの譜面が似通って定型化したように感じて悩んでいましたが、4983さんが私の意見を聞いてくださり、今回は曲やキー音の抽出などに少し変化を加えて少し違う雰囲気で譜面を作ることができました。ドラムループを細かくカットしたり、SFXを活用できるようにしたり···些細な違いなので大きく感じないかもしれませんがおかげで私はスムーズに作業できました。ありがとうございます、4983さん。
+BGAは本当に久しぶりにbeepleさんの公開ソースを活用しました。以前2016年に一度使ったのが10年ぶりですね。4983さんが求めていた色味とイメージがあったのでそれに合わせるためにできるだけ合う素材を中心に編集したのですが、私の動画編集技術があまり優れていないため完璧に表現できなかったことが少し残念です。動画編集を学ばなければならないのか···
+それでは、今回もどうぞよろしくお願いします。
+【出典表記】
+タイトル画像と映像はbeepleさんが作成したソースを活用して制作されました。
+https://www.beeple-crap.com/"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "49"
+artist = "kozato   URL"
+genre = "JP-Spiritual"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mp4_movie",
+    "Player-beatoraja",
+]
+production = "非公開"
+audition = ["https://soundcloud.com/pwsl/inori"]
+comment = """
+仏教の護摩行のように、炎の中に願いを託して祈る。
+あるいは
+東大寺のお松明のように、祈りの傍に炎がある。
+今回は炎と共にある祈りをテーマに制作してみました。
+あわせて曲名もストレートに「祈（いのり）」としてみました。
+いつもとちょっと違う和風楽曲っぽさを楽しんでいただければと思います。
+やーやーおひさしぶりですどーも。
+最近すっかり出番のないkozatoです。ちゃんと生きてます。
+BMSづくりもすっかりご無沙汰で、現行仕様に抗うかのように旧式武装でカチコミです。
+BOFだとチームになっちゃうので、なかなかスケジュールが怖くて参加できないのですよね…
+ということで久しぶりのイベント参加でございます。
+かなり突貫スケジュールだったのですが、そんななか譜面制作を引き受けてくださったFLR氏に感謝しかありません…"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "50"
+artist = "uet   URL"
+genre = "Hardtek"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Lang-US",
+    "Audition-Sound",
+    "Video-sharing",
+    "Format-bms62",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mp4_movie",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+    "Player-beatoraja",
+]
+production = "Kaleidobeatは是非流行ってほしい　もちろんbmzやorajaも追っていくで"
+audition = ["https://soundcloud.com/beatmaniauet-1/brokenmyempire"]
+comment_updated = "2026年08月18日 16:58"
+comment = """
+(2026年08月18日 16:58 更新)
+今回からLR2は完全に切りましたゴメンナサイ！対応プレイヤーでプレイしてね オススメはKaleidobeat 出音が良い
+コンピレーションからの参戦です！かなり音数多くなったので頑張れ少年！
+Long ver DL(Part of Compilation) : https://xeudocentrismwhoever.bandcamp.com/album/illegal-rule-2-hardtek
+(後ほど別方作成の黒譜面を追加予定です)
+SANYPAROの黒譜面がやってきたぞ
+SANY「むずかったらごめん」
+※既に導入している場合は([SP Emperor]chart only)のほうをdlして差分のみ入れてください！
+新しくdlする方は(All chart included)で大丈夫です！"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/16 21:08"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "7Keys譜面に[SP Emperor]を追加。"
+
+[[details]]
+num = "51"
+artist = "Chai the Tea   URL"
+genre = "SILLY HAPPY"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Use-BGI",
+    "Use-ogg",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Player-beatoraja",
+]
+production = "FL STUDIO, ASEPRITE, BMSMAKER 3"
+comment = """
+hello!
+kamelåså
+if there are any issues with the bms, please contact me
+contact
+bluesky: bsky.app/profile/chaj.me
+discord: chaithetea
+mail: chaithetea@proton.me
+content
+SP INSANE   -  7★
+SP ANOTHER  -  12☆
+SP HYPER-  9☆
+SP NORMAL   -  5☆
+SP BEGINNER -  2☆"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "52"
+artist = "utzbo  (movie : ムッシュ竹崎) URL"
+genre = "Celtic Drum'n'Bass"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Other"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Video-sharing",
+    "Format-bms62",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-wmv_movie",
+    "Use-mp4_movie",
+    "Gimmick-LongNote",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Player-beatoraja",
+]
+production = "非公開"
+audition = ["https://soundcloud.com/utzbo/scath"]
+comment_updated = "2026年08月23日 20:31"
+comment = """
+(2026年08月23日 20:31 更新)
+(2026年08月18日 22:09 更新)
+BAECONさんによる発狂譜面を同梱しました。
+本体ダウンロード済みの方は発狂譜面単品をダウンロードしてください。
+(2026年08月17日 01:41 更新)
+！！！注意！！！
+当BMSは62進数定義です。対応したプレイヤーで遊んでください。
+BMS上のタイトルは仕様上「Scath」となっていますが、正式タイトルは「Scáth」です。
+コメント
+カンフーがちょっとよく分からなくなったのでダークでケルティックなドラムンベースを感じてください。
+タイトルはスカーって読みます。アイルランド語で影を意味するそうです。
+Beatorajaにて動作確認済みです。"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/16 22:53"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "譜面を追加"
+
+[[details]]
+num = "53"
+artist = "金ラメタキシード   URL"
+genre = "DAWN RESONANCE"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・none"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Use-ogg",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+    "Difficulty-kusofumen",
+    "Player-LR2",
+]
+production = "自宅"
+audition = ["https://soundcloud.com/dzsypbmmmjab/impulse?si=caa82e92cb764b19bee5a01fef8ca38a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"]
+comment = """
+BMS界の麻雀星人として引き続き地球を侵略しに参りました。
+みんな、麻雀しようぜ！
+という茶番はおいといて、
+今回の楽曲は架空のOVAアニメ「暁のレジスタンス」の挿入歌より「Impulse -暁焔-」となります
+曲名の由来は歌詞の「紅蓮の衝動」から取って「Impulse -暁焔-」 としました。
+OP「Stellar Ignition」やED「暁ノレジスタンス」、
+敵ヒロインのテーマソング「Reversal=Arca」といった候補もあるにはありましたが
+このイベントにはこの曲が相応しいので「Impulse -暁焔-」で参戦します。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "54"
+artist = "Resonant Noosphere Yggdrasil   URL"
+genre = "Space Core"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Use-BGI",
+    "Use-ogg",
+]
+production = "非公開"
+audition = ["https://soundcloud.com/rny-606848354/caloris"]
+comment_updated = "2026年08月17日 00:14"
+comment = """
+(2026年08月17日 00:14 更新)
+「Resonant Noosphere Yggdrasil」とか一体どういう意味？ 私もよく分かりません。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "55"
+artist = "潮音きつね   URL"
+genre = "AFRO FOOTRONICA"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "14Keys",
+    "Use-BGA",
+    "Use-wmv_movie",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+]
+production = "非公開"
+comment_updated = "2026年08月17日 01:49"
+comment = """
+(2026年08月17日 01:49 更新)
+========
+あとがき
+ジャンルが決まった日の夜、友人のDavidsanと話していたら、「ジンバブエ音楽はやりやすいよ。Kalimbaをたくさん使えばそれっぽくなるから」と教えてもらいました。
+そのあと少し調べてみたら、ジンバブエの伝統音楽って、Mbira(Kalimbaの先祖のような楽器)一つとシェイカー一つだけでも成立するんです。
+でもそれだけじゃなくて、もっと複雑な曲を作りたいなあ．．．
+まずは良いムビラのサンプルパックを探そう！と思っていろいろ探したのですが、結局どれもしっくり来ませんでした。
+代わりに、Kalimba職人さんにお願いして、ジンバブエで実際に使われているような、ビール瓶の栓を使ったジリジリとした響きが加わるパーツを付けたムビラを特注してもらいました。(その職人さんとはすっかり仲良くなって、その後はムビラ録音専用のプリアンプまでお願いして作ってもらいました。）
+そして、とても暑い夏の夜、エアコンを切って、ムビラを録音しました。
+本当に死ぬほど暑かった！
+ビジュアル面については、最初はまったくアイデアがなくてネットでネタを探していました。すると、海外でとんでもない高額面のジンバブエドル紙幣がプリントされたTシャツを見つけて、「これだ！」と思い、そのまま通販で特注して、撮影用の素材にしました。
+最後に、なぜFootworkを選んだのかという話ですが、Footwork自体がサンプリング遊びと相性のいいジャンルだからです。さらに、どこかエスニックな雰囲気もあって、アフリカというテーマにもぴったりだと感じ、このスタイルを選びました。
+そんなこんなで、最終的にはなんだかすごく変な作品になりました（笑）
+========
+譜面情報
+SP NORMAL ☆4
+SP HYPER ☆10
+SP ANOTHER ☆12
+DEFLATE (obj. Colorful Train) ★20/st1
+HACKER (obj.Zethiwo) st10
+DP ECO (obj.shan)"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "56"
+artist = "THE ENTIRE EARTH   URL"
+genre = "holy moly"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Lang-US",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-wmv_movie",
+    "Use-mp4_movie",
+    "Gimmick-LongNote",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Player-beatoraja",
+]
+production = "Bitwig 6, Blender 5.2"
+audition = ["https://soundcloud.com/pckv/life-in-the-cosmos"]
+comment = """
+コスモスは大変です
+これは二回目Blenderを使いました。面白いソフトで、本当に自分の力が強いの感じですね！
+https://bsky.app/profile/pckv.me
+https://youtube.com/@pckv"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "57"
+artist = "K4Y5   URL"
+genre = "slowlife"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Use-ogg",
+]
+production = "UVIのWorld SuiteとReaperとBMSMaker3本当にありがとう"
+audition = ["https://soundcloud.com/k4y5z/ihbhivj4p2ir?si=802d2da0e87a47a9bf56be16ed7a4279&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"]
+comment_updated = "2026年08月21日 22:14"
+comment = """
+(2026年08月21日 22:14 更新)
+(2026年08月21日 22:13 更新)
+長期休暇にスローライフを楽しもう！"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/17 00:36"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "SoundCloudのURLを追加しました。"
+
+[[details]]
+num = "58"
+artist = "DJ SAYSO48   URL"
+genre = "JAPANESE CINEMATIC HARDCORE  MEETS PSYCHO"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGA",
+    "Use-mp4_movie",
+    "Gimmick-LongNote",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+]
+production = "mettyakannsyaitumoarigatoMEGAPCorennjinoyattu"
+audition = ["https://soundcloud.com/kireina-city-933123681/japanese-maidclub-ww_battle2?si=9264fb0c63614b2b8b94c876ee217001&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"]
+comment_updated = "2026年08月18日 21:24"
+comment = """
+(2026年08月18日 21:24 更新)
+※ANOTHER譜面にて動画が再生されず、意図しないタイミングで音が鳴ってしまうミスがありました。以前にダウンロードされた方はお手数ですが上記リンクより差し替えをお願いします。
+(2026年08月18日 19:32 更新)
+(2026年08月17日 15:40 更新)
+ジャンル   : JAPANESE CINEMATIC HARDCORE MEETS PSYCHO
+タイトル   : JAPANESE MAIDCLUB
+アーティスト: DJ SAYSO48
+BPM : 204
+レベル
+【7keys】
+・NORMAL☆5
+・HYPER☆９
+・ANOTHER☆11
+・INSANE☆０
+__
+サイバーパンクな作品やちょとホラーなフリーゲーム、昔の映像作品にありがちなハッピーエンドじゃ
+すまされない、なんとも考察のしがいがあるものが大好きなんですよね...
+これもある意味NIPPON人独特の感性かと思い、全力で怪しさ満点のHARDOREを仕上げました。
+メイドは趣味です。"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/17 15:20"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "作品を修正"
+
+[[details]]
+num = "59"
+artist = "Darknoid   URL"
+genre = "LOST CENTURY"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Use-ogg",
+    "Difficulty-beginner",
+]
+production = "制作期間実質2日くらいです^q^"
+comment_updated = "2026年08月17日 20:35"
+comment = """
+(2026年08月17日 20:35 更新)
+封鎖された国家。それはユートピアか、それともディストピアなのか。
+過ぎ去ったとある「未来」の物語。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "60"
+artist = "Juka_Box remixed by ALL NERD IS LOVE  (movie : Morph) URL"
+genre = "FUNKOT REMIX"
+genre_sub = "Remix・Self"
+source = "-----"
+bga = "BGI only・Other"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Format-bms62",
+    "Use-BGI",
+    "Use-ogg",
+    "Difficulty-beginner",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+]
+production = "非公開"
+comment = "インドネシア音楽好き好きマン"
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "61"
+artist = "C.miler   URL"
+genre = "Belizean Punta"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Use-ogg",
+]
+production = "Cakewalk"
+comment_updated = "2026年08月18日 00:51"
+comment = """
+(2026年08月18日 00:51 更新)
+(2026年08月17日 23:34 更新)
+[楽曲情報]
+Title : PPP
+Genre : Belizean Punta
+BPM : 144
+Music/BGI/BMS : C.miler
+[コメント]
+初めましての方は初めまして、C.miler(キマイラ)と申します。新しいジャンルに触れる機会をくれたこの戦いに感謝。
+[譜面情報]
+[SP NORMAL] : ☆☆☆☆☆☆ [6]
+[SP HYPER] : ☆☆☆☆☆☆☆☆☆☆ [10]
+[SP ANOTHER] : ☆☆☆☆☆☆☆☆☆☆☆☆ [12]"""
+
+[[details.revisions]]
+ver = "2"
+date = "2026/08/17 23:34"
+note = "登録情報を修正しました。"
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/17 23:29"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "3"
+date = ""
+note = "試聴音源を公開しました。"
+
+[[details]]
+num = "62"
+artist = "Trantech   URL"
+genre = "Post progressive"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mpeg_movie",
+    "Difficulty-intermediate",
+]
+production = "非公開"
+comment = """
+お久しぶりです。Trantechです。
+曇りって良いですよね。
+淀んでて。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "63"
+artist = "TRIAL  (movie : ShakeJ) URL"
+genre = "134340"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Other"
+tags = [
+    "7Keys",
+    "9Keys",
+    "Lang-JP",
+    "Audition-Sound",
+    "Video-sharing",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-wmv_movie",
+    "Use-mp4_movie",
+    "Gimmick-Stop",
+    "Gimmick-Soflan",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+    "Difficulty-craziness",
+    "Difficulty-gimmick",
+    "Player-beatoraja",
+]
+production = "New Horizons"
+audition = ["https://soundcloud.com/trialsuperbeats/pluto"]
+comment = """
+ずっと見てるよ
+※タイトルが環境依存文字の為、BMSファイルのタイトルはPluto表記になっています※
+※譜面のギミック作成に辺り、ratさんに色々とご教授して頂きました。本当に有難うございます※
+※BGAの明滅が激しい為、同梱版のBGAはグレーの透過をかけています。YouTubeと同様の明るさのBGAを利用したい方は、ダウンロードページより別途mp4をダウンロードして差し替えて下さい※"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "64"
+artist = "KidZ G   URL"
+genre = "AMAPIANO (3 STEP)"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "5Keys",
+    "Lang-JP",
+    "Lang-US",
+]
+production = "非公開"
+comment_updated = "2026年09月09日 21:41"
+comment = """
+(2026年09月09日 21:41 更新)
+（追記）
+無用な混乱を防ぐため、譜面の追加等はイベント終了後とします。
+許せ、地球の方。
+諸事情により制作の時間が全く足りなくなり、過去の遺産を総動員してどうにかこうにか最低限の形にはできた。
+追加譜面制作中、しばし待たれよ。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "65"
+artist = "scytheleg (nob unrelented)  URL"
+genre = "LOUD"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Use-BGA",
+    "Difficulty-intermediate",
+    "Difficulty-kusofumen",
+]
+production = "非公開"
+comment_updated = "2026年09月21日 01:52"
+comment = """
+(2026年09月21日 01:52 更新)
+イベントお疲れ様でした！かまたりです。
+当地域（ケルゲレン諸島）は高緯度故に偏西風の勢いがめちゃくちゃ強く、南極へと向かう際の障壁となる
+「狂う50度」という暴風を常に受け続けるというとんでもない地域です。
+BPM2桁のFLASHCOREを作ろうといろいろ試行錯誤してたら、キック連打の要素は残りつつアンビエント方面に脱線していき
+いつの間にかこんな事になってました。
+惜しむらくは譜面を用意する時間がもうちょい取れてたら…と思いつつ、やりたいことはできたので満足です。
+ありがとう！
+気がついたらこんなところにいた。
+とても寒い…そして周囲にペンギンしかいない。どこだここは…？
+ああ、
+－とても風がうるさい。－"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "66"
+artist = "Nilmarese   URL"
+genre = "rotterdam TACOno"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Use-ogg",
+    "Gimmick-LongNote",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Player-beatoraja",
+]
+production = "The k4sen conのフードエリアファーストキャビン秋葉原所沢駅内のワークブース投稿当日に行ったタコス屋"
+audition = ["https://soundcloud.com/nilmarese/wrap-everything"]
+comment_updated = "2026年08月19日 20:10"
+comment = """
+(2026年08月19日 20:10 更新)
+(2026年08月19日 20:08 更新)
+!!!The following content was generated by AI 以下のコンテンツはAI生成を利用しています!!!
+Vocal sample（ボーカルサンプル）
+Image（like tortilla）（画像（トルティーヤ）
+無名系イベント以外で初のオリ曲BMSです！
+タコス！！！！！！！！！！！！！！！！！！"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/18 23:11"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "SoundCloudへアップロードしました"
+
+[[details]]
+num = "67"
+artist = "2:00 + Atomic Sphere   URL"
+genre = "DRUM'N'BASS MIX"
+genre_sub = "Remix・Self"
+source = "-----"
+bga = "BGA include・Self"
+tags = [
+    "5Keys",
+    "10Keys",
+    "Lang-US",
+    "Use-BGA",
+    "Use-ogg",
+    "Use-mpeg_movie",
+    "Use-mp4_movie",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+]
+production = "非公開"
+comment_updated = "2026年08月19日 16:00"
+comment = """
+(2026年08月19日 16:00 更新)
+-In Sleepin' Beep (DNB MIX)-
+"――幾度心折れようとも、針を進めよう。在るが為に……――"
+1998年制作の楽曲変更差分BMSをDNBリミックスしました。
+古の記憶が復活するようなイメージでしょうか。
+今のGoogleさん凄くて、曲名で検索したらちゃんと情報出ました。差分曲やぞ…。
+EASY EDITと称して、NORMAL譜面は少しだけイントロが変わります。
+イントロ部分の乱打は流石に難しいと思ったので、削ったところ、原曲っぽくなりました。
+違和感なく繋がってるかなと思います。
+※一時間前の滑り込みでマジすみません…
+（1日延長あって助かりました…)"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/18 23:17"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "Youtubeに動画を追加しました。"
+
+[[details]]
+num = "68"
+artist = "Lalio   URL"
+genre = "vatn"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Lang-US",
+    "Lang-KR",
+    "Use-BGI",
+    "Use-ogg",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Player-beatoraja",
+]
+production = "非公開"
+comment = """
+Lalioと申します。いつもありがとうございます.
+アイスランド語で「renna」は、時間や液体が流れることを意味したり、雪の上で滑ることを意味したりするそうです。
+これからもよろしくお願いします.
+機械翻訳を使用した文です。 ぎこちないところがあれば申し訳ありません"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "69"
+artist = "130 (社会の歯車)  URL"
+genre = "PSYCHEDELIC"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "none・none"
+tags = [
+    "5Keys",
+    "-----",
+]
+production = "生活騒音"
+comment = """
+忙しいあわよくば
+まだ壊れてないだけのradio"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "70"
+artist = "Yumul Onishi   URL"
+genre = "MELODIC PROGRESSIVE HOUSE"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "none・none"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Use-ogg",
+    "Difficulty-beginner",
+]
+production = "GarageBand"
+comment_updated = "2026年08月19日 00:33"
+comment = """
+(2026年08月19日 00:33 更新)
+メロディックプログレッシブハウスに挑戦してみました。
+初めて作りましたがこんな難しいジャンルと思いませんでした。
+とにかくいらんことするとすぐ破綻する。
+ピアノバッキングをいれてみよう！ → 普通のハウスになる
+アタック感をおさえてみよう！ → ディープハウスになる
+アタック感を強めてみよう！ → トロピカルハウスになる
+リズムをくずしてみよう！ → エレクトロニカになる
+くりかえしすぎだな・・・コード進行を変えてみよう → おちつかなくなる
+転調させてみよう → おちつかなくなる
+テンポを速くする → トランスになる
+スネアロールでビルドアップだ！ → トランスになる
+シンバル シャンシャンシャン → トランスになる
+声ネタ入れる → 蛇足感半端ない
+粉飾できない分、旋律と構成に集中するしかない、作ってみて面白いジャンルでした。
+いつかもう一度作ってみたいです。
+難儀しすぎて譜面１個しかつくる時間ありませんでした。差分で追加するかもです。
+余談ですがアルゼンチンはプログレッシブハウスがさかんらしいです。"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "71"
+artist = "なんと正体はNECOXでしたッー！ (自然派ママみNECOX)  URL"
+genre = "非常に軽い"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+]
+production = "限定公開"
+comment = """
+World Foon ][
+誠に開催お目出度う御座いま酢"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/18 23:55"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "ネタバレ防止"
+
+[[details]]
+num = "72"
+artist = "last   URL"
+genre = "JUNGLE"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI(BGA) under construction・Self"
+tags = [
+    "7Keys",
+    "Lang-JP",
+    "Use-ogg",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+]
+production = "過酷で劣悪死の行進"
+comment_updated = "2026年08月20日 21:09"
+comment = """
+(2026年08月20日 21:09 更新)
+(2026年08月19日 00:12 更新)
+不要フォルダの削除を行いました。
+(2026年08月19日 00:02 更新)
+現在BGA制作中にて、仮データとして過去作の映像を使用しております。
+なので本データが完成するまではBGAは無視していただければです。"""
+
+[[details.revisions]]
+ver = "1"
+date = "2026/08/18 23:58"
+note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "重大なミスの修正"
