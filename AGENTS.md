@@ -20,7 +20,7 @@ manbow 页面解析全部采用断言式表头/字段匹配：列名或字段行
 
 - `cargo clippy --workspace --all-targets` 零警告（pedantic deny 配置在根 Cargo.toml 的 workspace lints）
 - `cargo fmt --all --check` 干净
-- Conventional Commits：`type(scope): subject`
+- Conventional Commits：`type(scope): subject`，提交信息用简体中文（type 与 scope 保留英文）
 
 ## 诊断注意
 
