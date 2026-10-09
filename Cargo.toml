@@ -6,7 +6,7 @@ default-members = ["fetcher"]
 [workspace.dependencies]
 # HTTP客户端和异步运行时
 reqwest = "0.12"              # HTTP客户端
-tokio = { version = "1", features = ["rt-multi-thread", "macros"] }  # 异步运行时
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time"] }  # 异步运行时
 
 # HTML解析和文本处理
 scraper = "0.25"                # HTML解析器
@@ -15,6 +15,7 @@ encoding_rs = "0.8"             # 字符编码检测和转换
 
 # 序列化和配置
 serde = { version = "1", features = ["derive"] }  # 序列化框架
+serde_json = "1"              # JSON格式支持
 toml = "0.9"                  # TOML格式支持
 chrono = { version = "0.4", features = ["serde"] }  # 日期时间处理
 
