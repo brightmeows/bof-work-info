@@ -44,7 +44,7 @@ jobs:
       - name: Check for changes (152)
         id: check-152
         run: |
-          if [ -n "$(git status --porcelain events/152.toml)" ]; then
+          if [ -n "$(git status --porcelain events/152.toml events/152.details.toml)" ]; then
             echo "has-changes=true" >> "$GITHUB_OUTPUT"
           else
             echo "has-changes=false" >> "$GITHUB_OUTPUT"
@@ -54,7 +54,7 @@ jobs:
       - name: Check for changes (153)
         id: check-153
         run: |
-          if [ -n "$(git status --porcelain events/153.toml)" ]; then
+          if [ -n "$(git status --porcelain events/153.toml events/153.details.toml)" ]; then
             echo "has-changes=true" >> "$GITHUB_OUTPUT"
           else
             echo "has-changes=false" >> "$GITHUB_OUTPUT"
@@ -74,6 +74,7 @@ jobs:
             data evolution during the judging period.
           add-paths: |
             events/152.toml
+            events/152.details.toml
           labels: |
             automated
 
@@ -97,6 +98,7 @@ jobs:
             capturing data evolution during the judging period.
           add-paths: |
             events/153.toml
+            events/153.details.toml
           labels: |
             automated
 

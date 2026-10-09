@@ -18,7 +18,7 @@ use log::{error, info, warn};
 mod manbow;
 mod model;
 
-use model::{BmsData, ManbowEvent, TeamEntry};
+use model::{BmsData, DetailsData, ManbowEvent, TeamEntry};
 
 #[derive(Parser, Debug)]
 #[command(version, about)]
@@ -114,7 +114,8 @@ async fn run_events(args: &Args) -> Result<()> {
     let mut failed = 0_usize;
     for event in &events {
         match fetch_event(event, delay).await {
-            Ok(data) => {
+            Ok(event_data) => {
+                let data = event_data.data;
                 let path = args.dir.join(format!("{}.toml", event.id));
                 let content = toml::to_string_pretty(&data)?;
                 std::fs::write(&path, content)
@@ -126,6 +127,18 @@ async fn run_events(args: &Args) -> Result<()> {
                     data.teams.len(),
                     path.display()
                 );
+                if let Some(details) = event_data.details {
+                    let path = args.dir.join(format!("{}.details.toml", event.id));
+                    let content = toml::to_string_pretty(&details)?;
+                    std::fs::write(&path, content)
+                        .with_context(|| format!("写入失败: {}", path.display()))?;
+                    info!(
+                        "[{}] {} 条作品详情 -> {}",
+                        event.id,
+                        details.details.len(),
+                        path.display()
+                    );
+                }
                 succeeded += 1;
             }
             Err(e) => {
@@ -139,8 +152,17 @@ async fn run_events(args: &Args) -> Result<()> {
     Ok(())
 }
 
-/// 抓取单个事件的三种页面；报名一览与团队档案失败时降级跳过。
-async fn fetch_event(event: &ManbowEvent, delay: Duration) -> Result<BmsData> {
+/// 单事件抓取结果；详情仅在活动进行中时产出。
+struct EventData {
+    data: BmsData,
+    details: Option<DetailsData>,
+}
+
+/// 抓取单个事件的页面；报名一览与团队档案失败时降级跳过。
+///
+/// 团队列表解析成功即视为进行中活动，进而抓取每作品详情页（`More_def`）
+/// 与团队详情子页；历史活动无这些页面，自动跳过。
+async fn fetch_event(event: &ManbowEvent, delay: Duration) -> Result<EventData> {
     let mut data = {
         let html = fetch_with_delay(&manbow::urllist_url(&event.id), delay).await?;
         manbow::parse_urllist(&html)?
@@ -156,15 +178,71 @@ async fn fetch_event(event: &ManbowEvent, delay: Duration) -> Result<BmsData> {
         Err(e) => warn!("[{}] 报名一览不可用: {e:#}", event.id),
     }
 
+    let mut details: Option<Vec<model::EntryDetail>> = None;
     match fetch_with_delay(&manbow::team_profile_url(&event.id), delay)
         .await
         .and_then(|html| manbow::parse_team_entries(&html))
     {
-        Ok(teams) => data.teams = teams,
+        Ok(teams) => {
+            let active = !teams.is_empty();
+            data.teams = enrich_teams(&event.id, teams, delay).await;
+            if active {
+                details = Some(fetch_details(&event.id, &data.entries, delay).await);
+            }
+        }
         Err(e) => info!("[{}] 团队档案不可用: {e:#}", event.id),
     }
 
-    Ok(data)
+    Ok(EventData {
+        data,
+        details: details.map(|details| DetailsData { details }),
+    })
+}
+
+/// 逐团队抓取详情子页补全字段；单个子页失败降级为仅列表数据。
+async fn enrich_teams(event_id: &str, teams: Vec<TeamEntry>, delay: Duration) -> Vec<TeamEntry> {
+    let mut enriched = Vec::with_capacity(teams.len());
+    for team in teams {
+        let Some(team_id) = team.team_id.clone() else {
+            enriched.push(team);
+            continue;
+        };
+        let url = manbow::team_profile_sub_url(event_id, &team_id);
+        match fetch_with_delay(&url, delay).await {
+            Ok(html) if html.contains("Team Profile") => {
+                enriched.push(manbow::parse_team_sub(&html, team));
+            }
+            Ok(_) => {
+                warn!("[{event_id}] 团队 {team_id} 详情子页不可用（回退页）");
+                enriched.push(team);
+            }
+            Err(e) => {
+                warn!("[{event_id}] 团队 {team_id} 详情子页抓取失败: {e:#}");
+                enriched.push(team);
+            }
+        }
+    }
+    enriched
+}
+
+/// 逐作品抓取 `More_def` 详情页；单个页面失败降级为缺该条详情。
+async fn fetch_details(
+    event_id: &str,
+    entries: &[model::BmsEntry],
+    delay: Duration,
+) -> Vec<model::EntryDetail> {
+    let mut details = Vec::with_capacity(entries.len());
+    for entry in entries {
+        let url = manbow::more_def_url(event_id, &entry.no);
+        match fetch_with_delay(&url, delay)
+            .await
+            .and_then(|html| manbow::parse_more_def(&html, &entry.no))
+        {
+            Ok(detail) => details.push(detail),
+            Err(e) => warn!("[{event_id}] 作品 {} 详情页不可用: {e:#}", entry.no),
+        }
+    }
+    details
 }
 
 async fn run_stdin(args: &Args) -> Result<()> {
@@ -178,6 +256,7 @@ async fn run_stdin(args: &Args) -> Result<()> {
     let mut base: Option<Vec<model::BmsEntry>> = None;
     let mut sp_entries: Vec<model::BmsEntry> = Vec::new();
     let mut teams: Vec<TeamEntry> = Vec::new();
+    let mut details_data: Option<DetailsData> = None;
 
     for url in &urls {
         let kind = manbow::classify_url(url);
@@ -200,6 +279,15 @@ async fn run_stdin(args: &Args) -> Result<()> {
             manbow::UrlKind::TeamProfile => manbow::parse_team_entries(&html).map(|parsed| {
                 teams = parsed;
             }),
+            manbow::UrlKind::TeamProfileSub => {
+                teams = vec![manbow::parse_team_sub(&html, TeamEntry::stub())];
+                Ok(())
+            }
+            manbow::UrlKind::MoreDef => manbow::parse_more_def(&html, "1").map(|detail| {
+                details_data = Some(DetailsData {
+                    details: vec![detail],
+                });
+            }),
             manbow::UrlKind::Unknown => {
                 warn!("无法识别的 URL，跳过: {url}");
                 continue;
@@ -208,6 +296,13 @@ async fn run_stdin(args: &Args) -> Result<()> {
         if let Err(e) = parse_result {
             error!("解析失败 {url}: {e:#}");
         }
+    }
+
+    // MoreDef 页单独输出详情；其余页面类型合并输出 BmsData
+    if let Some(details) = details_data {
+        let output = toml::to_string_pretty(&details)?;
+        write_output(&output, args.output.as_deref())?;
+        return Ok(());
     }
 
     let mut data = BmsData {

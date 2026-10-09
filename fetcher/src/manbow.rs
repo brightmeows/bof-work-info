@@ -12,7 +12,7 @@ use anyhow::{Context, Result, bail};
 use regex::Regex;
 use scraper::{ElementRef, Html, Selector};
 
-use crate::model::{BmsData, BmsEntry, ManbowEvent, TeamEntry};
+use crate::model::{BmsData, BmsEntry, EntryDetail, ManbowEvent, Revision, TeamEntry, TeamMember};
 
 pub(crate) const EVENT_LIST_URL: &str = "https://manbow.nothing.sh/event/event.cgi";
 
@@ -24,12 +24,20 @@ pub(crate) enum UrlKind {
     UrlList,
     Sp,
     TeamProfile,
+    TeamProfileSub,
+    MoreDef,
     Unknown,
 }
 
 pub(crate) fn classify_url(url: &str) -> UrlKind {
     if url.contains("event_teamprofile.cgi") {
-        UrlKind::TeamProfile
+        if extract_query_param(url, "team").is_some() {
+            UrlKind::TeamProfileSub
+        } else {
+            UrlKind::TeamProfile
+        }
+    } else if url.contains("action=More_def") {
+        UrlKind::MoreDef
     } else if url.contains("action=sp") {
         UrlKind::Sp
     } else if url.contains("action=URLList") {
@@ -49,6 +57,14 @@ pub(crate) fn sp_url(event_id: &str) -> String {
 
 pub(crate) fn team_profile_url(event_id: &str) -> String {
     format!("{BASE_URL}/event_teamprofile.cgi?event={event_id}")
+}
+
+pub(crate) fn more_def_url(event_id: &str, num: &str) -> String {
+    format!("{BASE_URL}/event.cgi?action=More_def&num={num}&event={event_id}")
+}
+
+pub(crate) fn team_profile_sub_url(event_id: &str, team_id: &str) -> String {
+    format!("{BASE_URL}/event_teamprofile.cgi?event={event_id}&team={team_id}")
 }
 
 /// 抓取 URL 并按页面自声明编码解码为文本。
@@ -417,6 +433,9 @@ pub(crate) fn parse_team_entries(html: &str) -> Result<Vec<TeamEntry>> {
     let i_works = table.col("works");
     let i_regist = table.col("regist");
     let i_update = table.col("update");
+    let i_eb = table.col("eb");
+    let i_banner = table.col("banner");
+    let i_memberlist = table.col("memberlist");
 
     let mut teams = Vec::new();
     for row in &table.rows {
@@ -424,6 +443,14 @@ pub(crate) fn parse_team_entries(html: &str) -> Result<Vec<TeamEntry>> {
         if team.is_empty() {
             continue;
         }
+        // no 列链接里的稳定团队 id；徽章/横幅图片链接
+        let no_html = row.htmls.get(i_no).cloned().unwrap_or_default();
+        let team_id = extract_query_param(&no_html, "team");
+        let banner_html = i_banner
+            .and_then(|i| row.htmls.get(i).cloned())
+            .or_else(|| i_eb.and_then(|i| row.htmls.get(i).cloned()))
+            .unwrap_or_default();
+        let banner = extract_img_src(&banner_html).map(|src| absolutize_url(&src));
         teams.push(TeamEntry {
             no: row_text(row, Some(i_no)),
             team,
@@ -432,10 +459,267 @@ pub(crate) fn parse_team_entries(html: &str) -> Result<Vec<TeamEntry>> {
             works: row_text(row, i_works),
             regist: row_optional_text(row, i_regist),
             update: row_optional_text(row, i_update),
+            team_id,
+            banner,
+            members: row_optional_text(row, i_memberlist),
+            leader_country: None,
+            ratio_points: Vec::new(),
+            final_striker: None,
+            team_genre: None,
+            team_common: None,
+            team_reason: None,
+            member_rows: Vec::new(),
         });
     }
 
     Ok(teams)
+}
+
+/// 从 HTML 片段中提取 query 参数值。
+fn extract_query_param(html: &str, key: &str) -> Option<String> {
+    static PARAM: OnceLock<Regex> = OnceLock::new();
+    let param = PARAM
+        .get_or_init(|| Regex::new(&format!("[?&]{key}=(\\d+)")).expect("静态正则必然编译成功"));
+    param
+        .captures(html)
+        .and_then(|captures| captures.get(1))
+        .map(|m| m.as_str().to_string())
+}
+
+/// 从 HTML 片段中提取第一个 img 的 src。
+fn extract_img_src(html: &str) -> Option<String> {
+    static IMG: OnceLock<Regex> = OnceLock::new();
+    let img =
+        IMG.get_or_init(|| Regex::new(r#"<img[^>]+src="([^"]+)"#).expect("静态正则必然编译成功"));
+    img.captures(html)
+        .and_then(|captures| captures.get(1))
+        .map(|m| m.as_str().to_string())
+}
+
+/// 站内相对路径补全为绝对地址。
+fn absolutize_url(src: &str) -> String {
+    if src.starts_with("http") {
+        src.to_string()
+    } else {
+        let trimmed = src.trim_start_matches("./");
+        format!("{BASE_URL}/{trimmed}")
+    }
+}
+
+/// 解析团队详情子页，把子页独有的字段补进列表页条目。
+/// 调用方需保证 html 含 "Team Profile"（子页校验在外层完成）。
+pub(crate) fn parse_team_sub(html: &str, mut entry: TeamEntry) -> TeamEntry {
+    static SCORE_FS: OnceLock<Regex> = OnceLock::new();
+    static COUNTRY: OnceLock<Regex> = OnceLock::new();
+    let score_fs = SCORE_FS
+        .get_or_init(|| Regex::new(r#"id="score_fs">([^<]+)<"#).expect("静态正则必然编译成功"));
+    let country = COUNTRY.get_or_init(|| {
+        Regex::new(r#"Country <img[^>]*title="([A-Za-z]+)"#).expect("静态正则必然编译成功")
+    });
+    let counter = Selector::parse(r#"div[id="ratiopoint"]"#).expect("静态选择器必然解析成功");
+    entry.ratio_points = {
+        let document = Html::parse_document(html);
+        document
+            .select(&counter)
+            .map(|element| clean_cell_text(element))
+            .collect()
+    };
+    entry.final_striker = score_fs
+        .captures(html)
+        .and_then(|captures| captures.get(1))
+        .map(|m| m.as_str().trim().to_string());
+    entry.leader_country = country
+        .captures(html)
+        .and_then(|captures| captures.get(1))
+        .map(|m| m.as_str().to_string());
+
+    entry.team_genre = section_after(html, "チームジャンル");
+    entry.team_common = section_after(html, "チームの共通点");
+    entry.team_reason = section_after(html, "チームを結成した理由");
+
+    // Member List 表：th 含 名前 的三列表
+    let document = Html::parse_document(html);
+    for table in document.select(&Selector::parse("table").expect("静态选择器必然解析成功"))
+    {
+        let head: String = table
+            .select(&Selector::parse("th").expect("静态选择器必然解析成功"))
+            .map(|th| clean_cell_text(th))
+            .collect::<Vec<_>>()
+            .join("|");
+        if !head.contains("名前") {
+            continue;
+        }
+        for row in table.select(&Selector::parse("tr").expect("静态选择器必然解析成功"))
+        {
+            let cells: Vec<String> = row
+                .select(&Selector::parse("td").expect("静态选择器必然解析成功"))
+                .map(|td| clean_cell_text(td))
+                .collect();
+            if cells.len() < 2 || cells[0].is_empty() || cells[0] == "合計" {
+                continue;
+            }
+            entry.member_rows.push(TeamMember {
+                name: cells[0].clone(),
+                role: cells[1].clone(),
+                site: cells.get(2).filter(|s| !s.is_empty()).cloned(),
+            });
+        }
+    }
+
+    entry
+}
+
+/// 取 `<h3>` 标题之后的区块文本（到下一个 `<h3>` 为止），用于团队子页的自由文本区。
+fn section_after(html: &str, heading: &str) -> Option<String> {
+    let pos = html.find(heading)?;
+    let rest = &html[pos..];
+    let h3_end = rest.find("</h3>")?;
+    let after = &rest[h3_end + "</h3>".len()..];
+    let segment = match after.find("<h3") {
+        Some(next) => &after[..next],
+        None => after,
+    };
+    let text = html_to_text(segment);
+    (!text.is_empty()).then_some(text)
+}
+
+/// 解析单作品详情页（`event.cgi?action=More_def`）。
+///
+/// 页面为字段行（字段名/值，部分行带附加列）加自由文本区（試聴、TAG
+/// 展开、コメント）。至少必须解析出 Title 字段行，否则视为回退页报错。
+/// 从 `More_def` 页面的表格字段行提取字段；返回是否存在 `Title` 行。
+fn extract_more_def_fields(document: &Html, detail: &mut EntryDetail) -> bool {
+    static ROW: OnceLock<Selector> = OnceLock::new();
+    static CELL: OnceLock<Selector> = OnceLock::new();
+    let row_selector = ROW.get_or_init(|| Selector::parse("tr").expect("静态选择器必然解析成功"));
+    let cell_selector =
+        CELL.get_or_init(|| Selector::parse("td, th").expect("静态选择器必然解析成功"));
+    let mut has_title = false;
+
+    for row in document.select(row_selector) {
+        let cells_html: Vec<String> = row
+            .select(cell_selector)
+            .map(|cell| cell.inner_html())
+            .collect();
+        let cells: Vec<String> = row
+            .select(cell_selector)
+            .map(|cell| clean_cell_text(cell))
+            .collect();
+        if cells.is_empty() {
+            continue;
+        }
+        let field = normalize_header(&cells[0]);
+        let value =
+            |i: usize| -> Option<String> { cells.get(i).filter(|text| !text.is_empty()).cloned() };
+        match field.as_str() {
+            "title" => has_title = true,
+            "bms artist" => detail.artist = value(1),
+            "genre" => {
+                detail.genre = value(1);
+                detail.genre_sub = value(2);
+            }
+            "source" => detail.source = value(1),
+            "size" => detail.bga = value(3),
+            "charts" => {
+                detail.charts = value(1);
+                detail.bpm = value(3);
+            }
+            "tag" => {
+                if let Some(cell_html) = cells_html.get(1) {
+                    detail.tags = html_to_text(cell_html)
+                        .split_whitespace()
+                        .map(str::to_string)
+                        .collect();
+                }
+            }
+            "製作環境" => detail.production = value(1),
+            _ => {}
+        }
+    }
+
+    has_title
+}
+
+pub(crate) fn parse_more_def(html: &str, num: &str) -> Result<EntryDetail> {
+    static LATEST: OnceLock<Regex> = OnceLock::new();
+    static UPDATED: OnceLock<Regex> = OnceLock::new();
+    let latest = LATEST.get_or_init(|| {
+        Regex::new(r"<strong>Revision : (\d+) / [^<]*</strong><br ?/?>\s*([^<\s][^<]*)")
+            .expect("静态正则必然编译成功")
+    });
+    let updated = UPDATED.get_or_init(|| {
+        Regex::new(r"\((\d{4}年\d{1,2}月\d{1,2}日 \d{1,2}:\d{2}) 更新\)")
+            .expect("静态正则必然编译成功")
+    });
+
+    let mut detail = EntryDetail {
+        num: num.to_string(),
+        artist: None,
+        genre: None,
+        genre_sub: None,
+        source: None,
+        bga: None,
+        charts: None,
+        bpm: None,
+        tags: Vec::new(),
+        production: None,
+        audition: Vec::new(),
+        comment_updated: None,
+        comment: None,
+        revisions: Vec::new(),
+    };
+
+    let document = Html::parse_document(html);
+    let has_title = extract_more_def_fields(&document, &mut detail);
+    if !has_title {
+        bail!("More_def: 未找到 Title 字段行（可能为回退页）");
+    }
+
+    // 作品更新履历：嵌套的 memberlist_output 表 + 最新一条摘要（仅在 strong 里）
+    let revision_table =
+        Selector::parse("table.memberlist_output").expect("静态选择器必然解析成功");
+    let row_in_table = Selector::parse("tr").expect("静态选择器必然解析成功");
+    let td = Selector::parse("td").expect("静态选择器必然解析成功");
+    for row in document
+        .select(&revision_table)
+        .flat_map(|table| table.select(&row_in_table))
+    {
+        let cells: Vec<String> = row.select(&td).map(|cell| clean_cell_text(cell)).collect();
+        if cells.len() == 3 && !cells[0].is_empty() {
+            detail.revisions.push(Revision {
+                ver: cells[0].clone(),
+                date: cells[1].clone(),
+                note: cells[2].clone(),
+            });
+        }
+    }
+    if let Some(captures) = latest.captures(html) {
+        detail.revisions.push(Revision {
+            ver: captures[1].to_string(),
+            date: String::new(),
+            note: captures[2].trim().to_string(),
+        });
+    }
+
+    let audition_sel = Selector::parse("div.m_audition").expect("静态选择器必然解析成功");
+    for element in document.select(&audition_sel) {
+        let url = clean_cell_text(element);
+        if !url.is_empty() {
+            detail.audition.push(url);
+        }
+    }
+
+    let comment_sel = Selector::parse("div.moretext_comment").expect("静态选择器必然解析成功");
+    if let Some(element) = document.select(&comment_sel).next() {
+        let inner = element.inner_html();
+        detail.comment_updated = updated
+            .captures(&inner)
+            .and_then(|captures| captures.get(1))
+            .map(|m| m.as_str().to_string());
+        detail.comment = Some(html_to_text(&inner));
+    }
+
+    Ok(detail)
 }
 
 /// 以 `no` 为键把 sp 条目的评分统计合并进 `URLList` 条目。
@@ -551,4 +835,25 @@ fn extract_urls_and_text(input: &str) -> Vec<String> {
     }
 
     result
+}
+
+/// 把 HTML 片段转成纯文本：br 与块级标签转为换行，剥掉其余标签并解码实体。
+fn html_to_text(html: &str) -> String {
+    static BR: OnceLock<Regex> = OnceLock::new();
+    static BLOCK: OnceLock<Regex> = OnceLock::new();
+    let br = BR.get_or_init(|| Regex::new(r"(?i)<br\s*/?>").expect("静态正则必然编译成功"));
+    let block = BLOCK.get_or_init(|| {
+        Regex::new(r"(?i)</?(div|p|h[1-6]|li|tr|table|ul|ol)[^>]*>").expect("静态正则必然编译成功")
+    });
+
+    let after_br = br.replace_all(html, "\n");
+    let with_breaks = block.replace_all(&after_br, "\n");
+    let fragment = scraper::Html::parse_fragment(&with_breaks);
+    let raw: String = fragment.root_element().text().collect::<Vec<_>>().join("");
+
+    raw.lines()
+        .map(str::trim)
+        .filter(|line| !line.is_empty())
+        .collect::<Vec<_>>()
+        .join("\n")
 }
