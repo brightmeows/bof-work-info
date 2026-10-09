@@ -2,7 +2,7 @@
 
 一个用于下载BMS活动作品文件的Rust工具，支持从events/*.toml文件中读取作品信息并下载到本地。
 
-> **特别说明**: 该项目专门为DEE2会场设计，适用于DEE2会场的BMS活动作品下载需求。
+数据文件来自本仓库的 `events/<事件id>.toml`，由 fetcher 自动更新。
 
 ## 功能特性
 
@@ -48,13 +48,13 @@ cargo build --release
 
 ```bash
 # 下载指定事件的所有作品
-cargo run -p downloader -- --event events/BOFTT.toml
+cargo run -p downloader -- --event events/146.toml
 
 # 下载到指定目录
-cargo run -p downloader -- --event events/BOFTT.toml --output my_downloads
+cargo run -p downloader -- --event events/146.toml --output my_downloads
 
 # 下载特定作品编号
-cargo run -p downloader -- --event events/BOFTT.toml --entries "1,3,5"
+cargo run -p downloader -- --event events/146.toml --entries "1,3,5"
 ```
 
 ### 交互模式
@@ -62,7 +62,7 @@ cargo run -p downloader -- --event events/BOFTT.toml --entries "1,3,5"
 当作品有多个下载链接时，使用交互模式进行选择：
 
 ```bash
-cargo run -p downloader -- --event events/BOFTT.toml --interactive
+cargo run -p downloader -- --event events/146.toml --interactive
 ```
 
 ### 命令行参数
@@ -75,23 +75,23 @@ cargo run -p downloader -- --event events/BOFTT.toml --interactive
 
 ## 使用示例
 
-### 下载BOFTT活动的所有作品
+### 下载指定活动的所有作品
 
 ```bash
-cargo run -p downloader -- --event events/BOFTT.toml --output boftt_downloads
+cargo run -p downloader -- --event events/146.toml --output boftt_downloads  # 参数名自定
 ```
 
 ### 下载特定作品
 
 ```bash
 # 下载作品编号1, 5, 10
-cargo run -p downloader -- --event events/BOFTT.toml --entries "1,5,10"
+cargo run -p downloader -- --event events/146.toml --entries "1,5,10"
 ```
 
 ### 交互模式选择下载链接
 
 ```bash
-cargo run -p downloader -- --event events/BOFTT.toml --interactive
+cargo run -p downloader -- --event events/146.toml --interactive
 ```
 
 输出示例：

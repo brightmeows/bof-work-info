@@ -1,128 +1,71 @@
-# BOF Table Fetch
+# fetcher
 
-一个用于抓取BMS表格数据的Rust工具，支持从多个URL获取数据并输出为TOML格式。
+manbow BMS 活动数据抓取工具：从 manbow 站点自动发现全部活动，抓取每个活动的作品列表、报名一览（评分统计）与团队档案，输出为 TOML。
 
-> **特别说明**: 该项目专门为DEE2会场设计，适用于DEE2会场的BMS活动数据抓取需求。
+## 数据来源
 
-## 功能特性
+每个活动抓取三种页面：
 
-- 🔍 自动检测和解析BMS表格结构
-- 📝 支持多种输入方式：events.toml配置文件、stdin
-- 📤 支持多种输出方式：stdout、指定文件
-- 🐛 完整的日志系统，支持不同日志级别
-- 🌐 支持多URL批量处理
-- 🔄 自动去重和编码检测
+- `event.cgi?action=URLList&end=999&event=<id>`：作品列表（作者、团队、标题、大小、下载链接），必抓
+- `event.cgi?action=sp&event=<id>`：报名一览，补充 genre、impr、total、total_n、median、avg、regist、update 评分字段；抓不到时降级跳过
+- `event_teamprofile.cgi?event=<id>`：团队档案，写入 `[[teams]]` 段；仅进行中的活动提供，无效时降级跳过
 
-## 安装
+页面解析按表头断言：表头单元格必须全部落在该页面类型的已知列名集合内，否则报错，不猜测列位置。HTML 解码优先采用页面 meta charset 声明，随后依次尝试严格 UTF-8、Shift_JIS（Windows-31J）、EUC-JP 解码。
 
-```bash
-cargo build --release
-```
-
-## 使用方法
-
-### 基本用法
+## 使用
 
 ```bash
-# 使用默认URL，输出到stdout
-cargo run
+# 全量：发现全部事件并抓取到 events/ 目录（文件名为裸事件 id）
+cargo run --release
 
-# 使用默认URL，输出到文件
-cargo run -- --output data.toml
+# 只抓指定事件（可重复）
+cargo run --release -- --event 22 --event 152
 
-# 设置日志级别
-cargo run -- --log-level debug
+# 输出事件清单（JSON 数组），供 CI 生成矩阵
+cargo run --release -- --list-events
+
+# 调试：抓取指定 URL 并合并输出到 stdout
+echo "https://manbow.nothing.sh/event/event.cgi?action=URLList&end=999&event=146" \
+  | cargo run --release -- --stdin
+
+# 请求间隔毫秒数与输出目录
+cargo run --release -- --dir events --delay-ms 500
 ```
 
-### 从events.toml配置文件读取事件
-
-程序默认从 `events.toml` 文件读取事件配置。该文件包含事件列表，每个事件有 `key` 和 `event_id` 字段：
-
-```toml
-[[events]]
-key = "BOF2005"
-event_id = "22"
-
-[[events]]
-key = "BOF2006"
-event_id = "36"
-```
-
-然后运行：
-
-```bash
-cargo run -- --output output.toml
-```
-
-### 从stdin读取URL
-
-```bash
-echo "https://manbow.nothing.sh/event/event.cgi?action=URLList&event=14&end=999" | cargo run -- --stdin
-```
-
-或者：
-
-```bash
-cargo run -- --stdin < urls.txt
-```
-
-## 命令行参数
-
-- `-o, --output <PATH>`: 输出文件路径，如果不指定则输出到stdout
-- `--stdin`: 从stdin读取URL列表（每行一个URL）
-- `--log-level <LEVEL>`: 日志级别 (trace, debug, info, warn, error)，默认为info
+全部参数见 `cargo run -- --help`。
 
 ## 输出格式
 
-程序输出TOML格式的数据，包含以下字段：
+每个活动一个文件（`events/<事件id>.toml`）：
 
 ```toml
 [[entries]]
-no = "1"                    # 序号
-name = "cyclia"             # 作者名
-title = "Cynthia"           # 曲目名
-size = "3114 KB"            # 文件大小
-team = "Team Name"          # 团队名（可选）
-addr = [                    # 地址列表
-    "http://example.com/",
-    "http://example.com/download.zip",
-]
+no = "1"
+name = "Aquer"
+team = "Yobimo Entertainment"
+title = "ALYA"
+size = "130700 KB"
+addr = ["G-Drive:", "https://drive.google.com/...", "..."]
+genre = "Botanical Hi-Tech"
+impr = "0"
+total = "0"
+median = "0"
+avg = "0"
+update = "2026/10/09 19:25"
+
+[[teams]]
+no = "1"
+team = "Yobimo Entertainment"
+leader = "Aquer"
+member = "3人"
+works = "2 / 3作品"
 ```
 
-## 日志级别
+无评分数据或无团队档案时对应字段与段落缺省。同一次运行的输出是确定性的：相同输入产出字节相同的结果，CI 依赖这一点以 git diff 判定是否有变化。
 
-- `trace`: 最详细的日志，包括所有内部操作
-- `debug`: 调试信息，包括解析过程
-- `info`: 一般信息，包括处理进度
-- `warn`: 警告信息
-- `error`: 错误信息
-
-## 示例
-
-### 批量处理多个事件
-
-程序默认会从 `events.toml` 读取所有事件配置并处理：
+## 开发
 
 ```bash
-# 运行程序处理所有事件
-cargo run -- --output combined_data.toml --log-level info
+cargo clippy --workspace --all-targets   # pedantic 级 lint，deny
+cargo fmt --all
 ```
-
-### 调试模式
-
-```bash
-cargo run -- --log-level debug
-```
-
-这将显示详细的解析过程和调试信息。
-
-## 依赖项
-
-- `scraper`: HTML解析
-- `toml`: TOML格式支持
-- `surf`: HTTP客户端
-- `clap`: 命令行参数解析
-- `log` + `env_logger`: 日志系统
-- `anyhow`: 错误处理
-- `encoding_rs`: 字符编码检测
-- `regex`: 正则表达式支持

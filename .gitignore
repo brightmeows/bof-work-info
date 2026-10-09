@@ -1,12 +1,6 @@
 # Rust
 /target/
 **/*.rs.bk
-Cargo.lock
-
-# Nix
-.direnv/
-result
-result-*
 
 # IDE
 .vscode/

@@ -1,182 +1,75 @@
-# BOF Table Fetch 项目
+# bof-work-info
 
-一个用于抓取BMS（Be-Music Source）活动表格数据的Rust项目，支持从多个URL获取数据并输出为TOML格式。
+manbow（[manbow.nothing.sh/event](https://manbow.nothing.sh/event/)）BMS 活动数据仓库。自动发现并抓取站上全部活动的作品列表、报名一览（评分统计）与团队档案，以 TOML 文件存档，由 GitHub Actions 每周自动更新。
 
-> **特别说明**: 该项目专门为DEE2会场设计，适用于DEE2会场的BMS活动数据抓取需求。
+## 仓库结构
 
-## 项目结构
+- `events/<事件id>.toml`：每个活动一个数据文件，id 为 manbow 站的事件编号（如 `22.toml` 是 BOF2005，`152.toml` 是进行中的 BOF:22）
+- `fetcher/`：抓取工具，负责事件发现、页面解析与数据落盘
+- `downloader/`：作品下载工具，从数据文件读取下载链接并抓取作品文件
+- `.github/workflows/`：
+  - `update-events.yml`：每周五 12:00 UTC 自动更新，有变化的事件各自开 PR 并自动 merge
+  - `ci.yml`：构建、clippy（pedantic deny）与 rustfmt 检查
+  - `cleanup-merged-pr-branches.yml`：清理已合并的更新分支
 
-```
-bof-table-fetch/
-├── Cargo.toml                 # 工作空间配置文件
-├── events.toml               # 事件配置文件（包含所有BMS活动事件）
-├── events/                   # 各事件的数据文件目录
-│   ├── BOF2005.toml         # BOF2005活动数据
-│   ├── BOF2006.toml         # BOF2006活动数据
-│   ├── BOF2008.toml         # BOF2008活动数据
-│   ├── BOF2009.toml         # BOF2009活动数据
-│   ├── BOF2010.toml         # BOF2010活动数据
-│   ├── BOF2011.toml         # BOF2011活动数据
-│   ├── BOF2012.toml         # BOF2012活动数据
-│   ├── BOF2013.toml         # BOF2013活动数据
-│   ├── BOFET.toml           # BOFET活动数据
-│   ├── BOFNT.toml           # BOFNT活动数据
-│   ├── BOFTT.toml           # BOFTT活动数据
-│   ├── BOFU2015.toml        # BOFU2015活动数据
-│   ├── BOFU2016.toml        # BOFU2016活动数据
-│   ├── BOFU2017.toml        # BOFU2017活动数据
-│   ├── BOFXV.toml           # BOFXV活动数据
-│   ├── BOFXVI.toml          # BOFXVI活动数据
-│   ├── BOFXVII.toml         # BOFXVII活动数据
-│   ├── G2R2014.toml         # G2R2014活动数据
-│   └── G2R2018.toml         # G2R2018活动数据
-├── fetcher/                  # 核心抓取工具
-│   ├── Cargo.toml           # 项目依赖配置
-│   ├── README.md            # 工具使用说明
-│   └── src/
-│       └── main.rs          # 主程序源码
-├── downloader/               # 作品下载工具
-│   ├── Cargo.toml           # 项目依赖配置
-│   ├── README.md            # 工具使用说明
-│   └── src/
-│       └── main.rs          # 主程序源码
-├── .github/                  # GitHub Actions配置
-│   └── workflows/
-│       ├── update-events.yml # 自动更新事件数据的工作流
-│       └── cleanup-merged-pr-branches.yml # 清理合并分支的工作流
-└── target/                   # 编译输出目录
-    ├── debug/               # 调试版本
-    └── release/             # 发布版本
+## 数据文件格式
+
+```toml
+[[entries]]
+no = "1"
+name = "Aquer"
+team = "Yobimo Entertainment"
+title = "ALYA"
+size = "130700 KB"
+addr = ["G-Drive:", "https://drive.google.com/..."]
+genre = "Botanical Hi-Tech"   # 以下字段来自报名一览页，无数据时缺省
+impr = "0"
+total = "0"
+median = "0"
+avg = "0"
+update = "2026/10/09 19:25"
+
+[[teams]]                      # 团队档案，仅进行中的活动提供
+no = "1"
+team = "Yobimo Entertainment"
+leader = "Aquer"
+member = "3人"
+works = "2 / 3作品"
 ```
 
-## 项目组件
+## 工具用法
 
-### 1. 工作空间配置 (`Cargo.toml`)
-- 定义Rust工作空间，包含`fetcher`子项目
-- 使用Rust 2024版本
-- 配置默认成员为`fetcher`
+抓取（详细说明见 `fetcher/README.md`）：
 
-### 2. 事件配置 (`events.toml`)
-- 包含所有BMS活动事件的配置信息
-- 每个事件包含`key`（事件名称）和`event_id`（事件ID）
-- 支持从BOF2005到BOFXVII等多个历史活动
+```bash
+cargo run --release -p bof-table-fetch                # 全量抓取到 events/
+cargo run --release -p bof-table-fetch -- --event 152 # 只抓指定事件
+cargo run --release -p bof-table-fetch -- --list-events # 输出事件清单 JSON
+```
 
-### 3. 数据文件目录 (`events/`)
-- 存储各个活动的具体数据文件
-- 每个文件包含该活动的所有参赛作品信息
-- 数据格式为TOML，包含作品序号、作者、标题、大小、下载地址等信息
+下载（详细说明见 `downloader/README.md`）：
 
-### 4. 核心抓取工具 (`fetcher/`)
-- 基于Rust开发的命令行工具
-- 支持从多个URL批量抓取BMS表格数据
-- 具备智能列映射、编码检测、去重等功能
-- 详细使用说明请参考 `fetcher/README.md`
+```bash
+cargo run --release -p downloader -- --event events/146.toml
+cargo run --release -p downloader -- --event events/146.toml --entries "1,3,5"
+```
 
-### 5. 作品下载工具 (`downloader/`)
-- 基于Rust开发的命令行下载工具
-- 支持从events/*.toml文件读取作品信息并下载
-- 支持多种下载链接类型（直链、Google Drive、Dropbox、OneDrive、MediaFire等）
-- 支持交互模式选择下载链接
-- 详细使用说明请参考 `downloader/README.md`
+## 自动更新流程
 
-### 6. 自动化工作流 (`.github/workflows/`)
-- **update-events.yml**: 每6小时自动运行，更新所有事件数据
-- **cleanup-merged-pr-branches.yml**: 自动清理已合并的PR分支
+1. `fetcher --list-events` 从活动列表页发现全部事件 id，生成 CI 矩阵
+2. 每个事件一个 job：抓取三种页面写入 `events/<id>.toml`，无变化则跳过
+3. 有变化的事件各自创建 PR（`chore/update-<id>` 分支）并启用自动 merge（merge commit 方式）
 
-## 技术特性
+数据输出是确定性的：相同输入产出字节相同的文件，因此 git diff 只反映真实数据变化。
 
-### 数据抓取
-- 🔍 智能表格结构检测和解析
-- 🌐 支持多URL批量处理
-- 🔄 自动去重和编码检测
-- 📝 支持多种输入方式（配置文件、stdin）
+## 开发
 
-### 数据处理
-- 📤 支持多种输出方式（stdout、文件）
-- 🐛 完整的日志系统
-- 📊 TOML格式输出，便于后续处理
+Rust workspace，两个成员 crate。工具链为 stable Rust（edition 2024）。
 
-### 作品下载
-- 🔗 支持多种下载链接类型（直链、Google Drive、Dropbox、OneDrive、MediaFire等）
-- 🆔 支持分享ID格式和完整URL格式
-- 🔍 自动从完整分享链接中提取分享ID（支持多种Google Drive和Dropbox格式，包括dropboxusercontent.com）
-- 🎯 支持按作品编号筛选下载
-- 🤝 交互模式支持多链接选择
-- 📁 自动创建输出目录和清理文件名
+```bash
+cargo build --workspace
+cargo clippy --workspace --all-targets   # pedantic 级 lint，deny
+cargo fmt --all
+```
 
-### 自动化
-- ⏰ 定时自动更新数据
-- 🔄 GitHub Actions自动化工作流
-- 📈 支持增量更新和全量更新
-
-## 开发环境
-
-### 依赖要求
-- Rust 1.70+ (支持2024版本)
-- Cargo包管理器
-
-### 主要依赖
-- `scraper`: HTML解析
-- `toml`: TOML格式支持
-- `surf`: HTTP客户端
-- `clap`: 命令行参数解析
-- `log` + `env_logger`: 日志系统
-- `anyhow`: 错误处理
-- `encoding_rs`: 字符编码检测
-- `regex`: 正则表达式支持
-
-## 快速开始
-
-1. **克隆项目**
-   ```bash
-   git clone <repository-url>
-   cd bof-table-fetch
-   ```
-
-2. **构建项目**
-   ```bash
-   cargo build --release
-   ```
-
-3. **运行抓取工具**
-   ```bash
-   # 抓取所有事件数据
-   cargo run -p fetcher -- --output all_events.toml
-   
-   # 查看详细使用说明
-   cargo run -p fetcher -- --help
-   ```
-
-4. **下载作品文件**
-   ```bash
-   # 下载BOFTT活动的所有作品
-   cargo run -p downloader -- --event events/BOFTT.toml
-   
-   # 下载特定作品
-   cargo run -p downloader -- --event events/BOFTT.toml --entries "1,3,5"
-   
-   # 查看下载工具使用说明
-   cargo run -p downloader -- --help
-   ```
-
-5. **查看特定事件数据**
-   ```bash
-   # 查看BOF2005数据
-   cat events/BOF2005.toml
-   ```
-
-## 项目维护
-
-- 数据通过GitHub Actions自动更新
-- 支持手动触发数据更新
-- 所有数据变更通过Pull Request进行管理
-- 定期清理已合并的分支
-
-## 贡献指南
-
-1. Fork项目
-2. 创建功能分支
-3. 提交更改
-4. 创建Pull Request
-
-详细的使用说明请参考 `fetcher/README.md`。
+依赖由 renovate 自动更新；`Cargo.lock` 已提交。
