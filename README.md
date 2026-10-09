@@ -6,9 +6,9 @@ manbow（[manbow.nothing.sh/event](https://manbow.nothing.sh/event/)）BMS 活�
 
 - `events/<事件id>.toml`：每个活动一个数据文件，id 为 manbow 站的事件编号（如 `22.toml` 是 BOF2005，`152.toml` 是进行中的 BOF:22）
 - `fetcher/`：抓取工具，负责事件发现、页面解析与数据落盘
-- `downloader/`：作品下载工具，从数据文件读取下载链接并抓取作品文件
 - `.github/workflows/`：
-  - `update-events.yml`：每周五 12:00 UTC 自动更新，有变化的事件各自开 PR 并自动 merge
+  - `update-events.yml`：每周五 12:00 UTC 自动更新，有变化的事件各自开 PR 并自动合并
+  - `update-bof22.yml`：每小时更新 BOF:22（event 152），追踪评审期评分演化
   - `ci.yml`：构建、clippy（pedantic deny）与 rustfmt 检查
   - `cleanup-merged-pr-branches.yml`：清理已合并的更新分支
 
@@ -47,12 +47,7 @@ cargo run --release -p bof-table-fetch -- --event 152 # 只抓指定事件
 cargo run --release -p bof-table-fetch -- --list-events # 输出事件清单 JSON
 ```
 
-下载（详细说明见 `downloader/README.md`）：
-
-```bash
-cargo run --release -p downloader -- --event events/146.toml
-cargo run --release -p downloader -- --event events/146.toml --entries "1,3,5"
-```
+作品下载：数据文件里的 `addr` 字段已包含各作品的全部下载链接（含标签），直接用浏览器或 aria2 等工具按需获取。
 
 ## 自动更新流程
 
@@ -64,7 +59,7 @@ cargo run --release -p downloader -- --event events/146.toml --entries "1,3,5"
 
 ## 开发
 
-Rust workspace，两个成员 crate。工具链为 stable Rust（edition 2024）。
+Rust workspace，单成员 crate。工具链为 stable Rust（edition 2024）。
 
 ```bash
 cargo build --workspace

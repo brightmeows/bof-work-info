@@ -1,5 +1,5 @@
 [workspace]
-members = ["fetcher", "downloader"]
+members = ["fetcher"]
 resolver = "3"
 default-members = ["fetcher"]
 
