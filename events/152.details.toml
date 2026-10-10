@@ -1489,10 +1489,10 @@ tags = [
 ]
 production = "非公開"
 audition = ["https://soundcloud.com/blue-light-901644974/eternal-echo"]
-comment_updated = "2026年10月09日 21:28"
+comment_updated = "2026年10月10日 16:26"
 comment = """
-(2026年10月09日 21:28 更新)
-(2026年10月01日 23:30 更新)
+(2026年10月10日 16:26 更新)
+（初始的background.ogg漏了subbass，当前版本已更正，仅更改ogg未更改bms）
 于短暂生命中留下永恒的回响，贯穿时空证明曾热烈地活过。
 LB：看ずんだもん小剧场看的。
 rua：动画做了很久很努力也遇到了很多困难、不过最后还是把它完成了。
@@ -1500,8 +1500,13 @@ rua：动画做了很久很努力也遇到了很多困难、不过最后还是�
 
 [[details.revisions]]
 ver = "1"
-date = ""
+date = "2026/10/01 23:07"
 note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "作品を修正"
 
 [[details]]
 num = "33"
@@ -1926,8 +1931,9 @@ tags = [
     "Difficulty-craziness",
 ]
 production = "非公開"
-comment_updated = "2026年10月02日 10:28"
+comment_updated = "2026年10月10日 20:28"
 comment = """
+(2026年10月10日 20:28 更新)
 (2026年10月02日 10:28 更新)
 (2026年10月02日 00:21 更新)
 (2026年10月01日 23:26 更新)
@@ -5082,8 +5088,9 @@ tags = [
     "Difficulty-senior",
 ]
 production = "非公開"
-comment_updated = "2026年10月02日 11:57"
+comment_updated = "2026年10月10日 20:29"
 comment = """
+(2026年10月10日 20:29 更新)
 (2026年10月02日 11:57 更新)
 (2026年10月02日 00:23 更新)
 Music：Horzion_Prot&una
@@ -6051,8 +6058,9 @@ tags = [
     "Difficulty-gimmick",
 ]
 production = "非公開"
-comment_updated = "2026年10月03日 00:40"
+comment_updated = "2026年10月10日 18:58"
 comment = """
+(2026年10月10日 18:58 更新)
 (2026年10月03日 00:40 更新)
 A mini story of a person stuck in a hivemind of idiots.
 Not based in reality.
@@ -6558,10 +6566,16 @@ tags = [
     "Player-beatoraja",
 ]
 production = "非公開"
-comment_updated = "2026年10月08日 21:02"
+comment_updated = "2026年10月10日 17:03"
 comment = """
+(2026年10月10日 17:03 更新)
 (2026年10月08日 21:02 更新)
 これは私の2回目のBOF参加です。 すべてのBMS・音楽・BGAは私が制作しました。 よろしくお願いします～"""
+
+[[details.revisions]]
+ver = "2"
+date = "2026/10/08 21:02"
+note = "URL"
 
 [[details.revisions]]
 ver = "1"
@@ -6569,9 +6583,9 @@ date = "2026/10/05 15:50"
 note = "初版公開"
 
 [[details.revisions]]
-ver = "2"
+ver = "3"
 date = ""
-note = "URL"
+note = "Stage Fileと楽曲プレビューを更新しました。新しいGoogle Driveのリンクをご確認ください。"
 
 [[details]]
 num = "161"
@@ -7101,12 +7115,20 @@ tags = [
     "Player-beatoraja",
 ]
 production = "非公開"
-comment = "Chinese：🌞=fvk"
+comment_updated = "2026年10月10日 17:15"
+comment = """
+(2026年10月10日 17:15 更新)
+Chinese：🌞=fvk"""
 
 [[details.revisions]]
 ver = "1"
-date = ""
+date = "2026/10/08 21:45"
 note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "Stage Fileと楽曲プレビューを更新しました。新しいGoogle Driveのリンクをご確認ください。"
 
 [[details]]
 num = "174"
@@ -7535,7 +7557,9 @@ tags = [
     "Gimmick-LongNote",
 ]
 production = "非公開"
+comment_updated = "2026年10月10日 17:21"
 comment = """
+(2026年10月10日 17:21 更新)
 こんにちは、YtzkAです。
 今回はEmotional Rockを持ってきました。
 以前からエモい曲が大好き、というかエモい曲しか書けない人間ですが
@@ -7550,8 +7574,13 @@ comment = """
 
 [[details.revisions]]
 ver = "1"
-date = ""
+date = "2026/10/09 18:53"
 note = "初版公開"
+
+[[details.revisions]]
+ver = "2"
+date = ""
+note = "SPB, SPNのランクが指定されていない不具合を修正しました。"
 
 [[details]]
 num = "186"
@@ -7748,6 +7777,49 @@ comment = """
 あなたはだんだん眠くなる
 交錯する現象と人間の深淵は子守唄となりて、いずれ無へ帰す
 ファズとコーラスの音が甘美でまた私も永眠し、必ずや来年もよろしくおねがいいたします"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "192"
+artist = "PIPP9   URL"
+genre = "Mind splitter"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+charts = "CHART_3 (★x5～★x25)"
+bpm = "195"
+tags = [
+    "7Keys",
+    "Other",
+    "Use-BGI",
+    "Use-ogg",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-craziness",
+    "Difficulty-gorilla",
+]
+production = "非公開"
+comment = """
+曲の長さのため、パートを2つに分けました
+(part.1)
+SP NORMAL ☆5
+SP HYPER ☆10
+SP INSANE ☆23(st2~3)
+6K NM ☆9
+6K HD ☆16
+6K SHD ☆21
+(part.2)
+SP NORMAL ☆5
+SP HYPER ☆11
+SP INSANE ☆25(st6)
+6K HD ☆18
+6K SHD ☆24
+(FULL.ver)
+☆23(sn5?)"""
 
 [[details.revisions]]
 ver = "1"
