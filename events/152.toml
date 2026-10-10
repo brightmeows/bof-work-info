@@ -2309,7 +2309,7 @@ total_n = "0"
 median = "0"
 avg = "0"
 regist = "2026/10/02 00:25"
-update = "2026/10/02 09:49"
+update = "2026/10/10 10:56"
 
 [[entries]]
 no = "134"
@@ -2465,7 +2465,7 @@ total_n = "0"
 median = "0"
 avg = "0"
 regist = "2026/10/02 08:29"
-update = "2026/10/02 08:29"
+update = "2026/10/10 11:20"
 
 [[entries]]
 no = "142"
@@ -2504,7 +2504,7 @@ total_n = "0"
 median = "0"
 avg = "0"
 regist = "2026/10/02 15:22"
-update = "2026/10/02 15:22"
+update = "2026/10/10 10:57"
 
 [[entries]]
 no = "144"
@@ -3199,7 +3199,7 @@ total_n = "0"
 median = "0"
 avg = "0"
 regist = "2026/10/09 15:03"
-update = "2026/10/09 22:55"
+update = "2026/10/10 10:19"
 
 [[entries]]
 no = "184"
@@ -3317,6 +3317,22 @@ median = "0"
 avg = "0"
 regist = "2026/10/10 03:28"
 update = "2026/10/10 03:28"
+
+[[entries]]
+no = "191"
+name = "風間賢二"
+team = "BMSノース★サファリ"
+title = "My fuzz and sleepy love"
+size = "12724 KB"
+addr = ["https://drive.google.com/uc?export=download&id=1qFI-e7At6ZpgC5q6O3rC4uQvttatUzA4"]
+genre = "Rock / Alternative / Progressive"
+impr = "0"
+total = "0"
+total_n = "0"
+median = "0"
+avg = "0"
+regist = "2026/10/10 10:43"
+update = "2026/10/10 10:43"
 
 [[teams]]
 no = "175"
@@ -3928,7 +3944,7 @@ no = "120"
 team = "BMSノース★サファリ"
 leader = "にょろも"
 member = "6人"
-works = "0 / 4作品"
+works = "1 / 4作品"
 regist = "2026/08/18 03:49:33"
 update = "2026/08/21 00:26:34"
 banner = "https://manbow.nothing.sh/event/images_bof22/upload/img_teambanner_1520120_20260818034933.png"
@@ -3943,7 +3959,7 @@ works = "0 / 3作品"
 regist = "2026/08/17 20:38:40"
 update = "2026/10/04 18:21:32"
 banner = "https://manbow.nothing.sh/event/images_bof22/upload/img_teambanner_1520119_20260817203840.png"
-members = "どんべい (譜面) chiiyuri (bms/作曲/譜面/映像) やまだぶりん (bms/作曲/譜面) てるゆき (映像) ツジ (映像)"
+members = "どんべい (譜面) chiiyuri (bms/作曲/譜面/映像) やまだぶりん (bms/作曲/譜面) Shimokita (映像) ツジ (映像)"
 
 [[teams]]
 no = "118"
