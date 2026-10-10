@@ -1,4 +1,4 @@
-# bof-work-info
+# manbow-event-data
 
 manbow（[manbow.nothing.sh/event](https://manbow.nothing.sh/event/)）BMS 活动数据仓库。自动发现并抓取站上全部活动的作品列表、报名一览（评分统计）与团队档案，以 TOML 文件存档，由 GitHub Actions 每周自动更新。
 
@@ -42,9 +42,9 @@ works = "2 / 3作品"
 抓取（详细说明见 `fetcher/README.md`）：
 
 ```bash
-cargo run --release -p bof-table-fetch                # 全量抓取到 events/
-cargo run --release -p bof-table-fetch -- --event 152 # 只抓指定事件
-cargo run --release -p bof-table-fetch -- --list-events # 输出事件清单 JSON
+cargo run --release -p manbow-fetcher                  # 全量抓取到 events/
+cargo run --release -p manbow-fetcher -- --event 152   # 只抓指定事件
+cargo run --release -p manbow-fetcher -- --list-events # 输出事件清单 JSON
 ```
 
 作品下载：数据文件里的 `addr` 字段已包含各作品的全部下载链接（含标签），直接用浏览器或 aria2 等工具按需获取。
