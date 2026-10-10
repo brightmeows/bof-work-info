@@ -5430,8 +5430,9 @@ tags = [
 ]
 production = "スプライト缶28缶"
 audition = ["https://soundcloud.com/shalla-161733589/fbt790tmhbz5"]
-comment_updated = "2026年10月02日 09:49"
+comment_updated = "2026年10月10日 10:56"
 comment = """
+(2026年10月10日 10:56 更新)
 (2026年10月02日 09:49 更新)
 𒅗𒀭𒉌𒋛𒄑𒆪とは天を満たす轟く雷鳴の棍棒。すべてを押し流す破壊的な洪水のようなサウンドをお楽しみくだされば幸いです。"""
 
@@ -5760,7 +5761,9 @@ tags = [
     "Player-beatoraja",
 ]
 production = "横浜スタジアム"
+comment_updated = "2026年10月10日 11:20"
 comment = """
+(2026年10月10日 11:20 更新)
 玉響の露も涙もとどまらず 亡き人恋ふる宿の秋風
 【Music】Shugo Sekine
 様々な思想で作った作品です。
@@ -5890,7 +5893,9 @@ tags = [
     "Player-beatoraja",
 ]
 production = "MASSIVEに感謝を込めて"
+comment_updated = "2026年10月10日 10:57"
 comment = """
+(2026年10月10日 10:57 更新)
 昔に作ったブチアゲ⁉ミットナイトドライブという曲のアンサーソングというかセルフオマージュというかなんというかそんな感じのものになってます。
 もし気になった方は私のsoundcloudにあるので聞いてみてください。成長と共感性羞恥が体験できるかも・・・？
 ちなみにMjölnir hammerって曲名にしようと思ってたんですが被るからやめてって言われたから変えたのにshallaも変えてきててなんやそれとなったりしました。
@@ -7711,6 +7716,38 @@ production = "FL STUDIO 2026"
 comment = """
 激アツなメカでGOOOOOOOO！！！って感じの曲です！！
 勢いのままプレイしてみてください！"""
+
+[[details.revisions]]
+ver = "1"
+date = ""
+note = "初版公開"
+
+[[details]]
+num = "191"
+artist = "風間賢二   URL"
+genre = "Rock / Alternative / Progressive"
+genre_sub = "Original・Self"
+source = "-----"
+bga = "BGI only・Self"
+charts = "CHART_3 (★x3～★x11)"
+bpm = "108 ～ 151"
+tags = [
+    "7Keys",
+    "9Keys",
+    "Lang-JP",
+    "Use-BGI",
+    "Use-ogg",
+    "Gimmick-LongNote",
+    "Gimmick-Soflan",
+    "Difficulty-beginner",
+    "Difficulty-intermediate",
+    "Difficulty-senior",
+]
+production = "いつもの"
+comment = """
+あなたはだんだん眠くなる
+交錯する現象と人間の深淵は子守唄となりて、いずれ無へ帰す
+ファズとコーラスの音が甘美でまた私も永眠し、必ずや来年もよろしくおねがいいたします"""
 
 [[details.revisions]]
 ver = "1"
